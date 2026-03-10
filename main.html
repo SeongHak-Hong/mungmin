@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>멍냥의민족 – 국내 최초 O2O 리워드 반려동물 용품 플랫폼</title>
+    <meta name="description" content="멍냥의민족은 로열티 0원, 전 상품 10% 적립, 셀프 스튜디오까지 갖춘 국내 최초 O2O 반려동물 프랜차이즈입니다." />
+
+    <!-- Pretendard Font -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="design-system.css" />
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+    <!-- ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+
+    <style>
+        /* ============================================================
+           MAIN PAGE – Page-Specific Styles
+           ============================================================ */
+
+
+        /* ── HERO PIN SPACER ── */
+        .hero-pin-spacer {
+            position: relative;
+            height: 400vh;
+            /* Scroll distance for all hero animations */
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            overflow: hidden;
+        }
+
+        .hero-bg-day,
+        .hero-bg-night {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-bg-day {
+            background-image: url('assets/images/hero/mungnyang-pet-shop-walking-route-shopping-day.webp');
+            opacity: 1;
+            transition: opacity 0.1s linear;
+        }
+
+        .hero-bg-night {
+            background-image: url('assets/images/hero/mungnyang-24h-unmanned-pet-shop-storefront-night.webp');
+            opacity: 0;
+            transition: opacity 0.1s linear;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            max-width: 1200px;
+            width: 100%;
+            padding-inline: var(--section-padding-inline);
+        }
+
+        .hero-title {
+            font-size: var(--h1-size);
+            font-weight: var(--h1-weight);
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+            color: var(--color-white);
+            opacity: 0;
+            animation: heroFadeIn 1s ease forwards;
+        }
+
+        .hero-subtitle {
+            font-size: var(--body-l-size);
+            font-weight: var(--fw-medium);
+            color: rgba(255, 255, 255, 0.65);
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+            opacity: 0;
+            animation: heroFadeIn 1s 0.3s ease forwards;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Body XL (gradient scroll text) */
+        .hero-body-xl {
+            position: absolute;
+            z-index: 2;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 900px;
+            padding-inline: var(--section-padding-inline);
+            font-size: var(--body-xl-size);
+            font-weight: var(--body-xl-weight);
+            line-height: 1.5;
+            letter-spacing: var(--letter-spacing);
+            color: #FFFFFF;
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .hero-body-xl .word {
+            position: relative;
+            margin-right: 0.35em;
+            margin-bottom: 0.15em;
+            display: inline-flex;
+        }
+
+        .hero-body-xl .char {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-body-xl .char-bg {
+            opacity: 0.15;
+        }
+
+        .hero-body-xl .char-fg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.08s linear;
+        }
+
+        /* Hero Character */
+        .hero-character {
+            position: absolute;
+            bottom: 32px;
+            z-index: 3;
+            height: auto;
+            pointer-events: none;
+            transition: left 0.05s linear;
+        }
+
+        /* ── FULLPAGE SECTION (100vh) ── */
+        .section-full {
+            width: 100%;
+            min-height: 100vh;
+            padding-block: var(--section-padding-block);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-full .contents-wrapper {
+            align-items: flex-start;
+        }
+
+        .contents-wrapper {
+            align-items: flex-start;
+            /* 콘텐츠 래퍼 기본 좌측 정렬 */
+        }
+
+        /* ── Section text block ── */
+        .section-text-block {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .section-text-block .eyebrow {
+            margin-bottom: var(--title-eyebrow-gap);
+        }
+
+        .section-text-block .h2 {
+            margin-bottom: 0;
+        }
+
+        .section-text-block .body-l {
+            margin-top: var(--title-body-gap);
+        }
+
+        /* Image placeholder */
+        .img-placeholder {
+            background-color: #F0F1F3;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* ── APP BENEFITS ── */
+        .app-img-wrapper {
+            position: relative;
+            background-color: transparent !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible !important;
+            width: 588px;
+            /* Requested wrapper width */
+            height: 560px;
+            /* Requested wrapper height */
+            flex: none;
+            /* Prevent flex-grow from parent */
+        }
+
+        .app-mockup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 880px !important;
+            height: 880px !important;
+            object-fit: contain;
+            z-index: 1;
+        }
+
+        .app-mascot {
+            position: absolute;
+            bottom: -50px;
+            right: 0px;
+            height: 216px !important;
+            width: auto !important;
+            z-index: 10;
+        }
+
+        /* ── SELF STUDIO ── */
+        #self-studio {
+            background-color: #F3FFFF;
+        }
+
+        .studio-img-wrapper {
+            position: relative;
+            background-color: transparent !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible !important;
+            width: 588px;
+            height: 560px;
+            flex: none;
+        }
+
+        .studio-main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 32px;
+            z-index: 1;
+        }
+
+        .studio-mascot {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            height: 216px !important;
+            width: auto !important;
+            z-index: 10;
+        }
+
+        /* ── COMPETITIVENESS ── */
+        .section-competitiveness .section-header {
+            text-align: left;
+            margin-bottom: 96px;
+            width: 100%;
+            /* width fill */
+        }
+
+        .section-competitiveness .section-header .eyebrow {
+            margin-bottom: var(--title-eyebrow-gap);
+        }
+
+        .cards-row-2 {
+            display: flex;
+            gap: 16px;
+            padding-bottom: 16px;
+            width: 100%;
+        }
+
+        .cards-row-3 {
+            display: flex;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .card {
+            flex: 1;
+            padding: 48px;
+            background-color: #F8F9FA;
+            border-radius: 16px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            /* Added to push image to the right */
+            gap: 24px;
+            min-height: 334px;
+            /* min-height 334px */
+            transition: background-color 0.3s ease;
+            /* transition added */
+        }
+
+        .cards-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* No padding, no gap as requested */
+        }
+
+        /* 경쟁력 섹션 카드 배경색 호버 시 순환 적용 */
+        .cards-row-2 .card:nth-child(1):hover {
+            background-color: #F1FBEA;
+        }
+
+        .cards-row-2 .card:nth-child(2):hover {
+            background-color: #E7F5FF;
+        }
+
+        .cards-row-3 .card:nth-child(1):hover {
+            background-color: #F3F0FF;
+        }
+
+        .cards-row-3 .card:nth-child(2):hover {
+            background-color: #FFF9DB;
+        }
+
+        .cards-row-3 .card:nth-child(3):hover {
+            background-color: #FFF4E6;
+        }
+
+        .card-text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card-eyebrow {
+            font-size: 20px;
+            font-weight: var(--fw-semibold);
+            color: var(--color-accent);
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        .card-title {
+            font-size: 28px;
+            font-weight: var(--fw-semibold);
+            color: var(--color-text-default);
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        .card-img {
+            width: 238px;
+            height: 238px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .card-img .img-placeholder {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ── COST COMPARISON ── */
+        .section-cost .contents-wrapper {
+            align-items: flex-start;
+        }
+
+        .cost-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cost-text .body-m {
+            margin-top: 24px;
+        }
+
+        .cost-text .btn {
+            margin-top: var(--title-btn-gap);
+            width: fit-content;
+        }
+
+        .cost-slider-wrapper {
+            width: 588px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            /* Hide scrollbar and manual scroll */
+        }
+
+        /* Side Dimmed Effects */
+        .cost-slider-wrapper::before,
+        .cost-slider-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .cost-slider-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .cost-slider-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .cost-slider {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .cost-card {
+            width: 389.33px;
+            flex-shrink: 0;
+            padding: 48px;
+            background-color: #F8F9FA;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+        }
+
+        /* 14개 카드 배경색 순환 적용 (6개 색상 반복) */
+        .cost-card:nth-child(6n+1) {
+            background-color: #F1FBEA;
+        }
+
+        .cost-card:nth-child(6n+2) {
+            background-color: #E7F5FF;
+        }
+
+        .cost-card:nth-child(6n+3) {
+            background-color: #F3F0FF;
+        }
+
+        .cost-card:nth-child(6n+4) {
+            background-color: #FFF9DB;
+        }
+
+        .cost-card:nth-child(6n+5) {
+            background-color: #FFF4E6;
+        }
+
+        .cost-card:nth-child(6n+0) {
+            background-color: #FFF0EE;
+        }
+
+        .cost-card-top {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .cost-card-prices {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .cost-price-main {
+            font-size: 40px;
+            font-weight: var(--fw-semibold);
+            color: #333737;
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        .cost-price-other {
+            font-size: 16px;
+            font-weight: var(--fw-medium);
+            color: #707272;
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        /* ── FAQ ── */
+        .section-faq .section-header {
+            margin-bottom: 48px;
+        }
+
+        .section-faq .section-header .eyebrow {
+            margin-bottom: var(--title-eyebrow-gap);
+        }
+
+        .faq-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            /* gap 16px */
+        }
+
+        .faq-item {
+            padding: 24px 32px;
+            /* LR 32px, BT 24px */
+            background-color: #F8F9FA;
+            border-radius: 32px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 0 0 8px 0;
+            /* 질문과 내용 gap 8px */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: var(--font-family);
+            font-size: 24px;
+            font-weight: var(--fw-semibold);
+            color: #333737;
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        .faq-answer {
+            max-height: 300px;
+            /* Always visible */
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0;
+            font-size: var(--body-m-size);
+            font-weight: var(--fw-medium);
+            color: var(--color-text-secondary);
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        /* ── PARTNERS ── */
+        .section-partners .contents-wrapper {
+            justify-content: center;
+            align-items: center;
+            /* Exceptionally center align */
+        }
+
+        .partners-list {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .partner-logo {
+            width: 224px;
+            /* Requested width */
+            height: 96px;
+            /* Requested height */
+            padding: 12px;
+            /* Slightly reduced padding for better fit */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .partner-logo .img-placeholder {
+            width: 120px;
+            height: 48px;
+            border-radius: 8px;
+        }
+
+
+        .section-contact .contents-wrapper {
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .contact-left .h2 {
+            line-height: var(--line-height);
+        }
+
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .contact-right .contact-eyebrow {
+            font-size: var(--body-l-size);
+            font-weight: var(--fw-medium);
+            color: #707272;
+        }
+
+        .contact-right .contact-phone {
+            font-size: var(--h2-size);
+            font-weight: var(--fw-semibold);
+            color: var(--color-text-default);
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        .contact-right .btn {
+            align-self: flex-start;
+            margin-top: 8px;
+        }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            width: 100%;
+            padding: 24px 0;
+            /* border-top: 1px solid #E5E5E5; Removed */
+        }
+
+        .footer-inner {
+            width: 100%;
+            max-width: var(--contents-width);
+            margin-inline: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            /* padding-inline: 24px; Removed as requested */
+            padding-bottom: 40px;
+            /* padding bottom 40px */
+        }
+
+        .footer-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 48px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 18px;
+            font-weight: var(--fw-semibold);
+            color: #333737;
+            text-decoration: none;
+            border-bottom: 1px solid #333737;
+            padding-bottom: 2px;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-info p {
+            font-size: 18px;
+            font-weight: 400;
+            color: #707272;
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        .footer-copyright {
+            font-size: 18px;
+            font-weight: 400;
+            color: #707272;
+            line-height: var(--line-height);
+            letter-spacing: var(--letter-spacing);
+        }
+
+        .footer-copyright strong {
+            font-weight: var(--fw-semibold);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+         1. HEADER (loaded from header.html)
+         ============================================================ -->
+    <div id="header-container"></div>
+
+
+    <!-- ============================================================
+         2. HERO
+         ============================================================ -->
+    <div class="hero-pin-spacer">
+        <section class="hero" id="hero">
+            <!-- Day Background -->
+            <div class="hero-bg-day"></div>
+            <!-- Night Background -->
+            <div class="hero-bg-night"></div>
+
+            <!-- Initial Title Content -->
+            <div class="hero-content" id="hero-title-content">
+                <h1 class="hero-title">
+                    반려쇼핑의 모든 것,<br>
+                    산책길에 쉽고 알뜰하게.
+                </h1>
+                <p class="hero-subtitle">국내 최초 O2O 리워드 샵, 멍냥의민족</p>
+            </div>
+
+            <!-- Body XL Gradient Scroll Text -->
+            <div class="hero-body-xl" id="hero-body-xl">
+                <!-- JS will split text into per-character spans -->
+            </div>
+
+            <!-- Moving Character -->
+            <img src="assets/images/hero/fast-pet-supply-delivery-service-character-illustration.svg"
+                alt="배달 캐릭터 일러스트레이션" class="hero-character" id="hero-character">
+        </section>
+    </div>
+
+
+
+    <!-- ============================================================
+         3. 앱 이용 혜택 섹션
+         ============================================================ -->
+    <section class="section section-full" id="app-benefits">
+        <div class="contents-wrapper">
+            <div class="section-text-block">
+                <h2 class="h2">
+                    산책하다 들렀는데<br>
+                    돈 벌어가는 기분.
+                </h2>
+                <p class="body-l" style="margin-top: var(--title-body-gap);">
+                    매장에서 몽글냥글 앱을 사용해보세요.<br>
+                    전 상품 10%가 영구 적립되거든요.<br>
+                    집에서 주문하고 매장에서 픽업하면<br>
+                    배송비도 아낄 수 있죠.
+                </p>
+            </div>
+            <div class="img-wrapper app-img-wrapper">
+                <img src="assets/images/app/mungnyang-app-ui-point-reward-screen-mockup.png"
+                    alt="멍냥의민족 앱 마일리지 적립 화면 예시: 집에서 주문하고 매장에서 픽업하여 배송비 절약 및 10% 적립 혜택" class="app-mockup">
+                <img src="assets/images/app/mungnyang-mascot-ddung-nyang-holding-cash-10-percent-reward.svg"
+                    alt="양손에 현금을 들고 좋아하는 멍냥의민족 마스코트 뚱냥 (전 상품 10% 영구 적립으로 돈 벌어가는 기분)" class="app-mascot">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         4. 셀프 스튜디오 섹션
+         ============================================================ -->
+    <section class="section section-full" id="self-studio">
+        <div class="contents-wrapper">
+            <div class="section-text-block">
+                <h2 class="h2">
+                    아이들 간식 사러 왔다가,<br>
+                    잊지 못할 추억까지.
+                </h2>
+                <p class="body-l" style="margin-top: var(--title-body-gap);">
+                    매장 안 셀프 스튜디오에서 견생샷을 남겨보세요.<br>
+                    물건을 파는 곳을 넘어,<br>
+                    추억을 파는 공간이니까요.
+                </p>
+            </div>
+            <div class="img-wrapper studio-img-wrapper">
+                <img src="assets/images/studio/mungnyang-pet-self-studio-bichon-photo-zone-memory.jpg"
+                    alt="멍냥의민족 매장 내 셀프 스튜디오에서 해적선 컨셉으로 견생샷을 찍은 귀여운 비숑 프리제 강아지들" class="studio-main-img">
+                <img src="assets/images/studio/mungnyang-mascot-ddung-meong-playing-ball-happy-memory.svg"
+                    alt="노란 공을 가지고 신나게 노는 멍냥의민족 마스코트 뚱멍 (반려동물과 함께하는 즐거운 추억)" class="studio-mascot">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         5. 경쟁력 섹션
+         ============================================================ -->
+    <section class="section section-competitiveness" id="competitiveness">
+        <div class="contents-wrapper contents-wrapper--column">
+            <div class="section-header">
+                <p class="eyebrow">경쟁력</p>
+                <h2 class="h2">
+                    그런데 사장님,<br>
+                    이 모든 혜택이 매출이 된다면요?
+                </h2>
+            </div>
+
+            <!-- Cards Wrapper -->
+            <div class="cards-wrapper">
+                <!-- Row 1: 2 cards -->
+                <div class="cards-row-2">
+                    <div class="card">
+                        <div class="card-text">
+                            <p class="card-eyebrow">수익구조</p>
+                            <h3 class="card-title">본사 0%<br>
+                                점주 100%<br>
+                                로열티 면제
+                            </h3>
+                        </div>
+                        <div class="card-img">
+                            <img src="assets/images/competitiveness/mungnyang-franchise-zero-royalty-100-percent-profit-mascot.svg"
+                                alt="돈을 물고 있는 멍냥의민족 뚱멍 캐릭터: 가맹점주 수익 100% 보장 및 본사 로열티 면제 혜택">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-text">
+                            <p class="card-eyebrow">O2O</p>
+                            <h3 class="card-title">고객이 앱으로<br>
+                                상품을 구매하면<br>
+                                수익이 우리 가게로
+                            </h3>
+                        </div>
+                        <div class="card-img">
+                            <img src="assets/images/competitiveness/mungnyang-o2o-app-order-store-revenue-model-mascot.svg"
+                                alt="쇼핑하는 멍냥의민족 뚱멍 캐릭터: 고객이 앱으로 상품 구매 시 해당 매장으로 수익이 연결되는 O2O 시스템">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: 3 cards -->
+                <div class="cards-row-3">
+                    <div class="card">
+                        <div class="card-text">
+                            <p class="card-eyebrow">SKU</p>
+                            <h3 class="card-title">직영점 데이터로<br>
+                                우리 매장에<br>
+                                가장 최적화된 상품 제안
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-text">
+                            <p class="card-eyebrow">물류경쟁력</p>
+                            <h3 class="card-title">업계 최초<br>
+                                1,000평 규모의<br>
+                                공동 물류 센터 운영
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-text">
+                            <p class="card-eyebrow">빠른 오픈</p>
+                            <h3 class="card-title">가맹 계약 후<br>
+                                영업일 기준<br>
+                                15일 이내 오픈
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         6. 비용 비교 섹션
+         ============================================================ -->
+    <section class="section section-cost" id="cost-comparison">
+        <div class="contents-wrapper">
+            <!-- Left: Text -->
+            <div class="cost-text">
+                <p class="eyebrow">비용 비교</p>
+                <h2 class="h2" style="margin-top: var(--title-eyebrow-gap);">
+                    타사 대비<br>
+                    최소 3,600만 원에서<br>
+                    최대 3,800만원 차이
+                </h2>
+                <p class="body-m">*권리금, 임대료, 월세 제외</p>
+                <a href="#" class="btn btn-l btn-round btn-primary">창업 비용 자세히 보기</a>
+            </div>
+
+            <!-- Right: Card Slider -->
+            <div class="cost-slider-wrapper">
+                <div class="cost-slider">
+                    <!-- Card 1-14 loop -->
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">온라인 수익</p>
+                                <h3 class="card-title">오프라인과<br>온라인 연계 수익 창출</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">가능</p>
+                            <p class="cost-price-other">타사 평균 불가능</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">가맹비</p>
+                                <h3 class="card-title">상표사용, 상권조사 등</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">500만원</p>
+                            <p class="cost-price-other">타사 평균 200~500만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">교육비</p>
+                                <h3 class="card-title">운영에 관한 교육</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">면제</p>
+                            <p class="cost-price-other">타사 평균 200~300만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">익스테리어</p>
+                                <h3 class="card-title">메인간판, 서브간판, 시트지</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">400만원</p>
+                            <p class="cost-price-other">타사 평균 400만원~700만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">인테리어</p>
+                                <h3 class="card-title">조명, 전기작업,<br>타일, 시그니처 페인트 등</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">600~800만 원</p>
+                            <p class="cost-price-other">타사 평균 1,500~3,000만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">키오스크</p>
+                                <h3 class="card-title">키오스크 (카드전용)</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">265만원</p>
+                            <p class="cost-price-other">타사 평균 250~300만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">진열선반</p>
+                                <h3 class="card-title">매장 전체 선반 및 행사매대</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">450만원</p>
+                            <p class="cost-price-other">타사 평균 450~550만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">반려동물 제품</p>
+                                <h3 class="card-title">10평 기준</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">1,100만원</p>
+                            <p class="cost-price-other">타사 평균 1,300~1,500만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">씨씨티비</p>
+                                <h3 class="card-title">8채널+모니터</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">153만원</p>
+                            <p class="cost-price-other">타사 평균 252만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">스튜디오</p>
+                                <h3 class="card-title">스튜디오 선반,<br> 스튜디오 용품</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">50만원</p>
+                            <p class="cost-price-other">타사 스튜디오 없음</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">로열티</p>
+                                <h3 class="card-title">매출 정률 or 매출 정액</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">면제</p>
+                            <p class="cost-price-other">타사 평균 15~30만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">의류</p>
+                                <h3 class="card-title">선반+의류</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">80만원</p>
+                            <p class="cost-price-other">타사 평균 150만원</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">선택사항</p>
+                                <h3 class="card-title">냉난방기, 철거, 어닝 등</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">별도견적</p>
+                            <p class="cost-price-other">타사 평균 -</p>
+                        </div>
+                    </div>
+                    <div class="cost-card">
+                        <div class="cost-card-top">
+                            <div class="card-text">
+                                <p class="card-eyebrow">합계</p>
+                                <h3 class="card-title">권리금, 임대료, 월세 제외
+                                    (VAT 별도)</h3>
+                            </div>
+                        </div>
+                        <div class="cost-card-prices">
+                            <p class="cost-price-main">3,600만원 ~ 3,800만원</p>
+                            <p class="cost-price-other">타사 평균 4,700만원 ~ 7,300만원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         7. FAQ 섹션
+         ============================================================ -->
+    <section class="section section-faq" id="faq">
+        <div class="contents-wrapper contents-wrapper--column">
+            <div class="section-header" style="text-align:left; width:100%;">
+                <p class="eyebrow">FAQ</p>
+                <h2 class="h2">자주 묻는 질문</h2>
+            </div>
+
+            <div class="faq-list">
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        정말 로열티가 0원인가요?
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            네, 맞습니다. 멍냥의민족은 본사의 배를 불리는 로열티 대신, 점주님과 함께 성장하는 상생 구조를 택했습니다.
+                        </div>
+                    </div>
+                </div>
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        무인 매장 관리가 어렵진 않나요?
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            걱정 마세요. 스마트한 IoT 시스템과 본사의 밀착 교육으로 운영이 어렵지 않도록 도와드립니다.
+                        </div>
+                    </div>
+                </div>
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        상권 분석은 어떻게 하나요?
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            전문 개발 담당자가 배후 세대, 유동 인구, 경쟁점을 철저히 분석해 '되는 자리'만 추천해 드립니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         8. 관계사 섹션
+         ============================================================ -->
+    <section class="section section-partners" id="partners">
+        <div class="contents-wrapper contents-wrapper--column">
+            <div class="partners-list">
+                <div class="partner-logo">
+                    <img src="assets/images/partners/logo-PetVillage.svg" alt="펫빌리지 로고">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partners/logo-monggeulnyanggeul.svg" alt="몽글냥글 로고">
+                </div>
+                <div class="partner-logo">
+                    <img src="assets/images/partners/logo-petinkitchen.svg" alt="펫인키친 로고">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         9. 창업문의 섹션
+         ============================================================ -->
+    <section class="section section-contact" id="contact">
+        <div class="contents-wrapper">
+            <div class="contact-left">
+                <h2 class="h2">
+                    <span style="color: var(--color-accent);">멍냥의민족</span><br>
+                    창업에 대한 궁금증을<br>
+                    모두 해결해 드립니다.
+                </h2>
+            </div>
+            <div class="contact-right">
+                <p class="contact-eyebrow">24시간 전화상담</p>
+                <p class="contact-phone">070-4141-6402</p>
+                <a href="tel:07041416402" class="btn btn-xl btn-round" style="background-color: #2BC2BD; color: #fff;">
+                    모바일 전화 상담
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         10. FOOTER
+         ============================================================ -->
+    <footer class="site-footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <!-- 밑줄 버튼 메뉴 -->
+                <ul class="footer-links">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                </ul>
+            </div>
+
+            <!-- 사업체 정보 -->
+            <div class="footer-info">
+                <p>
+                    대표: 신상훈 | 사업자 등록번호: 129-87-03274<br>
+                    스토어: 서울시 양천구 남부순환로 425 멍냥의민족 1층<br>
+                    본사: 서울특별시 강서구 공항대로 426 VIP빌딩 1001호<br>
+                    이메일: help@pet-pal.co.kr | 통신판매업 신고번호 : 2022-고양덕양구-0659 | 개인정보관리자: 김연주
+                </p>
+            </div>
+
+            <!-- 카피라이트 -->
+            <p class="footer-copyright">
+                Copyright© 2026 <strong>mungmin</strong> All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- ── Scripts ── -->
+    <script>
+        (function () {
+
+            // Cost Slider Logic (Seamless Loop & 5s Auto-slide)
+            var sliderWrapper = document.querySelector('.cost-slider-wrapper');
+            var slider = document.querySelector('.cost-slider');
+            var originalCards = Array.from(document.querySelectorAll('.cost-card'));
+
+            if (sliderWrapper && slider && originalCards.length > 0) {
+                var cardWidth = originalCards[0].offsetWidth;
+                var gap = 24;
+                var cloneCount = 4; // Number of items to clone for safety
+
+                // Clone items for seamless looping
+                for (let i = 0; i < cloneCount; i++) {
+                    slider.appendChild(originalCards[i].cloneNode(true));
+                    slider.insertBefore(originalCards[originalCards.length - 1 - i].cloneNode(true), slider.firstChild);
+                }
+
+                var currentIndex = cloneCount; // Start at the first original card
+                var isTransitioning = false;
+
+                function updateSlider(animate = true) {
+                    var wrapperWidth = sliderWrapper.offsetWidth;
+                    var offset = (wrapperWidth / 2) - (currentIndex * (cardWidth + gap) + (cardWidth / 2));
+
+                    if (!animate) {
+                        slider.style.transition = 'none';
+                    } else {
+                        slider.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+                    }
+
+                    slider.style.transform = 'translateX(' + offset + 'px)';
+                }
+
+                function slideNext() {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    currentIndex++;
+                    updateSlider(true);
+                }
+
+                slider.addEventListener('transitionend', function () {
+                    isTransitioning = false;
+
+                    // Loop logic: if we reached the end clones, jump to start original
+                    if (currentIndex >= originalCards.length + cloneCount) {
+                        currentIndex = cloneCount;
+                        updateSlider(false);
+                    }
+                    // If we reached the start clones, jump to end original (though not needed for forward auto-slide)
+                    if (currentIndex < cloneCount) {
+                        currentIndex = originalCards.length + cloneCount - 1;
+                        updateSlider(false);
+                    }
+                });
+
+                var interval = setInterval(slideNext, 5000); // 5 seconds
+
+                // Initialize
+                updateSlider(false);
+
+                window.addEventListener('resize', function () {
+                    updateSlider(false);
+                });
+            }
+
+            // ════════════════════════════════════════════════
+            // HERO SECTION — Interactive Scroll Logic
+            // ════════════════════════════════════════════════
+            (function initHero() {
+                var heroSpacer = document.querySelector('.hero-pin-spacer');
+                var hero = document.getElementById('hero');
+                var bgDay = document.querySelector('.hero-bg-day');
+                var bgNight = document.querySelector('.hero-bg-night');
+                var titleContent = document.getElementById('hero-title-content');
+                var bodyXlEl = document.getElementById('hero-body-xl');
+                var character = document.getElementById('hero-character');
+
+                if (!heroSpacer || !hero || !bgDay || !bgNight || !titleContent || !bodyXlEl || !character) return;
+
+                // ── Text Gradient Scroll: split text into per-char spans ──
+                var bodyText = '멍냥의민족은 단순히 물건만 사고파는 무인 매장이 아닙니다. 앱으로 미리 주문해 배송비를 아끼고, 매장 안 스튜디오에서는 아이와의 소중한 오늘을 기록해요. 반려인에게는 산책이 기다려지는 즐거운 공간이 되고, 점주님에게는 노동의 부담 없이 삶의 여유를 선물하는 든든한 파트너가 되어줍니다. 기술로 매장의 한계를 넘어, 사람과 반려동물 모두가 행복한 내일을 만들어 갑니다.';
+                var words = bodyText.split(' ');
+                var allChars = [];
+
+                words.forEach(function (word) {
+                    var wordSpan = document.createElement('span');
+                    wordSpan.className = 'word';
+
+                    word.split('').forEach(function (char) {
+                        var charSpan = document.createElement('span');
+                        charSpan.className = 'char';
+
+                        var bgSpan = document.createElement('span');
+                        bgSpan.className = 'char-bg';
+                        bgSpan.textContent = char;
+
+                        var fgSpan = document.createElement('span');
+                        fgSpan.className = 'char-fg';
+                        fgSpan.textContent = char;
+
+                        charSpan.appendChild(bgSpan);
+                        charSpan.appendChild(fgSpan);
+                        wordSpan.appendChild(charSpan);
+
+                        allChars.push(fgSpan);
+                    });
+
+                    bodyXlEl.appendChild(wordSpan);
+                });
+
+                var totalChars = allChars.length;
+
+                // ── Character initial position ──
+                character.style.left = 'calc(100vw + 219px)';
+
+                // ── Scroll Handler ──
+                function heroScrollHandler() {
+                    var spacerRect = heroSpacer.getBoundingClientRect();
+                    var spacerHeight = heroSpacer.offsetHeight;
+                    var viewH = window.innerHeight;
+
+                    // scrollProgress: 0 when hero top hits viewport top, 1 when spacer bottom meets viewport bottom
+                    var scrolled = -spacerRect.top;
+                    var maxScroll = spacerHeight - viewH;
+                    var progress = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+                    // ── 1. Title fade out (progress 0 ~ 0.12) ──
+                    if (progress <= 0.12) {
+                        var titleOpacity = 1 - (progress / 0.12);
+                        titleContent.style.opacity = titleOpacity;
+                        titleContent.style.display = '';
+                    } else {
+                        titleContent.style.opacity = 0;
+                        titleContent.style.display = 'none';
+                    }
+
+                    // ── 2. Background crossfade ──
+                    // Crossfade when character reaches screen center (≈ progress 0.5)
+                    var crossfadeCenter = 0.5;
+                    var crossfadeRange = 0.08; // transition width on each side
+                    var crossfadeStart = crossfadeCenter - crossfadeRange;
+                    var crossfadeEnd = crossfadeCenter + crossfadeRange;
+                    if (progress <= crossfadeStart) {
+                        bgNight.style.opacity = 0;
+                        bgDay.style.opacity = 1;
+                    } else if (progress >= crossfadeEnd) {
+                        bgNight.style.opacity = 1;
+                        bgDay.style.opacity = 0;
+                    } else {
+                        var nightOpacity = (progress - crossfadeStart) / (crossfadeEnd - crossfadeStart);
+                        bgNight.style.opacity = nightOpacity;
+                        bgDay.style.opacity = 1 - nightOpacity;
+                    }
+
+                    // ── 3. Body XL visibility & gradient scroll (progress 0.15 ~ 0.95) ──
+                    if (progress >= 0.13) {
+                        bodyXlEl.style.opacity = 1;
+                        var textStart = 0.15;
+                        var textEnd = 0.95;
+                        var textProgress = Math.max(0, Math.min(1, (progress - textStart) / (textEnd - textStart)));
+
+                        for (var i = 0; i < totalChars; i++) {
+                            var charStart = i / totalChars;
+                            var charEnd = (i + 1) / totalChars;
+                            var charProgress = Math.max(0, Math.min(1, (textProgress - charStart) / (charEnd - charStart)));
+                            allChars[i].style.opacity = charProgress;
+                        }
+                    } else {
+                        bodyXlEl.style.opacity = 0;
+                    }
+
+                    // ── 4. Character movement (progress 0 ~ 1) ──
+                    // Start: calc(100vw + 219px)  →  End: -219px
+                    var viewW = window.innerWidth;
+                    var startLeft = viewW + 219;
+                    var endLeft = -219;
+                    var charLeft = startLeft + (endLeft - startLeft) * progress;
+                    character.style.left = charLeft + 'px';
+                }
+
+                window.addEventListener('scroll', heroScrollHandler, { passive: true });
+                window.addEventListener('resize', heroScrollHandler);
+                heroScrollHandler(); // Initialize on load
+            })();
+
+            // ════════════════════════════════════════════════
+            // LENIS SMOOTH SCROLL
+            // ════════════════════════════════════════════════
+            window.lenis = new Lenis({
+                duration: 1.2,
+                easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+                orientation: 'vertical',
+                smoothWheel: true,
+            });
+
+            function raf(time) {
+                window.lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // ════════════════════════════════════════════════
+            // SCROLL REVEAL — Section Animations
+            // ════════════════════════════════════════════════
+            ScrollReveal().reveal('.section', {
+                distance: '40px',
+                origin: 'bottom',
+                duration: 800,
+                delay: 100,
+                easing: 'ease-out',
+                interval: 150,
+                reset: true
+            });
+
+            ScrollReveal().reveal('.section-header, .section-text-block', {
+                distance: '30px',
+                origin: 'bottom',
+                duration: 700,
+                delay: 200,
+                easing: 'ease-out',
+                reset: true
+            });
+
+            ScrollReveal().reveal('.card', {
+                distance: '30px',
+                origin: 'bottom',
+                duration: 600,
+                delay: 100,
+                easing: 'ease-out',
+                interval: 100,
+                reset: true
+            });
+
+            ScrollReveal().reveal('.cost-slider-wrapper', {
+                distance: '30px',
+                origin: 'bottom',
+                duration: 700,
+                delay: 100,
+                easing: 'ease-out',
+                reset: true
+            });
+
+            ScrollReveal().reveal('.faq-list', {
+                distance: '30px',
+                origin: 'bottom',
+                duration: 700,
+                delay: 100,
+                easing: 'ease-out',
+                reset: true
+            });
+
+            ScrollReveal().reveal('.app-img-wrapper, .studio-img-wrapper', {
+                distance: '40px',
+                origin: 'bottom',
+                duration: 800,
+                delay: 200,
+                easing: 'ease-out',
+                reset: true
+            });
+        })();
+    </script>
+
+    <!-- ── Header Component (Loaded last to ensure Lenis is available) ── -->
+    <script src="header.js"></script>
+    <script src="contact-button.js"></script>
+
+</body>
+
+</html>

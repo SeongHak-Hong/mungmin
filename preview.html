@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>멍냥의민족 — 디자인 시스템 미리보기</title>
+
+  <!-- Pretendard Web Font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="design-system.css" />
+
+  <style>
+    /* ── Preview-only styles (아임웹에 올리는 것 아님) ── */
+    .preview-page {
+      background-color: #F5F5F5;
+    }
+
+    .preview-section {
+      padding: 48px 40px;
+      margin-bottom: 24px;
+      background: #fff;
+      border-radius: 12px;
+      max-width: 1280px;
+      margin-inline: auto;
+    }
+
+    .preview-section-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #999;
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .preview-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .preview-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #aaa;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .preview-divider {
+      height: 1px;
+      background: #eee;
+      margin: 32px 0;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .preview-swatch {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .preview-swatch-color {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+  </style>
+</head>
+<body class="preview-page">
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <div style="text-align:center; padding: 60px 20px 40px;">
+    <p class="eyebrow" style="font-size: 20px; margin-bottom: 8px;">Design System</p>
+    <h1 class="h1">멍냥의민족</h1>
+    <p class="body-m" style="margin-top: 16px;">아임웹 호환 디자인 시스템 미리보기</p>
+  </div>
+
+
+  <!-- ============================================================
+       1. COLORS
+       ============================================================ -->
+  <div class="preview-section">
+    <div class="preview-section-title">1. Colors</div>
+
+    <div class="preview-row">
+      <div class="preview-swatch">
+        <div class="preview-swatch-color" style="background: #333737;"></div>
+        <div>
+          <span class="preview-label">Default Text</span>
+          <span class="body-s" style="color:#333737">#333737</span>
+        </div>
+      </div>
+
+      <div class="preview-swatch">
+        <div class="preview-swatch-color" style="background: #707272;"></div>
+        <div>
+          <span class="preview-label">Secondary Text</span>
+          <span class="body-s" style="color:#707272">#707272</span>
+        </div>
+      </div>
+
+      <div class="preview-swatch">
+        <div class="preview-swatch-color" style="background: #2BC2BD;"></div>
+        <div>
+          <span class="preview-label">Accent</span>
+          <span class="body-s" style="color:#2BC2BD">#2BC2BD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       2. TYPOGRAPHY
+       ============================================================ -->
+  <div class="preview-section">
+    <div class="preview-section-title">2. Typography</div>
+
+    <div>
+      <span class="preview-label">H1 — 64px Semibold (Title Hero)</span>
+      <p class="h1">반려동물과 함께하는 행복</p>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <div>
+      <span class="preview-label">H2 — 48px Semibold #333737 (Title Section)</span>
+      <p class="h2">우리의 철학</p>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <div>
+      <span class="preview-label">H3 — 32px Semibold (Sub Title Hero)</span>
+      <p class="h3">건강한 동반자 관계</p>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <div>
+      <span class="preview-label">Eyebrow — 32px Semibold #2BC2BD</span>
+      <p class="eyebrow">About Us</p>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <div>
+      <span class="preview-label">Body XL — 28px Semibold</span>
+      <p class="body-xl">멍냥의민족과 함께라면 모든 순간이 특별해집니다.</p>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <div>
+      <span class="preview-label">Body L — 24px Semibold #707272</span>
+      <p class="body-l">전문적인 케어와 진심을 담은 서비스를 제공합니다.</p>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <div>
+      <span class="preview-label">Body M — 18px Medium #707272</span>
+      <p class="body-m">각 반려동물에 맞는 맞춤형 솔루션으로 건강하고 행복한 생활을 돕습니다.</p>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <div>
+      <span class="preview-label">Body S — 16px Medium #707272</span>
+      <p class="body-s">멍냥의민족은 반려동물 전문 프랜차이즈입니다. 전국 어디서나 동일한 품질의 서비스를 경험하세요.</p>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       3. SECTION LAYOUT
+       ============================================================ -->
+  <div class="preview-section" style="max-width: 100%; padding: 0; overflow: hidden;">
+    <div style="padding: 48px 40px 0;">
+      <div class="preview-section-title">3. Section Layout (1200px wrapper)</div>
+    </div>
+
+    <!-- 좌측 이미지 + 우측 텍스트 -->
+    <div class="section" style="background: #fff;">
+      <div class="contents-wrapper">
+        <div class="img-wrapper" style="background: linear-gradient(135deg, #2BC2BD 0%, #1a8a86 100%); display:flex; align-items:center; justify-content:center;">
+          <span style="font-size: 48px;">🐶</span>
+        </div>
+        <div class="section-text">
+          <div class="gap-eyebrow-title" style="display:flex; flex-direction:column; gap: var(--title-eyebrow-gap);">
+            <p class="eyebrow">Our Story</p>
+            <h2 class="h2">멍냥의민족을<br>시작하게 된 이유</h2>
+          </div>
+          <p class="body-m gap-title-body">
+            반려동물은 단순한 동반자가 아닌, 가족입니다. 멍냥의민족은 모든 반려동물이 건강하고 행복한 삶을 살 수 있도록 최고의 서비스를 제공합니다.
+          </p>
+          <div class="gap-title-btn">
+            <a href="#" class="btn btn-l btn-primary">자세히 보기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 우측 이미지 + 좌측 텍스트 (Reverse) -->
+    <div class="section" style="background: #FAFAFA;">
+      <div class="contents-wrapper contents-wrapper--reverse">
+        <div class="img-wrapper" style="background: linear-gradient(135deg, #F9A826 0%, #e68a00 100%); display:flex; align-items:center; justify-content:center;">
+          <span style="font-size: 48px;">🐱</span>
+        </div>
+        <div class="section-text">
+          <div class="gap-eyebrow-title" style="display:flex; flex-direction:column; gap: var(--title-eyebrow-gap);">
+            <p class="eyebrow">Service</p>
+            <h2 class="h2">맞춤형 케어<br>서비스</h2>
+          </div>
+          <p class="body-m gap-title-body">
+            반려동물의 종류, 나이, 건강 상태에 맞는 맞춤형 케어를 제공합니다. 전문 수의사와 함께하는 건강 관리 프로그램으로 소중한 가족을 지켜드립니다.
+          </p>
+          <div class="gap-title-btn">
+            <a href="#" class="btn btn-l btn-outline">서비스 알아보기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       4. BUTTONS
+       ============================================================ -->
+  <div class="preview-section">
+    <div class="preview-section-title">4. Buttons</div>
+
+    <!-- Sizes -->
+    <span class="preview-label">Size Variants</span>
+    <div class="preview-row" style="margin-top: 8px;">
+      <button class="btn btn-xl btn-primary">XL Button</button>
+      <button class="btn btn-l btn-primary">L Button</button>
+      <button class="btn btn-m btn-primary">M Button</button>
+      <button class="btn btn-s btn-primary">S Button</button>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <!-- Color Variants -->
+    <span class="preview-label">Color Variants</span>
+    <div class="preview-row" style="margin-top: 8px;">
+      <button class="btn btn-l btn-primary">Primary</button>
+      <button class="btn btn-l btn-secondary">Secondary</button>
+      <button class="btn btn-l btn-outline">Outline</button>
+    </div>
+
+    <div class="preview-divider"></div>
+
+    <!-- Icon + Text -->
+    <span class="preview-label">Icon + Text (btn-icon)</span>
+    <div class="preview-row" style="margin-top: 8px;">
+      <button class="btn btn-s btn-icon btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 1L10.163 5.279L15 6.056L11.5 9.321L12.326 14L8 11.779L3.674 14L4.5 9.321L1 6.056L5.837 5.279L8 1Z" fill="currentColor"/>
+        </svg>
+        즐겨찾기
+      </button>
+      <button class="btn btn-m btn-icon btn-outline">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        더 알아보기
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       5. POPUP / MODAL
+       ============================================================ -->
+  <div class="preview-section">
+    <div class="preview-section-title">5. Popup / Modal</div>
+
+    <button class="btn btn-l btn-primary" onclick="document.getElementById('demoPopup').classList.add('is-active')">
+      팝업 열기
+    </button>
+  </div>
+
+  <!-- Popup Overlay -->
+  <div class="popup-overlay" id="demoPopup">
+    <div class="popup">
+      <button class="popup-close" onclick="document.getElementById('demoPopup').classList.remove('is-active')">✕</button>
+
+      <div class="popup-header">
+        <p class="popup-eyebrow color-accent">신규 오픈</p>
+        <h3 class="popup-title">멍냥의민족<br>강남점 오픈!</h3>
+      </div>
+
+      <div class="popup-img-wrapper" style="background: linear-gradient(135deg, #2BC2BD 0%, #1a8a86 100%); display:flex; align-items:center; justify-content:center; border-radius: 8px;">
+        <span style="font-size: 64px;">🎉</span>
+      </div>
+
+      <div class="popup-body">
+        <p class="body-s">강남역 3번 출구 도보 5분 거리에 멍냥의민족 강남점이 새롭게 오픈합니다. 오픈 기념 특별 이벤트도 함께 진행되니 많은 관심 부탁드립니다.</p>
+      </div>
+
+      <button class="popup-btn btn-primary" onclick="document.getElementById('demoPopup').classList.remove('is-active')">
+        확인했어요
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       6. DESIGN TOKEN REFERENCE
+       ============================================================ -->
+  <div class="preview-section" style="margin-bottom: 60px;">
+    <div class="preview-section-title">6. Design Token Reference</div>
+
+    <div class="preview-grid">
+      <div>
+        <span class="preview-label">Font</span>
+        <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">Family</td><td>Pretendard</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">Line Height</td><td>150% (1.5)</td></tr>
+          <tr><td style="padding:6px 0; color:#999;">Letter Spacing</td><td>-2% (-0.02em)</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <span class="preview-label">Section</span>
+        <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">Padding Block</td><td>100px</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">Contents Width</td><td>1200px</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">Contents Gap</td><td>24px</td></tr>
+          <tr><td style="padding:6px 0; color:#999;">Img Wrapper</td><td>588 × 560px</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <span class="preview-label">Buttons</span>
+        <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">XL</td><td>36/18px · 24px</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">L</td><td>32/16px · 18px</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">M</td><td>24/12px · 16px</td></tr>
+          <tr><td style="padding:6px 0; color:#999;">S</td><td>16/8px · 16px</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <span class="preview-label">Popup</span>
+        <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">Width</td><td>482px</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">Min Height</td><td>482px</td></tr>
+          <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 0; color:#999;">Padding</td><td>32px</td></tr>
+          <tr><td style="padding:6px 0; color:#999;">Mobile</td><td>Fill (w/ 16px LR)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

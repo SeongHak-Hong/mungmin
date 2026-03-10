@@ -1,0 +1,657 @@
+/* ============================================================
+   MUNGMIN(멍냥의민족) DESIGN SYSTEM
+   ============================================================
+   아임웹 커스텀 CSS에 붙여넣기 가능
+   Pretendard 폰트는 별도 <link> 태그 로드 필요:
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   1. DESIGN TOKENS (CSS Custom Properties)
+   ──────────────────────────────────────────────────────────── */
+
+:root {
+    /* ── Font ── */
+    --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --line-height: 1.5;
+    /* 150% */
+    --letter-spacing: -0.02em;
+    /* -2% */
+
+    /* ── Font Weights ── */
+    --fw-medium: 500;
+    --fw-semibold: 600;
+
+    /* ── Colors ── */
+    --color-text-default: #333737;
+    --color-text-secondary: #707272;
+    --color-accent: #2BC2BD;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    /* ── Typography Scale ── */
+    /* H1 - Title Hero */
+    --h1-size: 64px;
+    --h1-weight: var(--fw-semibold);
+
+    /* H2 - Title Section */
+    --h2-size: 48px;
+    --h2-weight: var(--fw-semibold);
+    --h2-color: var(--color-text-default);
+
+    /* H3 - Sub Title Hero / Section Eyebrow */
+    --h3-size: 32px;
+    --h3-weight: var(--fw-semibold);
+
+    /* Body XL */
+    --body-xl-size: 28px;
+    --body-xl-weight: var(--fw-semibold);
+
+    /* Body L */
+    --body-l-size: 24px;
+    --body-l-weight: var(--fw-semibold);
+    --body-l-color: var(--color-text-secondary);
+
+    /* Body M */
+    --body-m-size: 18px;
+    --body-m-weight: var(--fw-medium);
+    --body-m-color: var(--color-text-secondary);
+
+    /* Body S */
+    --body-s-size: 16px;
+    --body-s-weight: var(--fw-medium);
+    --body-s-color: var(--color-text-secondary);
+
+    /* ── Section ── */
+    --section-padding-block: 100px;
+    /* 상하 패딩 */
+    --contents-width: 1200px;
+    --contents-gap: 24px;
+    --img-wrapper-width: 588px;
+    --img-wrapper-height: 560px;
+    --title-eyebrow-gap: 16px;
+    --title-body-gap: 48px;
+    --title-btn-gap: 48px;
+
+    /* ── Button Sizes ── */
+    /* XL */
+    --btn-xl-px: 36px;
+    --btn-xl-py: 18px;
+    --btn-xl-font-size: 24px;
+
+    /* L */
+    --btn-l-px: 32px;
+    --btn-l-py: 16px;
+    --btn-l-font-size: 18px;
+
+    /* M */
+    --btn-m-px: 24px;
+    --btn-m-py: 12px;
+    --btn-m-font-size: 16px;
+
+    /* S */
+    --btn-s-px: 16px;
+    --btn-s-py: 8px;
+    --btn-s-font-size: 16px;
+
+    /* Icon+Text variant */
+    --btn-icon-pl: 14px;
+    --btn-icon-pr: 16px;
+
+    /* ── Popup ── */
+    --popup-width: 482px;
+    --popup-min-height: 482px;
+    --popup-padding: 32px;
+    --popup-eyebrow-size: 20px;
+    --popup-title-size: 28px;
+    --popup-eyebrow-title-gap: 8px;
+    --popup-img-height: 200px;
+    --popup-img-padding-block: 24px;
+    --popup-btn-px: 24px;
+    --popup-btn-py: 12px;
+    --popup-btn-font-size: 16px;
+
+    /* ── Button Radius ── */
+    --btn-radius-round: 99px;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   2. BASE RESET
+   ──────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+    color: var(--color-text-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   3. TYPOGRAPHY
+   ──────────────────────────────────────────────────────────── */
+
+.h1 {
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.h2 {
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+    color: var(--h2-color);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.h3 {
+    font-size: var(--h3-size);
+    font-weight: var(--h3-weight);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.eyebrow {
+    font-size: var(--h3-size);
+    font-weight: var(--h3-weight);
+    color: var(--color-accent);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.body-xl {
+    font-size: var(--body-xl-size);
+    font-weight: var(--body-xl-weight);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.body-l {
+    font-size: var(--body-l-size);
+    font-weight: var(--body-l-weight);
+    color: var(--body-l-color);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.body-m {
+    font-size: var(--body-m-size);
+    font-weight: var(--body-m-weight);
+    color: var(--body-m-color);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.body-s {
+    font-size: var(--body-s-size);
+    font-weight: var(--body-s-weight);
+    color: var(--body-s-color);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   4. SECTION LAYOUT
+   ──────────────────────────────────────────────────────────── */
+
+.section {
+    width: 100%;
+    padding-block: var(--section-padding-block);
+}
+
+.contents-wrapper {
+    width: 100%;
+    max-width: var(--contents-width);
+    margin-inline: auto;
+    display: flex;
+    gap: var(--contents-gap);
+    align-items: center;
+}
+
+.contents-wrapper--column {
+    flex-direction: column;
+}
+
+.contents-wrapper--reverse {
+    flex-direction: row-reverse;
+}
+
+.img-wrapper {
+    width: var(--img-wrapper-width);
+    height: var(--img-wrapper-height);
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ── Section Content Spacing ── */
+.section-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-eyebrow-title {
+    gap: var(--title-eyebrow-gap);
+    /* 16px */
+}
+
+.gap-title-body {
+    margin-top: var(--title-body-gap);
+    /* 48px */
+}
+
+.gap-title-btn {
+    margin-top: var(--title-btn-gap);
+    /* 48px */
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   5. BUTTONS
+   ──────────────────────────────────────────────────────────── */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-family);
+    font-weight: var(--fw-semibold);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-round {
+    border-radius: var(--btn-radius-round);
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Size Variants ── */
+
+.btn-xl {
+    padding: var(--btn-xl-py) var(--btn-xl-px);
+    font-size: var(--btn-xl-font-size);
+}
+
+.btn-l {
+    padding: var(--btn-l-py) var(--btn-l-px);
+    font-size: var(--btn-l-font-size);
+}
+
+.btn-m {
+    padding: var(--btn-m-py) var(--btn-m-px);
+    font-size: var(--btn-m-font-size);
+}
+
+.btn-s {
+    padding: var(--btn-s-py) var(--btn-s-px);
+    font-size: var(--btn-s-font-size);
+}
+
+/* ── Icon + Text Variant ── */
+.btn-icon {
+    padding-left: var(--btn-icon-pl);
+    padding-right: var(--btn-icon-pr);
+}
+
+/* ── Color Variants (기본 제공, 추후 확장 가능) ── */
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn-secondary {
+    background-color: var(--color-text-default);
+    color: var(--color-white);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-text-default);
+    border: 1.5px solid var(--color-text-default);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-text-default);
+    color: var(--color-white);
+    opacity: 1;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   6. POPUP / MODAL
+   ──────────────────────────────────────────────────────────── */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup {
+    width: var(--popup-width);
+    min-height: var(--popup-min-height);
+    padding: var(--popup-padding);
+    background-color: var(--color-white);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.popup-overlay.is-active .popup {
+    transform: translateY(0);
+}
+
+.popup-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.popup-close:hover {
+    color: var(--color-text-default);
+}
+
+/* ── Popup Header ── */
+.popup-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--popup-eyebrow-title-gap);
+}
+
+.popup-eyebrow {
+    font-size: var(--popup-eyebrow-size);
+    font-weight: var(--fw-semibold);
+    color: var(--color-accent);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+.popup-title {
+    font-size: var(--popup-title-size);
+    font-weight: var(--fw-semibold);
+    color: var(--color-text-default);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+}
+
+/* ── Popup Image ── */
+.popup-img-wrapper {
+    height: var(--popup-img-height);
+    padding-block: var(--popup-img-padding-block);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.popup-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ── Popup Body ── */
+.popup-body {
+    flex: 1;
+    margin-top: 16px;
+}
+
+/* ── Popup Button ── */
+.popup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--popup-btn-py) var(--popup-btn-px);
+    font-family: var(--font-family);
+    font-size: var(--popup-btn-font-size);
+    font-weight: var(--fw-semibold);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+    width: 100%;
+    margin-top: auto;
+}
+
+.popup-btn:hover {
+    opacity: 0.85;
+}
+
+/* ── Popup Mobile Responsive ── */
+@media (max-width: 560px) {
+    .popup {
+        width: calc(100% - 32px);
+        /* 기기 좌우 패딩 16px */
+        margin-inline: 16px;
+        min-height: auto;
+    }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   7. UTILITY CLASSES
+   ──────────────────────────────────────────────────────────── */
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.color-accent {
+    color: var(--color-accent);
+}
+
+.color-default {
+    color: var(--color-text-default);
+}
+
+.color-secondary {
+    color: var(--color-text-secondary);
+}
+
+.color-white {
+    color: var(--color-white);
+}
+
+.bg-accent {
+    background-color: var(--color-accent);
+}
+
+.bg-default {
+    background-color: var(--color-text-default);
+}
+
+.bg-white {
+    background-color: var(--color-white);
+}
+
+/* 
+   7. SHARED COMPONENTS  HEADER
+    */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 24px 0;
+    background-color: #ffffff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.site-header.is-hidden {
+    transform: translateY(-100%);
+}
+
+.header-inner {
+    width: 100%;
+    max-width: var(--contents-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 24px;
+}
+
+.header-logo img {
+    height: 24px;
+    width: auto;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.header-nav a {
+    font-size: var(--body-s-size);
+    font-weight: var(--fw-medium);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.header-nav a:hover,
+.header-nav a.is-active {
+    color: #333737;
+}
+
+.header-cta .btn {
+    font-size: var(--body-s-size);
+    padding: 8px 16px;
+}
+
+
+/* 
+   8. SHARED COMPONENTS  FLOATING CONTACT BUTTON
+    */
+
+.floating-contact-btn {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    /* SVG 원본 너비에 맞춤 */
+    z-index: 1001;
+    pointer-events: none;
+}
+
+.floating-contact-btn * {
+    pointer-events: auto;
+}
+
+.contact-btn-character {
+    display: block;
+    height: 320px;
+    width: auto;
+}
+
+.contact-btn-text-balloon {
+    position: absolute;
+    top: 0px;
+    /* Adjusting to fit inside the SVG balloon area */
+    left: 46%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-btn-label {
+    font-size: 16px;
+    font-weight: var(--fw-semibold);
+    line-height: 1.3;
+}
+
+.contact-btn-number {
+    font-size: 24px;
+    font-weight: var(--fw-semibold);
+    line-height: 1.2;
+}
