@@ -55,3 +55,1210 @@
  GET /main 200 in 460ms
  GET /main 200 in 173ms
  GET /main 200 in 288ms
+ ✓ Compiled in 565ms (1422 modules)
+ GET /main 200 in 202ms
+ GET /main 200 in 205ms
+ GET /main 200 in 47ms
+ ✓ Compiled in 318ms (1422 modules)
+ GET /main 200 in 191ms
+ GET /main 200 in 193ms
+ GET /main 200 in 40ms
+ GET /main 200 in 548ms
+ ✓ Compiled in 603ms (1422 modules)
+ GET /main 200 in 208ms
+ GET /main 200 in 241ms
+ GET /main 200 in 104ms
+ GET /main 200 in 69ms
+ GET /main 200 in 341ms
+ ✓ Compiled in 699ms (1435 modules)
+ GET /main 200 in 169ms
+ GET /main 200 in 172ms
+ GET /main 200 in 37ms
+ GET /main 200 in 26ms
+ ✓ Compiled in 1495ms (1403 modules)
+ ✓ Compiled in 433ms (1417 modules)
+ GET /main 200 in 209ms
+ GET /main 200 in 219ms
+ GET /main 200 in 41ms
+ GET /main 200 in 39ms
+ ✓ Compiled in 303ms (1417 modules)
+ GET /main 200 in 178ms
+ GET /main 200 in 183ms
+ GET /main 200 in 58ms
+ GET /main 200 in 52ms
+ GET /main 200 in 314ms
+ GET /main 200 in 110ms
+ GET /main 200 in 109ms
+ ✓ Compiled in 672ms (1417 modules)
+ GET /main 200 in 194ms
+ GET /main 200 in 190ms
+ GET /main 200 in 47ms
+ GET /main 200 in 43ms
+ ✓ Compiled in 558ms (1417 modules)
+ GET /main 200 in 210ms
+ GET /main 200 in 212ms
+ GET /main 200 in 65ms
+ GET /main 200 in 47ms
+ GET /main 200 in 337ms
+ GET /main 200 in 133ms
+ ✓ Compiled in 1150ms (1405 modules)
+ GET /main 200 in 454ms
+ ✓ Compiled in 449ms (1405 modules)
+ GET /main 200 in 466ms
+ GET /main 200 in 209ms
+ GET /main 200 in 195ms
+ ✓ Compiled in 980ms (1405 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 546ms (1410 modules)
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 684ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 994ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 690ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 996ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 98ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 100ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 99ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 97ms
+ GET /main 200 in 276ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 77ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 80ms
+ GET /main 200 in 252ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 93ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 94ms
+ GET /main 200 in 240ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 75ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 75ms
+ ✓ Compiled in 1233ms (1422 modules)
+ GET /main 200 in 234ms
+ GET /main 200 in 239ms
+ GET /main 200 in 94ms
+ GET /main 200 in 95ms
+ GET /main 200 in 47ms
+ ✓ Compiled in 659ms (1422 modules)
+ GET /main 200 in 297ms
+ GET /main 200 in 299ms
+ GET /main 200 in 93ms
+ GET /main 200 in 94ms
+ GET /main 200 in 76ms
+ ✓ Compiled in 289ms (1422 modules)
+ GET /main 200 in 214ms
+ GET /main 200 in 216ms
+ GET /main 200 in 103ms
+ GET /main 200 in 106ms
+ GET /main 200 in 67ms
+ GET /main 200 in 391ms
+ ✓ Compiled /_not-found in 487ms (1413 modules)
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 713ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 710ms
+ GET /main 200 in 253ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 68ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 66ms
+ ✓ Compiled in 505ms (1422 modules)
+ GET /main 200 in 150ms
+ GET /main 200 in 150ms
+ GET /main 200 in 42ms
+ GET /main 200 in 41ms
+ GET /main 200 in 28ms
+ ✓ Compiled /_not-found in 369ms (1413 modules)
+[Error: Failed to find Server Action "x". This request might be from an older or newer deployment.
+Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+ POST /api/formaction 404 in 643ms
+[Error: Failed to find Server Action "x". This request might be from an older or newer deployment.
+Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+ POST /action 404 in 168ms
+[Error: Failed to find Server Action "x". This request might be from an older or newer deployment.
+Read more: https://nextjs.org/docs/messages/failed-to-find-server-action]
+ POST /api/rsc 404 in 117ms
+ GET /main 200 in 536ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 110ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 109ms
+ GET /main 200 in 155ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 77ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 82ms
+ ✓ Compiled in 1267ms (1408 modules)
+ ✓ Compiled in 340ms (1422 modules)
+ GET /main 200 in 234ms
+ GET /main 200 in 236ms
+ GET /main 200 in 70ms
+ GET /main 200 in 70ms
+ GET /main 200 in 39ms
+ GET /main 200 in 344ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 515ms (1413 modules)
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 722ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 720ms
+ ✓ Compiled in 476ms (1422 modules)
+ GET /main 200 in 152ms
+ GET /main 200 in 167ms
+ GET /main 200 in 94ms
+ GET /main 200 in 82ms
+ GET /main 200 in 52ms
+ ✓ Compiled in 236ms (1422 modules)
+ GET /main 200 in 222ms
+ GET /main 200 in 222ms
+ GET /main 200 in 82ms
+ GET /main 200 in 83ms
+ GET /main 200 in 62ms
+ ✓ Compiled in 946ms (1408 modules)
+ ✓ Compiled in 330ms (1422 modules)
+ GET /main 200 in 245ms
+ GET /main 200 in 249ms
+ GET /main 200 in 94ms
+ GET /main 200 in 93ms
+ GET /main 200 in 38ms
+ ✓ Compiled in 326ms (1422 modules)
+ GET /main 200 in 164ms
+ GET /main 200 in 164ms
+ GET /main 200 in 59ms
+ GET /main 200 in 59ms
+ GET /main 200 in 46ms
+ GET /main 200 in 390ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1077ms (1413 modules)
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 1334ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 1337ms
+ ✓ Compiled in 1040ms (1422 modules)
+ GET /main 200 in 274ms
+ GET /main 200 in 314ms
+ GET /main 200 in 190ms
+ GET /main 200 in 158ms
+ GET /main 200 in 88ms
+ ✓ Compiled in 647ms (1422 modules)
+ GET /main 200 in 140ms
+ GET /main 200 in 116ms
+ GET /main 200 in 225ms
+ GET /main 200 in 82ms
+ GET /main 200 in 59ms
+ ✓ Compiled in 339ms (1422 modules)
+ GET /main 200 in 256ms
+ GET /main 200 in 263ms
+ GET /main 200 in 89ms
+ GET /main 200 in 46ms
+ GET /main 200 in 45ms
+ ✓ Compiled in 703ms (1422 modules)
+ GET /main 200 in 228ms
+ GET /main 200 in 243ms
+ GET /main 200 in 110ms
+ GET /main 200 in 78ms
+ GET /main 200 in 52ms
+ ✓ Compiled in 533ms (1422 modules)
+ GET /main 200 in 240ms
+ GET /main 200 in 245ms
+ GET /main 200 in 92ms
+ GET /main 200 in 86ms
+ GET /main 200 in 45ms
+ ✓ Compiled in 941ms (1422 modules)
+ GET /main 200 in 144ms
+ GET /main 200 in 146ms
+ GET /main 200 in 82ms
+ GET /main 200 in 83ms
+ GET /main 200 in 48ms
+ ✓ Compiled in 608ms (1422 modules)
+ GET /main 200 in 146ms
+ GET /main 200 in 96ms
+ GET /main 200 in 97ms
+ GET /main 200 in 76ms
+ GET /main 200 in 72ms
+ GET /main 200 in 496ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 773ms (1413 modules)
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 1066ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 1069ms
+ ✓ Compiled in 593ms (1422 modules)
+ GET /main 200 in 276ms
+ GET /main 200 in 254ms
+ GET /main 200 in 99ms
+ GET /main 200 in 68ms
+ GET /main 200 in 48ms
+ GET /main 200 in 538ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 741ms (1413 modules)
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 980ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 979ms
+ GET /main 200 in 392ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 100ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 98ms
+ ✓ Compiled in 587ms (1422 modules)
+ GET /main 200 in 155ms
+ GET /main 200 in 157ms
+ GET /main 200 in 80ms
+ GET /main 200 in 81ms
+ GET /main 200 in 42ms
+ ✓ Compiled in 602ms (1422 modules)
+ GET /main 200 in 328ms
+ GET /main 200 in 318ms
+ GET /main 200 in 180ms
+ GET /main 200 in 180ms
+ GET /main 200 in 106ms
+ ✓ Compiled in 568ms (1422 modules)
+ GET /main 200 in 236ms
+ GET /main 200 in 125ms
+ GET /main 200 in 125ms
+ GET /main 200 in 56ms
+ GET /main 200 in 43ms
+ ✓ Compiled in 364ms (1422 modules)
+ GET /main 200 in 257ms
+ GET /main 200 in 278ms
+ GET /main 200 in 120ms
+ GET /main 200 in 85ms
+ GET /main 200 in 33ms
+ ○ Compiling / ...
+ ✓ Compiled / in 583ms (1418 modules)
+ GET / 200 in 883ms
+ ⨯ ./app/main/page.js
+Error:   [31mx[0m You're importing a component that needs `useEffect`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+  [31m|[0m
+  [31m|[0m  Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+  [31m|[0m
+
+   ,-[[36;1;4mD:\me\design\mungmin\app\main\page.js[0m:1:1]
+ [2m1[0m | import { useEffect, useRef, useState, useMemo } from 'react';
+   : [35;1m         ^^^^^^^^^[0m
+ [2m2[0m | import Header from '@/components/Header';
+ [2m3[0m | import ContactButton from '@/components/ContactButton';
+ [2m4[0m | import { InfiniteSlider } from '@/components/InfiniteSlider';
+   `----
+  [31mx[0m You're importing a component that needs `useRef`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+  [31m|[0m
+  [31m|[0m  Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+  [31m|[0m
+
+   ,-[[36;1;4mD:\me\design\mungmin\app\main\page.js[0m:1:1]
+ [2m1[0m | import { useEffect, useRef, useState, useMemo } from 'react';
+   : [35;1m                    ^^^^^^[0m
+ [2m2[0m | import Header from '@/components/Header';
+ [2m3[0m | import ContactButton from '@/components/ContactButton';
+ [2m4[0m | import { InfiniteSlider } from '@/components/InfiniteSlider';
+   `----
+  [31mx[0m You're importing a component that needs `useState`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+  [31m|[0m
+  [31m|[0m  Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+  [31m|[0m
+
+   ,-[[36;1;4mD:\me\design\mungmin\app\main\page.js[0m:1:1]
+ [2m1[0m | import { useEffect, useRef, useState, useMemo } from 'react';
+   : [35;1m                            ^^^^^^^^[0m
+ [2m2[0m | import Header from '@/components/Header';
+ [2m3[0m | import ContactButton from '@/components/ContactButton';
+ [2m4[0m | import { InfiniteSlider } from '@/components/InfiniteSlider';
+   `----
+
+Import trace for requested module:
+./app/main/page.js
+ ⨯ ./app/main/page.js
+Error:   [31mx[0m Return statement is not allowed here
+      ,-[[36;1;4mD:\me\design\mungmin\app\main\page.js[0m:351:1]
+ [2m 348[0m |     
+ [2m 349[0m |       /* ── Removed local data definitions ── */
+ [2m 350[0m |     
+ [2m 351[0m | [35;1m,[0m[35;1m-[0m[35;1m>[0m   return (
+ [2m 352[0m | [35;1m|[0m       <>
+ [2m 353[0m | [35;1m|[0m         <Header />
+ [2m 354[0m | [35;1m|[0m   
+ [2m 355[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 356[0m | [35;1m|[0m              1. HERO
+ [2m 357[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 358[0m | [35;1m|[0m         <div className="hero-pin-spacer">
+ [2m 359[0m | [35;1m|[0m           <section className="hero" id="hero">
+ [2m 360[0m | [35;1m|[0m             <div className="hero-bg-day"></div>
+ [2m 361[0m | [35;1m|[0m             <div className="hero-bg-night"></div>
+ [2m 362[0m | [35;1m|[0m   
+ [2m 363[0m | [35;1m|[0m             <div className="hero-content" id="hero-title-content">
+ [2m 364[0m | [35;1m|[0m               <h1 className="hero-title">
+ [2m 365[0m | [35;1m|[0m                 반려동물과 반려인, <br className="mobile-br" />
+ [2m 366[0m | [35;1m|[0m                 그리고 브랜드가 함께 <br />
+ [2m 367[0m | [35;1m|[0m                 행복한 세상을 꿈꾸는 <br className="mobile-br" />
+ [2m 368[0m | [35;1m|[0m                 옴니채널 플랫폼, <br />
+ [2m 369[0m | [35;1m|[0m                 멍냥의민족입니다.
+ [2m 370[0m | [35;1m|[0m               </h1>
+ [2m 371[0m | [35;1m|[0m             </div>
+ [2m 372[0m | [35;1m|[0m   
+ [2m 373[0m | [35;1m|[0m             <div className="hero-body-xl" id="hero-body-xl" ref={heroBodyXlRef}></div>
+ [2m 374[0m | [35;1m|[0m   
+ [2m 375[0m | [35;1m|[0m             <img
+ [2m 376[0m | [35;1m|[0m               src="/assets/images/hero/fast-pet-supply-delivery-service-character-illustration.png"
+ [2m 377[0m | [35;1m|[0m               alt="배달 캐릭터 일러스트레이션"
+ [2m 378[0m | [35;1m|[0m               className="hero-character"
+ [2m 379[0m | [35;1m|[0m               id="hero-character"
+ [2m 380[0m | [35;1m|[0m             />
+ [2m 381[0m | [35;1m|[0m           </section>
+ [2m 382[0m | [35;1m|[0m         </div>
+ [2m 383[0m | [35;1m|[0m   
+ [2m 384[0m | [35;1m|[0m   
+ [2m 385[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 386[0m | [35;1m|[0m              2. 앱 이용 혜택
+ [2m 387[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 388[0m | [35;1m|[0m         <section className="section section-full" id="app-benefits">
+ [2m 389[0m | [35;1m|[0m           <div className="contents-wrapper">
+ [2m 390[0m | [35;1m|[0m             <div className="section-text-block">
+ [2m 391[0m | [35;1m|[0m               <h2 className="h2">
+ [2m 392[0m | [35;1m|[0m                 반려생활이 곧 수익이 되는 곳,<br />
+ [2m 393[0m | [35;1m|[0m                 온·오프라인 최초 플랫폼
+ [2m 394[0m | [35;1m|[0m               </h2>
+ [2m 395[0m | [35;1m|[0m               <p className="body-l">
+ [2m 396[0m | [35;1m|[0m                 공유와 추천을 통한 수익 구조.<br />
+ [2m 397[0m | [35;1m|[0m                 상대방이 구매할 때마다 나에게 리워드가 쌓여,<br />
+ [2m 398[0m | [35;1m|[0m                 지속적인 온라인 수익 창출이 가능합니다.<br /><br />
+ [2m 399[0m | [35;1m|[0m                 언제든지 가능한 캐쉬 환급<br />
+ [2m 400[0m | [35;1m|[0m                 적립된 리워드는 단순한 포인트에 머물지 않고,<br />
+ [2m 401[0m | [35;1m|[0m                 언제든 캐쉬로 전환 가능합니다.
+ [2m 402[0m | [35;1m|[0m               </p>
+ [2m 403[0m | [35;1m|[0m             </div>
+ [2m 404[0m | [35;1m|[0m             <div className="img-wrapper app-img-wrapper">
+ [2m 405[0m | [35;1m|[0m               <img
+ [2m 406[0m | [35;1m|[0m                 src="/assets/images/app/mungnyang-app-ui-point-reward-screen-mockup.png"
+ [2m 407[0m | [35;1m|[0m                 alt="멍냥의민족 앱 마일리지 적립 화면 예시"
+ [2m 408[0m | [35;1m|[0m                 className="app-mockup"
+ [2m 409[0m | [35;1m|[0m               />
+ [2m 410[0m | [35;1m|[0m               <img
+ [2m 411[0m | [35;1m|[0m                 src="/assets/images/app/mungnyang-mascot-ddung-nyang-holding-cash-10-percent-reward.svg"
+ [2m 412[0m | [35;1m|[0m                 alt="양손에 현금을 들고 좋아하는 멍냥의민족 마스코트 뚱냥"
+ [2m 413[0m | [35;1m|[0m                 className="app-mascot"
+ [2m 414[0m | [35;1m|[0m               />
+ [2m 415[0m | [35;1m|[0m             </div>
+ [2m 416[0m | [35;1m|[0m           </div>
+ [2m 417[0m | [35;1m|[0m         </section>
+ [2m 418[0m | [35;1m|[0m   
+ [2m 419[0m | [35;1m|[0m   
+ [2m 420[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 421[0m | [35;1m|[0m              3. Brand Values (기존 셀프 스튜디오 이미지 유지)
+ [2m 422[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 423[0m | [35;1m|[0m         <section className="section section-full" id="brand-values">
+ [2m 424[0m | [35;1m|[0m           <div className="contents-wrapper">
+ [2m 425[0m | [35;1m|[0m             <div className="section-text-block">
+ [2m 426[0m | [35;1m|[0m               <h2>Brand Values</h2>
+ [2m 427[0m | [35;1m|[0m               <div className="brand-values-list">
+ [2m 428[0m | [35;1m|[0m                 <div className="brand-value-item">
+ [2m 429[0m | [35;1m|[0m                   <h3 className="brand-value-title">Premium Sourcing</h3>
+ [2m 430[0m | [35;1m|[0m                   <p className="body-l">
+ [2m 431[0m | [35;1m|[0m                     까다로운 기준으로 엄선한 고품질 상품만을 선보여<br />
+ [2m 432[0m | [35;1m|[0m                     반려동물의 건강과 삶의 질을 높입니다.
+ [2m 433[0m | [35;1m|[0m                   </p>
+ [2m 434[0m | [35;1m|[0m                 </div>
+ [2m 435[0m | [35;1m|[0m                 <div className="brand-value-item">
+ [2m 436[0m | [35;1m|[0m                   <h3 className="brand-value-title">Free Self-Studio</h3>
+ [2m 437[0m | [35;1m|[0m                   <p className="body-l">
+ [2m 438[0m | [35;1m|[0m                     오프라인 매장 &lsquo;멍냥의민족&rsquo;에 마련된<br />
+ [2m 439[0m | [35;1m|[0m                     전문 셀프 스튜디오에서 우리 아이와의<br />
+ [2m 440[0m | [35;1m|[0m                     소중한 순간을 무료로 기록하세요.
+ [2m 441[0m | [35;1m|[0m                   </p>
+ [2m 442[0m | [35;1m|[0m                 </div>
+ [2m 443[0m | [35;1m|[0m               </div>
+ [2m 444[0m | [35;1m|[0m             </div>
+ [2m 445[0m | [35;1m|[0m             <div className="img-wrapper studio-img-wrapper">
+ [2m 446[0m | [35;1m|[0m               <img
+ [2m 447[0m | [35;1m|[0m                 src="/assets/images/studio/mungnyang-pet-self-studio-bichon-photo-zone-memory.jpg"
+ [2m 448[0m | [35;1m|[0m                 alt="멍냥의민족 매장 내 셀프 스튜디오"
+ [2m 449[0m | [35;1m|[0m                 className="studio-main-img"
+ [2m 450[0m | [35;1m|[0m               />
+ [2m 451[0m | [35;1m|[0m               <img
+ [2m 452[0m | [35;1m|[0m                 src="/assets/images/studio/mungnyang-mascot-ddung-meong-playing-ball-happy-memory.svg"
+ [2m 453[0m | [35;1m|[0m                 alt="노란 공을 가지고 신나게 노는 멍냥의민족 마스코트 뚱멍"
+ [2m 454[0m | [35;1m|[0m                 className="studio-mascot"
+ [2m 455[0m | [35;1m|[0m               />
+ [2m 456[0m | [35;1m|[0m             </div>
+ [2m 457[0m | [35;1m|[0m           </div>
+ [2m 458[0m | [35;1m|[0m         </section>
+ [2m 459[0m | [35;1m|[0m   
+ [2m 460[0m | [35;1m|[0m   
+ [2m 461[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 462[0m | [35;1m|[0m              4. 창업포인트 – 트렌드 시장 그래프
+ [2m 463[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 464[0m | [35;1m|[0m         {/* 4. 창업포인트 – 헤더 섹션 (독립 섹션) */}
+ [2m 465[0m | [35;1m|[0m         <section className="section section-trend-header" id="trend-market-header">
+ [2m 466[0m | [35;1m|[0m           <div className="contents-wrapper contents-wrapper--column">
+ [2m 467[0m | [35;1m|[0m             <p className="trend-header-eyebrow">
+ [2m 468[0m | [35;1m|[0m               국내 최초 온·오프라인 수익창출 모델
+ [2m 469[0m | [35;1m|[0m             </p>
+ [2m 470[0m | [35;1m|[0m             <h2 className="trend-header-title">
+ [2m 471[0m | [35;1m|[0m               멍냥의민족 창업,<br className="mobile-br" />
+ [2m 472[0m | [35;1m|[0m               꼭 해야하는 이유는?
+ [2m 473[0m | [35;1m|[0m             </h2>
+ [2m 474[0m | [35;1m|[0m           </div>
+ [2m 475[0m | [35;1m|[0m         </section>
+ [2m 476[0m | [35;1m|[0m   
+ [2m 477[0m | [35;1m|[0m         {/* 4-2. 창업포인트 – 트렌드 시장 그래프 (본문 섹션) */}
+ [2m 478[0m | [35;1m|[0m         <section className="section section-trend-body" id="trend-market-body">
+ [2m 479[0m | [35;1m|[0m           <div className="contents-wrapper contents-wrapper--column">
+ [2m 480[0m | [35;1m|[0m             <div className="trend-content">
+ [2m 481[0m | [35;1m|[0m               <div className="section-header-group">
+ [2m 482[0m | [35;1m|[0m                 <div className="section-header">
+ [2m 483[0m | [35;1m|[0m                   <p className="eyebrow">Point 01</p>
+ [2m 484[0m | [35;1m|[0m                   <h2 className="h2">지속성장하는 트렌드 시장</h2>
+ [2m 485[0m | [35;1m|[0m                 </div>
+ [2m 486[0m | [35;1m|[0m                 <p className="body-m">
+ [2m 487[0m | [35;1m|[0m                   1,500만 전체 가구의 약 25~28%가<br />
+ [2m 488[0m | [35;1m|[0m                   반려동물을 양육 중입니다.
+ [2m 489[0m | [35;1m|[0m                 </p>
+ [2m 490[0m | [35;1m|[0m               </div>
+ [2m 491[0m | [35;1m|[0m   
+ [2m 492[0m | [35;1m|[0m               {/* SVG Graph */}
+ [2m 493[0m | [35;1m|[0m               <div className="trend-graph" ref={graphRef}>
+ [2m 494[0m | [35;1m|[0m                 <svg viewBox="-40 0 1240 600" className="market-graph" preserveAspectRatio="xMidYMid meet">
+ [2m 495[0m | [35;1m|[0m                   {/* Y-axis labels */}
+ [2m 496[0m | [35;1m|[0m                   <text x="68" y="78" className="graph-label-y">6.0조</text>
+ [2m 497[0m | [35;1m|[0m                   <text x="68" y="183" className="graph-label-y">5.5조</text>
+ [2m 498[0m | [35;1m|[0m                   <text x="68" y="288" className="graph-label-y">5.0조</text>
+ [2m 499[0m | [35;1m|[0m                   <text x="68" y="393" className="graph-label-y">4.5조</text>
+ [2m 500[0m | [35;1m|[0m                   <text x="68" y="498" className="graph-label-y">4.0조</text>
+ [2m 501[0m | [35;1m|[0m   
+ [2m 502[0m | [35;1m|[0m                   {/* Y-axis grid lines */}
+ [2m 503[0m | [35;1m|[0m                   <line x1="105" y1="72" x2="1125" y2="72" className="graph-grid" />
+ [2m 504[0m | [35;1m|[0m                   <line x1="105" y1="177" x2="1125" y2="177" className="graph-grid" />
+ [2m 505[0m | [35;1m|[0m                   <line x1="105" y1="282" x2="1125" y2="282" className="graph-grid" />
+ [2m 506[0m | [35;1m|[0m                   <line x1="105" y1="387" x2="1125" y2="387" className="graph-grid" />
+ [2m 507[0m | [35;1m|[0m                   <line x1="105" y1="492" x2="1125" y2="492" className="graph-grid" />
+ [2m 508[0m | [35;1m|[0m   
+ [2m 509[0m | [35;1m|[0m                   {/* X-axis labels */}
+ [2m 510[0m | [35;1m|[0m                   <text x="330" y="540" className="graph-label-x">2024년</text>
+ [2m 511[0m | [35;1m|[0m                   <text x="675" y="540" className="graph-label-x">2025년</text>
+ [2m 512[0m | [35;1m|[0m                   <text x="1020" y="540" className="graph-label-x">2026년</text>
+ [2m 513[0m | [35;1m|[0m                   <text x="1020" y="560" className="graph-label-x graph-label-sub">(예상)</text>
+ [2m 514[0m | [35;1m|[0m   
+ [2m 515[0m | [35;1m|[0m                   {/* Gradient fill area */}
+ [2m 516[0m | [35;1m|[0m                   <defs>
+ [2m 517[0m | [35;1m|[0m                     <linearGradient id="graphGradient" x1="0" y1="0" x2="0" y2="1">
+ [2m 518[0m | [35;1m|[0m                       <stop offset="0%" stopColor="#2BC2BD" stopOpacity="0.3" />
+ [2m 519[0m | [35;1m|[0m                       <stop offset="100%" stopColor="#2BC2BD" stopOpacity="0.02" />
+ [2m 520[0m | [35;1m|[0m                     </linearGradient>
+ [2m 521[0m | [35;1m|[0m                   </defs>
+ [2m 522[0m | [35;1m|[0m   
+ [2m 523[0m | [35;1m|[0m                   {/* Area fill */}
+ [2m 524[0m | [35;1m|[0m                   <path
+ [2m 525[0m | [35;1m|[0m                     d="M 150 492 Q 240 420 330 324 Q 510 294 675 240 Q 870 150 1050 72 L 1050 492 Z"
+ [2m 526[0m | [35;1m|[0m                     fill="url(#graphGradient)"
+ [2m 527[0m | [35;1m|[0m                     className="graph-area"
+ [2m 528[0m | [35;1m|[0m                   />
+ [2m 529[0m | [35;1m|[0m   
+ [2m 530[0m | [35;1m|[0m                   {/* Line */}
+ [2m 531[0m | [35;1m|[0m                   <path
+ [2m 532[0m | [35;1m|[0m                     d="M 150 492 Q 240 420 330 324 Q 510 294 675 240 Q 870 150 1050 72"
+ [2m 533[0m | [35;1m|[0m                     fill="none"
+ [2m 534[0m | [35;1m|[0m                     stroke="#2BC2BD"
+ [2m 535[0m | [35;1m|[0m                     strokeWidth="2"
+ [2m 536[0m | [35;1m|[0m                     strokeLinecap="round"
+ [2m 537[0m | [35;1m|[0m                     className="graph-line"
+ [2m 538[0m | [35;1m|[0m                   />
+ [2m 539[0m | [35;1m|[0m   
+ [2m 540[0m | [35;1m|[0m                   {/* Data points */}
+ [2m 541[0m | [35;1m|[0m                   <circle cx="330" cy="324" r="6" fill="#fff" stroke="#2BC2BD" strokeWidth="3" className="graph-dot" />
+ [2m 542[0m | [35;1m|[0m                   <circle cx="675" cy="240" r="6" fill="#fff" stroke="#2BC2BD" strokeWidth="3" className="graph-dot" />
+ [2m 543[0m | [35;1m|[0m                   <circle cx="1050" cy="72" r="6" fill="#fff" stroke="#2BC2BD" strokeWidth="3" className="graph-dot" />
+ [2m 544[0m | [35;1m|[0m   
+ [2m 545[0m | [35;1m|[0m                   {/* Data labels */}
+ [2m 546[0m | [35;1m|[0m                   <text x="330" y="300" className="graph-data-label">4.8조</text>
+ [2m 547[0m | [35;1m|[0m                   <text x="675" y="216" className="graph-data-label">5.2조</text>
+ [2m 548[0m | [35;1m|[0m                   <text x="1050" y="48" className="graph-data-label graph-data-highlight">6.0조</text>
+ [2m 549[0m | [35;1m|[0m   
+ [2m 550[0m | [35;1m|[0m                   {/* Vertical dashed line for 2026 */}
+ [2m 551[0m | [35;1m|[0m                   <line x1="1050" y1="72" x2="1050" y2="492" className="graph-dash-line" />
+ [2m 552[0m | [35;1m|[0m   
+ [2m 553[0m | [35;1m|[0m                   {/* Growth annotation */}
+ [2m 554[0m | [35;1m|[0m                   <text x="945" y="310" className="graph-annotation-small">전년 대비 시장 매출 규모</text>
+ [2m 555[0m | [35;1m|[0m                   <text x="930" y="358" className="graph-annotation-big">약 15.4% 성장</text>
+ [2m 556[0m | [35;1m|[0m                 </svg>
+ [2m 557[0m | [35;1m|[0m               </div>
+ [2m 558[0m | [35;1m|[0m             </div>
+ [2m 559[0m | [35;1m|[0m           </div>
+ [2m 560[0m | [35;1m|[0m         </section>
+ [2m 561[0m | [35;1m|[0m   
+ [2m 562[0m | [35;1m|[0m   
+ [2m 563[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 564[0m | [35;1m|[0m              5. 경쟁력 – 6개 카드
+ [2m 565[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 566[0m | [35;1m|[0m         <section className="section section-competitiveness" id="competitiveness">
+ [2m 567[0m | [35;1m|[0m           <div className="contents-wrapper contents-wrapper--column">
+ [2m 568[0m | [35;1m|[0m             <div className="section-header">
+ [2m 569[0m | [35;1m|[0m               <p className="eyebrow">Point 02</p>
+ [2m 570[0m | [35;1m|[0m               <h2 className="h2">멍냥의민족의 경쟁력</h2>
+ [2m 571[0m | [35;1m|[0m             </div>
+ [2m 572[0m | [35;1m|[0m   
+ [2m 573[0m | [35;1m|[0m             <div className="competitiveness-grid">
+ [2m 574[0m | [35;1m|[0m               <div className="comp-card">
+ [2m 575[0m | [35;1m|[0m                 <div className="comp-card-header">
+ [2m 576[0m | [35;1m|[0m                   <span className="comp-card-header-title">차별점 01</span>
+ [2m 577[0m | [35;1m|[0m                 </div>
+ [2m 578[0m | [35;1m|[0m                 <div className="comp-card-body">
+ [2m 579[0m | [35;1m|[0m                   <p className="comp-card-eyebrow">수익구조</p>
+ [2m 580[0m | [35;1m|[0m                   <h3 className="comp-card-title">
+ [2m 581[0m | [35;1m|[0m                     로열티 0% 모델<br />
+ [2m 582[0m | [35;1m|[0m                     수익률 본사 0%<br />
+ [2m 583[0m | [35;1m|[0m                     점주 100%
+ [2m 584[0m | [35;1m|[0m                   </h3>
+ [2m 585[0m | [35;1m|[0m                 </div>
+ [2m 586[0m | [35;1m|[0m               </div>
+ [2m 587[0m | [35;1m|[0m   
+ [2m 588[0m | [35;1m|[0m               <div className="comp-card">
+ [2m 589[0m | [35;1m|[0m                 <div className="comp-card-header">
+ [2m 590[0m | [35;1m|[0m                   <span className="comp-card-header-title">차별점 02</span>
+ [2m 591[0m | [35;1m|[0m                 </div>
+ [2m 592[0m | [35;1m|[0m                 <div className="comp-card-body">
+ [2m 593[0m | [35;1m|[0m                   <p className="comp-card-eyebrow">O2O 옴니채널</p>
+ [2m 594[0m | [35;1m|[0m                   <h3 className="comp-card-title">
+ [2m 595[0m | [35;1m|[0m                     온라인 수익<br />
+ [2m 596[0m | [35;1m|[0m                     연계가능
+ [2m 597[0m | [35;1m|[0m                   </h3>
+ [2m 598[0m | [35;1m|[0m                 </div>
+ [2m 599[0m | [35;1m|[0m               </div>
+ [2m 600[0m | [35;1m|[0m   
+ [2m 601[0m | [35;1m|[0m               <div className="comp-card">
+ [2m 602[0m | [35;1m|[0m                 <div className="comp-card-header">
+ [2m 603[0m | [35;1m|[0m                   <span className="comp-card-header-title">차별점 03</span>
+ [2m 604[0m | [35;1m|[0m                 </div>
+ [2m 605[0m | [35;1m|[0m                 <div className="comp-card-body">
+ [2m 606[0m | [35;1m|[0m                   <p className="comp-card-eyebrow">수익성</p>
+ [2m 607[0m | [35;1m|[0m                   <h3 className="comp-card-title">
+ [2m 608[0m | [35;1m|[0m                     리테일 프랜차이즈 중<br />
+ [2m 609[0m | [35;1m|[0m                     투자 대비 높은 수익성
+ [2m 610[0m | [35;1m|[0m                   </h3>
+ [2m 611[0m | [35;1m|[0m                 </div>
+ [2m 612[0m | [35;1m|[0m               </div>
+ [2m 613[0m | [35;1m|[0m   
+ [2m 614[0m | [35;1m|[0m               <div className="comp-card">
+ [2m 615[0m | [35;1m|[0m                 <div className="comp-card-header">
+ [2m 616[0m | [35;1m|[0m                   <span className="comp-card-header-title">차별점 04</span>
+ [2m 617[0m | [35;1m|[0m                 </div>
+ [2m 618[0m | [35;1m|[0m                 <div className="comp-card-body">
+ [2m 619[0m | [35;1m|[0m                   <p className="comp-card-eyebrow">물류경쟁력</p>
+ [2m 620[0m | [35;1m|[0m                   <h3 className="comp-card-title">
+ [2m 621[0m | [35;1m|[0m                     공동물류 구현 타사 대비<br />
+ [2m 622[0m | [35;1m|[0m                     원가 6-10% 절감
+ [2m 623[0m | [35;1m|[0m                   </h3>
+ [2m 624[0m | [35;1m|[0m                 </div>
+ [2m 625[0m | [35;1m|[0m               </div>
+ [2m 626[0m | [35;1m|[0m   
+ [2m 627[0m | [35;1m|[0m               <div className="comp-card">
+ [2m 628[0m | [35;1m|[0m                 <div className="comp-card-header">
+ [2m 629[0m | [35;1m|[0m                   <span className="comp-card-header-title">차별점 05</span>
+ [2m 630[0m | [35;1m|[0m                 </div>
+ [2m 631[0m | [35;1m|[0m                 <div className="comp-card-body">
+ [2m 632[0m | [35;1m|[0m                   <p className="comp-card-eyebrow">블루오션</p>
+ [2m 633[0m | [35;1m|[0m                   <h3 className="comp-card-title">
+ [2m 634[0m | [35;1m|[0m                     포화시장인 카페,<br />
+ [2m 635[0m | [35;1m|[0m                     편의점 대비 최적의<br />
+ [2m 636[0m | [35;1m|[0m                     블루오션 리테일 시장
+ [2m 637[0m | [35;1m|[0m                   </h3>
+ [2m 638[0m | [35;1m|[0m                 </div>
+ [2m 639[0m | [35;1m|[0m               </div>
+ [2m 640[0m | [35;1m|[0m   
+ [2m 641[0m | [35;1m|[0m               <div className="comp-card">
+ [2m 642[0m | [35;1m|[0m                 <div className="comp-card-header">
+ [2m 643[0m | [35;1m|[0m                   <span className="comp-card-header-title">차별점 06</span>
+ [2m 644[0m | [35;1m|[0m                 </div>
+ [2m 645[0m | [35;1m|[0m                 <div className="comp-card-body">
+ [2m 646[0m | [35;1m|[0m                   <p className="comp-card-eyebrow">검증된 창업비용</p>
+ [2m 647[0m | [35;1m|[0m                   <h3 className="comp-card-title">
+ [2m 648[0m | [35;1m|[0m                     <span className="comp-badge">업계최저</span> 창업비용 동종업계 대<br />
+ [2m 649[0m | [35;1m|[0m                     비 30% 절감<br />
+ [2m 650[0m | [35;1m|[0m                     <span className="comp-badge">거품제거</span> 로열티/교육비 파격<br />
+ [2m 651[0m | [35;1m|[0m                     면제
+ [2m 652[0m | [35;1m|[0m                   </h3>
+ [2m 653[0m | [35;1m|[0m                 </div>
+ [2m 654[0m | [35;1m|[0m               </div>
+ [2m 655[0m | [35;1m|[0m             </div>
+ [2m 656[0m | [35;1m|[0m           </div>
+ [2m 657[0m | [35;1m|[0m         </section>
+ [2m 658[0m | [35;1m|[0m   
+ [2m 659[0m | [35;1m|[0m   
+ [2m 660[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 661[0m | [35;1m|[0m              6. 비용 비교 – 테이블
+ [2m 662[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 663[0m | [35;1m|[0m         <section className="section section-cost" id="cost-comparison">
+ [2m 664[0m | [35;1m|[0m           <div className="contents-wrapper contents-wrapper--column">
+ [2m 665[0m | [35;1m|[0m             <div className="section-header">
+ [2m 666[0m | [35;1m|[0m               <p className="eyebrow">Point 03</p>
+ [2m 667[0m | [35;1m|[0m               <h2 className="h2">타사 VS 멍냥의민족 비교견적</h2>
+ [2m 668[0m | [35;1m|[0m             </div>
+ [2m 669[0m | [35;1m|[0m   
+ [2m 670[0m | [35;1m|[0m             {/* ── Desktop Table ── */}
+ [2m 671[0m | [35;1m|[0m             <div className="cost-table-wrapper cost-table-desktop">
+ [2m 672[0m | [35;1m|[0m               <table className="cost-table">
+ [2m 673[0m | [35;1m|[0m                 <thead>
+ [2m 674[0m | [35;1m|[0m                   <tr>
+ [2m 675[0m | [35;1m|[0m                     <th className="cost-th cost-th-category">구분</th>
+ [2m 676[0m | [35;1m|[0m                     <th className="cost-th cost-th-competitor">타사 평균</th>
+ [2m 677[0m | [35;1m|[0m                     <th className="cost-th cost-th-mungmin">멍냥의민족</th>
+ [2m 678[0m | [35;1m|[0m                   </tr>
+ [2m 679[0m | [35;1m|[0m                 </thead>
+ [2m 680[0m | [35;1m|[0m                 <tbody>
+ [2m 681[0m | [35;1m|[0m                   {COST_DATA.map((row, i) => (
+ [2m 682[0m | [35;1m|[0m                     <tr key={i}>
+ [2m 683[0m | [35;1m|[0m                       <td className="cost-td cost-td-category">
+ [2m 684[0m | [35;1m|[0m                         <strong>{row.category}</strong>
+ [2m 685[0m | [35;1m|[0m                         <span className="cost-td-desc">{row.desc}</span>
+ [2m 686[0m | [35;1m|[0m                       </td>
+ [2m 687[0m | [35;1m|[0m                       <td className="cost-td cost-td-competitor">
+ [2m 688[0m | [35;1m|[0m                         {row.competitor}
+ [2m 689[0m | [35;1m|[0m                         {row.competitorNote && <span className="cost-td-note">{row.competitorNote}</span>}
+ [2m 690[0m | [35;1m|[0m                       </td>
+ [2m 691[0m | [35;1m|[0m                       <td className="cost-td cost-td-mungmin">
+ [2m 692[0m | [35;1m|[0m                         <strong>{row.mungmin}</strong>
+ [2m 693[0m | [35;1m|[0m                         {row.mungminNote && <span className="cost-td-note">{row.mungminNote}</span>}
+ [2m 694[0m | [35;1m|[0m                       </td>
+ [2m 695[0m | [35;1m|[0m                     </tr>
+ [2m 696[0m | [35;1m|[0m                   ))}
+ [2m 697[0m | [35;1m|[0m                   {/* Total Row */}
+ [2m 698[0m | [35;1m|[0m                   <tr className="cost-total-row">
+ [2m 699[0m | [35;1m|[0m                     <td className="cost-td cost-td-category">
+ [2m 700[0m | [35;1m|[0m                       <strong>{COST_TOTAL.category}</strong>
+ [2m 701[0m | [35;1m|[0m                       <span className="cost-td-desc">{COST_TOTAL.desc}</span>
+ [2m 702[0m | [35;1m|[0m                     </td>
+ [2m 703[0m | [35;1m|[0m                     <td className="cost-td cost-td-competitor">{COST_TOTAL.competitor}</td>
+ [2m 704[0m | [35;1m|[0m                     <td className="cost-td cost-td-mungmin cost-td-total-mungmin">
+ [2m 705[0m | [35;1m|[0m                       <strong>{COST_TOTAL.mungmin}</strong>
+ [2m 706[0m | [35;1m|[0m                     </td>
+ [2m 707[0m | [35;1m|[0m                   </tr>
+ [2m 708[0m | [35;1m|[0m                 </tbody>
+ [2m 709[0m | [35;1m|[0m               </table>
+ [2m 710[0m | [35;1m|[0m             </div>
+ [2m 711[0m | [35;1m|[0m   
+ [2m 712[0m | [35;1m|[0m             {/* ── Mobile Table (Card Layout) ── */}
+ [2m 713[0m | [35;1m|[0m             <div className="cost-table-wrapper cost-table-mobile">
+ [2m 714[0m | [35;1m|[0m               <div className="cost-mobile-header">
+ [2m 715[0m | [35;1m|[0m                 <span className="cost-mobile-header-competitor">타사 평균</span>
+ [2m 716[0m | [35;1m|[0m                 <span className="cost-mobile-header-mungmin">멍냥의민족</span>
+ [2m 717[0m | [35;1m|[0m               </div>
+ [2m 718[0m | [35;1m|[0m               {COST_DATA.map((row, i) => (
+ [2m 719[0m | [35;1m|[0m                 <div className="cost-mobile-card" key={i}>
+ [2m 720[0m | [35;1m|[0m                   <div className="cost-mobile-card-top">
+ [2m 721[0m | [35;1m|[0m                     <strong>{row.category}</strong> – {row.desc}
+ [2m 722[0m | [35;1m|[0m                   </div>
+ [2m 723[0m | [35;1m|[0m                   <div className="cost-mobile-card-values">
+ [2m 724[0m | [35;1m|[0m                     <span className="cost-mobile-val-competitor">
+ [2m 725[0m | [35;1m|[0m                       {row.competitor}
+ [2m 726[0m | [35;1m|[0m                       {row.competitorNote && <span className="cost-td-note">{row.competitorNote}</span>}
+ [2m 727[0m | [35;1m|[0m                     </span>
+ [2m 728[0m | [35;1m|[0m                     <span className="cost-mobile-val-mungmin">
+ [2m 729[0m | [35;1m|[0m                       <strong>{row.mungmin}</strong>
+ [2m 730[0m | [35;1m|[0m                       {row.mungminNote && <span className="cost-td-note">{row.mungminNote}</span>}
+ [2m 731[0m | [35;1m|[0m                     </span>
+ [2m 732[0m | [35;1m|[0m                   </div>
+ [2m 733[0m | [35;1m|[0m                 </div>
+ [2m 734[0m | [35;1m|[0m               ))}
+ [2m 735[0m | [35;1m|[0m               {/* Total Card */}
+ [2m 736[0m | [35;1m|[0m               <div className="cost-mobile-card cost-mobile-total">
+ [2m 737[0m | [35;1m|[0m                 <div className="cost-mobile-card-top">
+ [2m 738[0m | [35;1m|[0m                   <strong>{COST_TOTAL.category}</strong> – {COST_TOTAL.desc}
+ [2m 739[0m | [35;1m|[0m                 </div>
+ [2m 740[0m | [35;1m|[0m                 <div className="cost-mobile-card-values">
+ [2m 741[0m | [35;1m|[0m                   <span className="cost-mobile-val-competitor">타사 {COST_TOTAL.competitor}</span>
+ [2m 742[0m | [35;1m|[0m                   <span className="cost-mobile-val-mungmin cost-mobile-val-total">
+ [2m 743[0m | [35;1m|[0m                     <strong>멍민 {COST_TOTAL.mungmin}</strong>
+ [2m 744[0m | [35;1m|[0m                   </span>
+ [2m 745[0m | [35;1m|[0m                 </div>
+ [2m 746[0m | [35;1m|[0m               </div>
+ [2m 747[0m | [35;1m|[0m             </div>
+ [2m 748[0m | [35;1m|[0m   
+ [2m 749[0m | [35;1m|[0m             <ul className="cost-footnote">
+ [2m 750[0m | [35;1m|[0m               <li>상가 컨디션에 따른 인테리어 비용 감소 및 증가</li>
+ [2m 751[0m | [35;1m|[0m               <li>사업비용 남을 시 환급</li>
+ [2m 752[0m | [35;1m|[0m             </ul>
+ [2m 753[0m | [35;1m|[0m           </div>
+ [2m 754[0m | [35;1m|[0m         </section>
+ [2m 755[0m | [35;1m|[0m   
+ [2m 756[0m | [35;1m|[0m   
+ [2m 757[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 758[0m | [35;1m|[0m              7. 창업절차 (9 STEP)
+ [2m 759[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 760[0m | [35;1m|[0m         <section className="section section-startup-steps" id="startup-steps">
+ [2m 761[0m | [35;1m|[0m           <div className="contents-wrapper contents-wrapper--column">
+ [2m 762[0m | [35;1m|[0m             <div className="section-header">
+ [2m 763[0m | [35;1m|[0m               <p className="eyebrow">창업절차</p>
+ [2m 764[0m | [35;1m|[0m               <h2 className="h2">
+ [2m 765[0m | [35;1m|[0m                 멍냥의민족 창업<br />
+ [2m 766[0m | [35;1m|[0m                 이렇게 준비하세요
+ [2m 767[0m | [35;1m|[0m               </h2>
+ [2m 768[0m | [35;1m|[0m             </div>
+ [2m 769[0m | [35;1m|[0m   
+ [2m 770[0m | [35;1m|[0m             <div className="steps-grid-container">
+ [2m 771[0m | [35;1m|[0m               {STARTUP_STEPS.map((s, idx) => (
+ [2m 772[0m | [35;1m|[0m                 <div key={s.step} className={`step-card ${idx === 8 ? 'store-combined-card' : ''}`}>
+ [2m 773[0m | [35;1m|[0m                   {idx === 8 ? (
+ [2m 774[0m | [35;1m|[0m                     <div className="store-combined-content">
+ [2m 775[0m | [35;1m|[0m                       <span className="step-badge">STEP {s.step}</span>
+ [2m 776[0m | [35;1m|[0m                       <p className="step-title-bold">{s.title}</p>
+ [2m 777[0m | [35;1m|[0m                       <p className="step-desc-text">{s.desc}</p>
+ [2m 778[0m | [35;1m|[0m                       {s.note && <p className="step-note-small">{s.note}</p>}
+ [2m 779[0m | [35;1m|[0m                       <p className="step-note-small step-footnote-medium">
+ [2m 780[0m | [35;1m|[0m                         *가맹계약 후 영업일기준 15일 이내 오픈 프로세스를 유지하고있습니다.
+ [2m 781[0m | [35;1m|[0m                       </p>
+ [2m 782[0m | [35;1m|[0m                     </div>
+ [2m 783[0m | [35;1m|[0m                   ) : (
+ [2m 784[0m | [35;1m|[0m                     <>
+ [2m 785[0m | [35;1m|[0m                       <span className="step-badge">STEP {s.step}</span>
+ [2m 786[0m | [35;1m|[0m                       <p className="step-title-bold">{s.title}</p>
+ [2m 787[0m | [35;1m|[0m                       <p className="step-desc-text">{s.desc}</p>
+ [2m 788[0m | [35;1m|[0m                       {s.note && <p className="step-note-small">{s.note}</p>}
+ [2m 789[0m | [35;1m|[0m                     </>
+ [2m 790[0m | [35;1m|[0m                   )}
+ [2m 791[0m | [35;1m|[0m                   {idx === 8 && (
+ [2m 792[0m | [35;1m|[0m                     <div className="store-combined-img">
+ [2m 793[0m | [35;1m|[0m                       <img src="/assets/images/franchise-steps/mungnyang-franchise-open-process.png" alt="멍냥의민족 가맹 프로세스 오픈 이미지" />
+ [2m 794[0m | [35;1m|[0m                     </div>
+ [2m 795[0m | [35;1m|[0m                   )}
+ [2m 796[0m | [35;1m|[0m                 </div>
+ [2m 797[0m | [35;1m|[0m               ))}
+ [2m 798[0m | [35;1m|[0m             </div>
+ [2m 799[0m | [35;1m|[0m           </div>
+ [2m 800[0m | [35;1m|[0m         </section>
+ [2m 801[0m | [35;1m|[0m   
+ [2m 802[0m | [35;1m|[0m   
+ [2m 803[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 804[0m | [35;1m|[0m              8. 창업성공기 (유튜브)
+ [2m 805[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 806[0m | [35;1m|[0m         <section className="section section-success-stories" id="success-stories">
+ [2m 807[0m | [35;1m|[0m           <div className="contents-wrapper contents-wrapper--column">
+ [2m 808[0m | [35;1m|[0m             <div className="section-header section-header--with-controls">
+ [2m 809[0m | [35;1m|[0m               <div className="section-header-text">
+ [2m 810[0m | [35;1m|[0m                 <p className="eyebrow">창업성공기</p>
+ [2m 811[0m | [35;1m|[0m                 <h2 className="h2">
+ [2m 812[0m | [35;1m|[0m                   실제 점주님의 리얼한<br />
+ [2m 813[0m | [35;1m|[0m                   창업 성공기를 들어보세요
+ [2m 814[0m | [35;1m|[0m                 </h2>
+ [2m 815[0m | [35;1m|[0m               </div>
+ [2m 816[0m | [35;1m|[0m               {!isMobile && (
+ [2m 817[0m | [35;1m|[0m                 <div className="slider-controls">
+ [2m 818[0m | [35;1m|[0m                   <button 
+ [2m 819[0m | [35;1m|[0m                     className="slider-btn prev-btn" 
+ [2m 820[0m | [35;1m|[0m                     onClick={() => {
+ [2m 821[0m | [35;1m|[0m                       setSliderIndex(prev => Math.max(0, prev - 1));
+ [2m 822[0m | [35;1m|[0m                     }}
+ [2m 823[0m | [35;1m|[0m                     disabled={sliderIndex === 0}
+ [2m 824[0m | [35;1m|[0m                     aria-label="Previous slide"
+ [2m 825[0m | [35;1m|[0m                   >
+ [2m 826[0m | [35;1m|[0m                     <img src="/assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg" alt="Left" />
+ [2m 827[0m | [35;1m|[0m                   </button>
+ [2m 828[0m | [35;1m|[0m                   <button 
+ [2m 829[0m | [35;1m|[0m                     className="slider-btn next-btn" 
+ [2m 830[0m | [35;1m|[0m                     onClick={() => {
+ [2m 831[0m | [35;1m|[0m                       // Maximum index could be adjusted based on visible cards
+ [2m 832[0m | [35;1m|[0m                       setSliderIndex(prev => Math.min(SUCCESS_STORIES.length - 1, prev + 1));
+ [2m 833[0m | [35;1m|[0m                     }}
+ [2m 834[0m | [35;1m|[0m                     disabled={sliderIndex >= SUCCESS_STORIES.length - 1}
+ [2m 835[0m | [35;1m|[0m                     aria-label="Next slide"
+ [2m 836[0m | [35;1m|[0m                   >
+ [2m 837[0m | [35;1m|[0m                     <img src="/assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg" alt="Right" />
+ [2m 838[0m | [35;1m|[0m                   </button>
+ [2m 839[0m | [35;1m|[0m                 </div>
+ [2m 840[0m | [35;1m|[0m               )}
+ [2m 841[0m | [35;1m|[0m             </div>
+ [2m 842[0m | [35;1m|[0m   
+ [2m 843[0m | [35;1m|[0m             <div className="success-stories-slider-container">
+ [2m 844[0m | [35;1m|[0m               <div 
+ [2m 845[0m | [35;1m|[0m                 className="success-stories-list"
+ [2m 846[0m | [35;1m|[0m                 style={{ 
+ [2m 847[0m | [35;1m|[0m                   transform: isMobile ? 'none' : `translateX(-${sliderIndex * (387 + 24)}px)`
+ [2m 848[0m | [35;1m|[0m                 }}
+ [2m 849[0m | [35;1m|[0m               >
+ [2m 850[0m | [35;1m|[0m                 {SUCCESS_STORIES.map((video) => (
+ [2m 851[0m | [35;1m|[0m                   <div className="youtube-card" key={video.id} onClick={() => setSelectedVideo(`https://www.youtube.com/embed/${video.id}?autoplay=1`)}>
+ [2m 852[0m | [35;1m|[0m                     <div
+ [2m 853[0m | [35;1m|[0m                       className="youtube-placeholder"
+ [2m 854[0m | [35;1m|[0m                       style={{ 
+ [2m 855[0m | [35;1m|[0m                         backgroundImage: `url(https://img.youtube.com/vi/${video.id}/maxresdefault.jpg)`
+ [2m 856[0m | [35;1m|[0m                       }}
+ [2m 857[0m | [35;1m|[0m                     >
+ [2m 858[0m | [35;1m|[0m                       <div className="play-button-overlay"></div>
+ [2m 859[0m | [35;1m|[0m                     </div>
+ [2m 860[0m | [35;1m|[0m                     <div className="youtube-info">
+ [2m 861[0m | [35;1m|[0m                       <p className="video-eyebrow">{video.eyebrow}</p>
+ [2m 862[0m | [35;1m|[0m                       <h3 className="video-title">{video.title}</h3>
+ [2m 863[0m | [35;1m|[0m                     </div>
+ [2m 864[0m | [35;1m|[0m                   </div>
+ [2m 865[0m | [35;1m|[0m                 ))}
+ [2m 866[0m | [35;1m|[0m               </div>
+ [2m 867[0m | [35;1m|[0m             </div>
+ [2m 868[0m | [35;1m|[0m           </div>
+ [2m 869[0m | [35;1m|[0m         </section>
+ [2m 870[0m | [35;1m|[0m   
+ [2m 871[0m | [35;1m|[0m   
+ [2m 872[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 873[0m | [35;1m|[0m              9. FAQ
+ [2m 874[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 875[0m | [35;1m|[0m         <section className="section section-faq" id="faq">
+ [2m 876[0m | [35;1m|[0m           <div className="contents-wrapper contents-wrapper--column">
+ [2m 877[0m | [35;1m|[0m             <div className="section-header" style={{ textAlign: 'left', width: '100%' }}>
+ [2m 878[0m | [35;1m|[0m               <p className="eyebrow">FAQ</p>
+ [2m 879[0m | [35;1m|[0m               <h2 className="h2">자주 묻는 질문</h2>
+ [2m 880[0m | [35;1m|[0m             </div>
+ [2m 881[0m | [35;1m|[0m   
+ [2m 882[0m | [35;1m|[0m             <div className="faq-list">
+ [2m 883[0m | [35;1m|[0m               {[
+ [2m 884[0m | [35;1m|[0m                 { q: '정말 로열티가 0원인가요?', a: '네, 맞습니다. 멍냥의민족은 본사의 배를 불리는 로열티 대신, 점주님과 함께 성장하는 상생 구조를 택했습니다.' },
+ [2m 885[0m | [35;1m|[0m                 { q: '무인 매장 관리가 어렵진 않나요?', a: '걱정 마세요. 스마트한 IoT 시스템과 본사의 밀착 교육으로 운영이 어렵지 않도록 도와드립니다.' },
+ [2m 886[0m | [35;1m|[0m                 { q: '상권 분석은 어떻게 하나요?', a: '전문 개발 담당자가 배후 세대, 유동 인구, 경쟁점을 철저히 분석해 \'되는 자리\'만 추천해 드립니다.' },
+ [2m 887[0m | [35;1m|[0m               ].map((item, i) => (
+ [2m 888[0m | [35;1m|[0m                 <div className="faq-item" key={i}>
+ [2m 889[0m | [35;1m|[0m                   <div className="faq-question">{item.q}</div>
+ [2m 890[0m | [35;1m|[0m                   <div className="faq-answer">
+ [2m 891[0m | [35;1m|[0m                     <div className="faq-answer-inner">{item.a}</div>
+ [2m 892[0m | [35;1m|[0m                   </div>
+ [2m 893[0m | [35;1m|[0m                 </div>
+ [2m 894[0m | [35;1m|[0m               ))}
+ [2m 895[0m | [35;1m|[0m             </div>
+ [2m 896[0m | [35;1m|[0m           </div>
+ [2m 897[0m | [35;1m|[0m         </section>
+ [2m 898[0m | [35;1m|[0m   
+ [2m 899[0m | [35;1m|[0m   
+ [2m 900[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m 901[0m | [35;1m|[0m              10. 창업문의
+ [2m 902[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m 903[0m | [35;1m|[0m         <section className="section section-contact" id="contact">
+ [2m 904[0m | [35;1m|[0m           <div className="contents-wrapper contents-wrapper--column">
+ [2m 905[0m | [35;1m|[0m             <div className="contact-header-row">
+ [2m 906[0m | [35;1m|[0m               <div className="contact-left">
+ [2m 907[0m | [35;1m|[0m                 <h2 className="h2" style={{ marginTop: '16px' }}>
+ [2m 908[0m | [35;1m|[0m                   <span style={{ color: '#2BC2BD' }}>멍냥의민족</span><br />
+ [2m 909[0m | [35;1m|[0m                   창업에 대한 궁금증을<br />
+ [2m 910[0m | [35;1m|[0m                   모두 해결해 드립니다.
+ [2m 911[0m | [35;1m|[0m                 </h2>
+ [2m 912[0m | [35;1m|[0m               </div>
+ [2m 913[0m | [35;1m|[0m               <div className="contact-right">
+ [2m 914[0m | [35;1m|[0m                 <p className="contact-eyebrow">24시간 전화상담</p>
+ [2m 915[0m | [35;1m|[0m                 <p className="contact-phone">070-4141-6402</p>
+ [2m 916[0m | [35;1m|[0m               </div>
+ [2m 917[0m | [35;1m|[0m             </div>
+ [2m 918[0m | [35;1m|[0m   
+ [2m 919[0m | [35;1m|[0m             <div className="contact-form-container">
+ [2m 920[0m | [35;1m|[0m               <form className="contact-form" onSubmit={handleSubmit}>
+ [2m 921[0m | [35;1m|[0m                 <div className="contact-form-grid">
+ [2m 922[0m | [35;1m|[0m                   <div className="form-field">
+ [2m 923[0m | [35;1m|[0m                     <label className="form-label">성함</label>
+ [2m 924[0m | [35;1m|[0m                     <input
+ [2m 925[0m | [35;1m|[0m                       type="text"
+ [2m 926[0m | [35;1m|[0m                       name="name"
+ [2m 927[0m | [35;1m|[0m                       className="form-input"
+ [2m 928[0m | [35;1m|[0m                       placeholder="성함을 입력해주세요."
+ [2m 929[0m | [35;1m|[0m                       value={formData.name}
+ [2m 930[0m | [35;1m|[0m                       onChange={handleInputChange}
+ [2m 931[0m | [35;1m|[0m                     />
+ [2m 932[0m | [35;1m|[0m                   </div>
+ [2m 933[0m | [35;1m|[0m                   <div className="form-field">
+ [2m 934[0m | [35;1m|[0m                     <label className="form-label">연락처</label>
+ [2m 935[0m | [35;1m|[0m                     <input
+ [2m 936[0m | [35;1m|[0m                       type="text"
+ [2m 937[0m | [35;1m|[0m                       name="phone"
+ [2m 938[0m | [35;1m|[0m                       className="form-input"
+ [2m 939[0m | [35;1m|[0m                       placeholder="연락처를 입력해주세요."
+ [2m 940[0m | [35;1m|[0m                       value={formData.phone}
+ [2m 941[0m | [35;1m|[0m                       onChange={handleInputChange}
+ [2m 942[0m | [35;1m|[0m                     />
+ [2m 943[0m | [35;1m|[0m                   </div>
+ [2m 944[0m | [35;1m|[0m                   <div className="form-field">
+ [2m 945[0m | [35;1m|[0m                     <label className="form-label">이메일</label>
+ [2m 946[0m | [35;1m|[0m                     <input
+ [2m 947[0m | [35;1m|[0m                       type="email"
+ [2m 948[0m | [35;1m|[0m                       name="email"
+ [2m 949[0m | [35;1m|[0m                       className="form-input"
+ [2m 950[0m | [35;1m|[0m                       placeholder="이메일을 입력해주세요."
+ [2m 951[0m | [35;1m|[0m                       value={formData.email}
+ [2m 952[0m | [35;1m|[0m                       onChange={handleInputChange}
+ [2m 953[0m | [35;1m|[0m                     />
+ [2m 954[0m | [35;1m|[0m                   </div>
+ [2m 955[0m | [35;1m|[0m                   <div className="form-field">
+ [2m 956[0m | [35;1m|[0m                     <label className="form-label">창업 희망지역</label>
+ [2m 957[0m | [35;1m|[0m                     <input
+ [2m 958[0m | [35;1m|[0m                       type="text"
+ [2m 959[0m | [35;1m|[0m                       name="location"
+ [2m 960[0m | [35;1m|[0m                       className="form-input"
+ [2m 961[0m | [35;1m|[0m                       placeholder="주소"
+ [2m 962[0m | [35;1m|[0m                       value={formData.location}
+ [2m 963[0m | [35;1m|[0m                       onChange={handleInputChange}
+ [2m 964[0m | [35;1m|[0m                     />
+ [2m 965[0m | [35;1m|[0m                     <input
+ [2m 966[0m | [35;1m|[0m                       type="text"
+ [2m 967[0m | [35;1m|[0m                       name="detailLocation"
+ [2m 968[0m | [35;1m|[0m                       className="form-input"
+ [2m 969[0m | [35;1m|[0m                       placeholder="상세주소"
+ [2m 970[0m | [35;1m|[0m                       value={formData.detailLocation}
+ [2m 971[0m | [35;1m|[0m                       onChange={handleInputChange}
+ [2m 972[0m | [35;1m|[0m                     />
+ [2m 973[0m | [35;1m|[0m                   </div>
+ [2m 974[0m | [35;1m|[0m                   <div className="form-field form-field--full">
+ [2m 975[0m | [35;1m|[0m                     <label className="form-label">내용</label>
+ [2m 976[0m | [35;1m|[0m                     <textarea
+ [2m 977[0m | [35;1m|[0m                       name="content"
+ [2m 978[0m | [35;1m|[0m                       className="form-textarea"
+ [2m 979[0m | [35;1m|[0m                       placeholder="궁금하신 점을 적어주세요."
+ [2m 980[0m | [35;1m|[0m                       value={formData.content}
+ [2m 981[0m | [35;1m|[0m                       onChange={handleInputChange}
+ [2m 982[0m | [35;1m|[0m                     ></textarea>
+ [2m 983[0m | [35;1m|[0m                   </div>
+ [2m 984[0m | [35;1m|[0m                 </div>
+ [2m 985[0m | [35;1m|[0m   
+ [2m 986[0m | [35;1m|[0m                 <label className="form-privacy">
+ [2m 987[0m | [35;1m|[0m                   <input
+ [2m 988[0m | [35;1m|[0m                     type="checkbox"
+ [2m 989[0m | [35;1m|[0m                     name="privacy"
+ [2m 990[0m | [35;1m|[0m                     checked={formData.privacy}
+ [2m 991[0m | [35;1m|[0m                     onChange={handleInputChange}
+ [2m 992[0m | [35;1m|[0m                   />
+ [2m 993[0m | [35;1m|[0m                   <span>
+ [2m 994[0m | [35;1m|[0m                     <button type="button" className="privacy-link" onClick={() => setIsPrivacyPopupOpen(true)}>
+ [2m 995[0m | [35;1m|[0m                       개인정보 수집 및 이용
+ [2m 996[0m | [35;1m|[0m                     </button>
+ [2m 997[0m | [35;1m|[0m                     에 동의합니다.
+ [2m 998[0m | [35;1m|[0m                   </span>
+ [2m 999[0m | [35;1m|[0m                 </label>
+ [2m1000[0m | [35;1m|[0m   
+ [2m1001[0m | [35;1m|[0m                 <div className="form-submit-row">
+ [2m1002[0m | [35;1m|[0m                   <button
+ [2m1003[0m | [35;1m|[0m                     type="submit"
+ [2m1004[0m | [35;1m|[0m                     className="btn-submit"
+ [2m1005[0m | [35;1m|[0m                     disabled={isSubmitting}
+ [2m1006[0m | [35;1m|[0m                   >
+ [2m1007[0m | [35;1m|[0m                     {isSubmitting ? '전송 중...' : '문의하기'}
+ [2m1008[0m | [35;1m|[0m                   </button>
+ [2m1009[0m | [35;1m|[0m                 </div>
+ [2m1010[0m | [35;1m|[0m               </form>
+ [2m1011[0m | [35;1m|[0m             </div>
+ [2m1012[0m | [35;1m|[0m           </div>
+ [2m1013[0m | [35;1m|[0m         </section>
+ [2m1014[0m | [35;1m|[0m   
+ [2m1015[0m | [35;1m|[0m   
+ [2m1016[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m1017[0m | [35;1m|[0m              11. 관계사
+ [2m1018[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m1019[0m | [35;1m|[0m         <section className="section section-partners" id="partners">
+ [2m1020[0m | [35;1m|[0m           <div className="partners-list">
+ [2m1021[0m | [35;1m|[0m             <InfiniteSlider gap={isMobile ? 32 : 120} duration={80}>
+ [2m1022[0m | [35;1m|[0m               {[1, 2, 3, 4].map((set) => (
+ [2m1023[0m | [35;1m|[0m                 <div key={set} style={{ display: 'flex', gap: isMobile ? '32px' : '120px' }}>
+ [2m1024[0m | [35;1m|[0m                   <div className="partner-logo">
+ [2m1025[0m | [35;1m|[0m                     <img src="/assets/images/partners/logo-PetVillage.svg" alt="펫빌리지 로고" />
+ [2m1026[0m | [35;1m|[0m                   </div>
+ [2m1027[0m | [35;1m|[0m                   <div className="partner-logo">
+ [2m1028[0m | [35;1m|[0m                     <img src="/assets/images/partners/logo-monggeulnyanggeul.svg" alt="몽글냥글 로고" />
+ [2m1029[0m | [35;1m|[0m                   </div>
+ [2m1030[0m | [35;1m|[0m                   <div className="partner-logo">
+ [2m1031[0m | [35;1m|[0m                     <img src="/assets/images/partners/logo-petinkitchen.svg" alt="펫인키친 로고" />
+ [2m1032[0m | [35;1m|[0m                   </div>
+ [2m1033[0m | [35;1m|[0m                 </div>
+ [2m1034[0m | [35;1m|[0m               ))}
+ [2m1035[0m | [35;1m|[0m             </InfiniteSlider>
+ [2m1036[0m | [35;1m|[0m           </div>
+ [2m1037[0m | [35;1m|[0m         </section>
+ [2m1038[0m | [35;1m|[0m   
+ [2m1039[0m | [35;1m|[0m   
+ [2m1040[0m | [35;1m|[0m         {/* ══════════════════════════════════════════════
+ [2m1041[0m | [35;1m|[0m              12. FOOTER
+ [2m1042[0m | [35;1m|[0m              ══════════════════════════════════════════════ */}
+ [2m1043[0m | [35;1m|[0m         <footer className="site-footer" id="footer">
+ [2m1044[0m | [35;1m|[0m           <div className="footer-inner">
+ [2m1045[0m | [35;1m|[0m             <div className="footer-top">
+ [2m1046[0m | [35;1m|[0m               <ul className="footer-links">
+ [2m1047[0m | [35;1m|[0m                 <li><button type="button" className="privacy-link" onClick={() => setIsTermsPopupOpen(true)}>이용약관</button></li>
+ [2m1048[0m | [35;1m|[0m                 <li><button type="button" className="privacy-link" onClick={() => setIsFooterPrivacyPopupOpen(true)}>개인정보처리방침</button></li>
+ [2m1049[0m | [35;1m|[0m               </ul>
+ [2m1050[0m | [35;1m|[0m             </div>
+ [2m1051[0m | [35;1m|[0m   
+ [2m1052[0m | [35;1m|[0m             <div className="footer-info">
+ [2m1053[0m | [35;1m|[0m               <p>
+ [2m1054[0m | [35;1m|[0m                 대표: 신상훈 | 사업자 등록번호: 129-87-03274<br />
+ [2m1055[0m | [35;1m|[0m                 스토어: 서울시 양천구 남부순환로 425 멍냥의민족 1층<br />
+ [2m1056[0m | [35;1m|[0m                 본사: 서울특별시 강서구 공항대로 426 VIP빌딩 1001호<br />
+ [2m1057[0m | [35;1m|[0m                 이메일: help@pet-pal.co.kr | 통신판매업 신고번호 : 2022-고양덕양구-0659 | 개인정보관리자: 김연주
+ [2m1058[0m | [35;1m|[0m               </p>
+ [2m1059[0m | [35;1m|[0m             </div>
+ [2m1060[0m | [35;1m|[0m   
+ [2m1061[0m | [35;1m|[0m             <p className="footer-copyright">
+ [2m1062[0m | [35;1m|[0m               Copyright© 2026 <strong>mungmin</strong> All Rights Reserved.
+ [2m1063[0m | [35;1m|[0m             </p>
+ [2m1064[0m | [35;1m|[0m           </div>
+ [2m1065[0m | [35;1m|[0m         </footer>
+ [2m1066[0m | [35;1m|[0m   
+ [2m1067[0m | [35;1m|[0m         <ContactButton />
+ [2m1068[0m | [35;1m|[0m   
+ [2m1069[0m | [35;1m|[0m         <div className={`popup-overlay ${isPopupOpen ? 'is-active' : ''}`}>
+ [2m1070[0m | [35;1m|[0m           <div className="popup">
+ [2m1071[0m | [35;1m|[0m             <div className="popup-header" style={{ textAlign: 'center' }}>
+ [2m1072[0m | [35;1m|[0m               <p className="popup-eyebrow">알림</p>
+ [2m1073[0m | [35;1m|[0m               <h3 className="popup-title">
+ [2m1074[0m | [35;1m|[0m                 빈 항목이 있어요.<br />
+ [2m1075[0m | [35;1m|[0m                 필수항목을 입력해주세요.
+ [2m1076[0m | [35;1m|[0m               </h3>
+ [2m1077[0m | [35;1m|[0m             </div>
+ [2m1078[0m | [35;1m|[0m   
+ [2m1079[0m | [35;1m|[0m             <div className="popup-img-wrapper">
+ [2m1080[0m | [35;1m|[0m               <img
+ [2m1081[0m | [35;1m|[0m                 src="/assets/images/common/mungnyang-mascot-character-bichon.svg"
+ [2m1082[0m | [35;1m|[0m                 alt="Mungnyang Mascot"
+ [2m1083[0m | [35;1m|[0m                 style={{ width: '200px', height: '200px' }}
+ [2m1084[0m | [35;1m|[0m               />
+ [2m1085[0m | [35;1m|[0m             </div>
+ [2m1086[0m | [35;1m|[0m   
+ [2m1087[0m | [35;1m|[0m             <button
+ [2m1088[0m | [35;1m|[0m               type="button"
+ [2m1089[0m | [35;1m|[0m               className="popup-btn btn-primary"
+ [2m1090[0m | [35;1m|[0m               onClick={() => setIsPopupOpen(false)}
+ [2m1091[0m | [35;1m|[0m             >
+ [2m1092[0m | [35;1m|[0m               확인
+ [2m1093[0m | [35;1m|[0m             </button>
+ [2m1094[0m | [35;1m|[0m           </div>
+ [2m1095[0m | [35;1m|[0m         </div>
+ [2m1096[0m | [35;1m|[0m   
+ [2m1097[0m | [35;1m|[0m         {/* --- Video Popup --- */}
+ [2m1098[0m | [35;1m|[0m         {selectedVideo && (
+ [2m1099[0m | [35;1m|[0m           <div className="popup-overlay is-active" onClick={() => setSelectedVideo(null)}>
+ [2m1100[0m | [35;1m|[0m             <div
+ [2m1101[0m | [35;1m|[0m               className="video-popup-container"
+ [2m1102[0m | [35;1m|[0m               onClick={(e) => e.stopPropagation()}
+ [2m1103[0m | [35;1m|[0m               style={{
+ [2m1104[0m | [35;1m|[0m                 width: '100%',
+ [2m1105[0m | [35;1m|[0m                 maxWidth: '1200px',
+ [2m1106[0m | [35;1m|[0m                 position: 'relative'
+ [2m1107[0m | [35;1m|[0m               }}
+ [2m1108[0m | [35;1m|[0m             >
+ [2m1109[0m | [35;1m|[0m               {/* Close Button */}
+ [2m1110[0m | [35;1m|[0m               <button
+ [2m1111[0m | [35;1m|[0m                 onClick={() => setSelectedVideo(null)}
+ [2m1112[0m | [35;1m|[0m                 style={{
+ [2m1113[0m | [35;1m|[0m                   position: 'absolute',
+ [2m1114[0m | [35;1m|[0m                   top: '-56px', // 48px(size) + 8px(gap)
+ [2m1115[0m | [35;1m|[0m                   right: 0,
+ [2m1116[0m | [35;1m|[0m                   background: 'none',
+ [2m1117[0m | [35;1m|[0m                   border: 'none',
+ [2m1118[0m | [35;1m|[0m                   cursor: 'pointer',
+ [2m1119[0m | [35;1m|[0m                   padding: '0',
+ [2m1120[0m | [35;1m|[0m                   width: '48px',
+ [2m1121[0m | [35;1m|[0m                   height: '48px',
+ [2m1122[0m | [35;1m|[0m                   display: 'flex',
+ [2m1123[0m | [35;1m|[0m                   alignItems: 'center',
+ [2m1124[0m | [35;1m|[0m                   justifyContent: 'center'
+ [2m1125[0m | [35;1m|[0m                 }}
+ [2m1126[0m | [35;1m|[0m               >
+ [2m1127[0m | [35;1m|[0m                 <img
+ [2m1128[0m | [35;1m|[0m                   src="/assets/images/common/icon/close_24dp_FFFFFF_FILL0_wght300_GRAD-25_opsz24.svg"
+ [2m1129[0m | [35;1m|[0m                   alt="Close video"
+ [2m1130[0m | [35;1m|[0m                   style={{ width: '48px', height: '48px' }}
+ [2m1131[0m | [35;1m|[0m                 />
+ [2m1132[0m | [35;1m|[0m               </button>
+ [2m1133[0m | [35;1m|[0m   
+ [2m1134[0m | [35;1m|[0m               <div
+ [2m1135[0m | [35;1m|[0m                 style={{
+ [2m1136[0m | [35;1m|[0m                   position: 'relative',
+ [2m1137[0m | [35;1m|[0m                   paddingBottom: '56.25%', // 16:9 ratio
+ [2m1138[0m | [35;1m|[0m                   height: 0,
+ [2m1139[0m | [35;1m|[0m                   overflow: 'hidden',
+ [2m1140[0m | [35;1m|[0m                   borderRadius: '16px',
+ [2m1141[0m | [35;1m|[0m                   backgroundColor: '#000'
+ [2m1142[0m | [35;1m|[0m                 }}
+ [2m1143[0m | [35;1m|[0m               >
+ [2m1144[0m | [35;1m|[0m                 <iframe
+ [2m1145[0m | [35;1m|[0m                   src={selectedVideo}
+ [2m1146[0m | [35;1m|[0m                   title="YouTube video player"
+ [2m1147[0m | [35;1m|[0m                   frameBorder="0"
+ [2m1148[0m | [35;1m|[0m                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+ [2m1149[0m | [35;1m|[0m                   allowFullScreen
+ [2m1150[0m | [35;1m|[0m                   style={{
+ [2m1151[0m | [35;1m|[0m                     position: 'absolute',
+ [2m1152[0m | [35;1m|[0m                     top: 0,
+ [2m1153[0m | [35;1m|[0m                     left: 0,
+ [2m1154[0m | [35;1m|[0m                     width: '100%',
+ [2m1155[0m | [35;1m|[0m                     height: '100%'
+ [2m1156[0m | [35;1m|[0m                   }}
+ [2m1157[0m | [35;1m|[0m                 ></iframe>
+ [2m1158[0m | [35;1m|[0m               </div>
+ [2m1159[0m | [35;1m|[0m             </div>
+ [2m1160[0m | [35;1m|[0m           </div>
+ [2m1161[0m | [35;1m|[0m         )}
+ [2m1162[0m | [35;1m|[0m         {/* Privacy Policy Popup (Form) */}
+ [2m1163[0m | [35;1m|[0m         <div className={`popup-overlay ${isPrivacyPopupOpen ? 'is-active' : ''}`} onClick={() => setIsPrivacyPopupOpen(false)}>
+ [2m1164[0m | [35;1m|[0m           <div className="popup privacy-popup-content" onClick={(e) => e.stopPropagation()}>
+ [2m1165[0m | [35;1m|[0m             <h3>개인정보 수집 및 이용</h3>
+ [2m1166[0m | [35;1m|[0m             <div className="privacy-popup-body" data-lenis-prevent>
+ [2m1167[0m | [35;1m|[0m               {PRIVACY_POLICY.split('\n').map((line, index) => (
+ [2m1168[0m | [35;1m|[0m                 <p key={index}>{line || <br />}</p>
+ [2m1169[0m | [35;1m|[0m               ))}
+ [2m1170[0m | [35;1m|[0m             </div>
+ [2m1171[0m | [35;1m|[0m             <div className="privacy-popup-footer">
+ [2m1172[0m | [35;1m|[0m               <button
+ [2m1173[0m | [35;1m|[0m                 type="button"
+ [2m1174[0m | [35;1m|[0m                 className="btn btn-m btn-primary btn-round"
+ [2m1175[0m | [35;1m|[0m                 onClick={() => setIsPrivacyPopupOpen(false)}
+ [2m1176[0m | [35;1m|[0m                 style={{ width: '100%' }}
+ [2m1177[0m | [35;1m|[0m               >
+ [2m1178[0m | [35;1m|[0m                 확인
+ [2m1179[0m | [35;1m|[0m               </button>
+ [2m1180[0m | [35;1m|[0m             </div>
+ [2m1181[0m | [35;1m|[0m           </div>
+ [2m1182[0m | [35;1m|[0m         </div>
+ [2m1183[0m | [35;1m|[0m   
+ [2m1184[0m | [35;1m|[0m         {/* Terms of Service Popup (Footer) */}
+ [2m1185[0m | [35;1m|[0m         <div className={`popup-overlay ${isTermsPopupOpen ? 'is-active' : ''}`} onClick={() => setIsTermsPopupOpen(false)}>
+ [2m1186[0m | [35;1m|[0m           <div className="popup privacy-popup-content" onClick={(e) => e.stopPropagation()}>
+ [2m1187[0m | [35;1m|[0m             <h3>이용약관</h3>
+ [2m1188[0m | [35;1m|[0m             <div className="privacy-popup-body" data-lenis-prevent>
+ [2m1189[0m | [35;1m|[0m               {TERMS_OF_SERVICE.split('\n').map((line, index) => (
+ [2m1190[0m | [35;1m|[0m                 <p key={index}>{line || <br />}</p>
+ [2m1191[0m | [35;1m|[0m               ))}
+ [2m1192[0m | [35;1m|[0m             </div>
+ [2m1193[0m | [35;1m|[0m             <div className="privacy-popup-footer">
+ [2m1194[0m | [35;1m|[0m               <button
+ [2m1195[0m | [35;1m|[0m                 type="button"
+ [2m1196[0m | [35;1m|[0m                 className="btn btn-m btn-primary btn-round"
+ [2m1197[0m | [35;1m|[0m                 onClick={() => setIsTermsPopupOpen(false)}
+ [2m1198[0m | [35;1m|[0m                 style={{ width: '100%' }}
+ [2m1199[0m | [35;1m|[0m               >
+ [2m1200[0m | [35;1m|[0m                 확인
+ [2m1201[0m | [35;1m|[0m               </button>
+ [2m1202[0m | [35;1m|[0m             </div>
+ [2m1203[0m | [35;1m|[0m           </div>
+ [2m1204[0m | [35;1m|[0m         </div>
+ [2m1205[0m | [35;1m|[0m   
+ [2m1206[0m | [35;1m|[0m         {/* Privacy Policy Popup (Footer) */}
+ [2m1207[0m | [35;1m|[0m         <div className={`popup-overlay ${isFooterPrivacyPopupOpen ? 'is-active' : ''}`} onClick={() => setIsFooterPrivacyPopupOpen(false)}>
+ [2m1208[0m | [35;1m|[0m           <div className="popup privacy-popup-content" onClick={(e) => e.stopPropagation()}>
+ [2m1209[0m | [35;1m|[0m             <h3>개인정보처리방침</h3>
+ [2m1210[0m | [35;1m|[0m             <div className="privacy-popup-body" data-lenis-prevent>
+ [2m1211[0m | [35;1m|[0m               {PRIVACY_POLICY.split('\n').map((line, index) => (
+ [2m1212[0m | [35;1m|[0m                 <p key={index}>{line || <br />}</p>
+ [2m1213[0m | [35;1m|[0m               ))}
+ [2m1214[0m | [35;1m|[0m             </div>
+ [2m1215[0m | [35;1m|[0m             <div className="privacy-popup-footer">
+ [2m1216[0m | [35;1m|[0m               <button
+ [2m1217[0m | [35;1m|[0m                 type="button"
+ [2m1218[0m | [35;1m|[0m                 className="btn btn-m btn-primary btn-round"
+ [2m1219[0m | [35;1m|[0m                 onClick={() => setIsFooterPrivacyPopupOpen(false)}
+ [2m1220[0m | [35;1m|[0m                 style={{ width: '100%' }}
+ [2m1221[0m | [35;1m|[0m               >
+ [2m1222[0m | [35;1m|[0m                 확인
+ [2m1223[0m | [35;1m|[0m               </button>
+ [2m1224[0m | [35;1m|[0m             </div>
+ [2m1225[0m | [35;1m|[0m           </div>
+ [2m1226[0m | [35;1m|[0m         </div>
+ [2m1227[0m | [35;1m|[0m       </>
+ [2m1228[0m | [35;1m`[0m[35;1m-[0m[35;1m>[0m   );
+ [2m1229[0m |     }
+      `----
+  [31mx[0m Expression expected
+      ,-[[36;1;4mD:\me\design\mungmin\app\main\page.js[0m:1229:1]
+ [2m1226[0m |       </div>
+ [2m1227[0m |     </>
+ [2m1228[0m |   );
+ [2m1229[0m | }
+      : [35;1m^[0m
+      `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/main/page.js
+ ✓ Compiled in 870ms (1426 modules)
+ GET /main 200 in 304ms
+ GET /main 200 in 308ms
+ GET /main 200 in 112ms
+ GET /main 200 in 113ms
+ GET /main 200 in 73ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 782ms (1417 modules)
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 815ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 817ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 1162ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 1164ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 179ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 182ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 179ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 181ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 80ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 80ms

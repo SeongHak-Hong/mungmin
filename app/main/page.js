@@ -4,13 +4,16 @@ import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/Header';
 import ContactButton from '@/components/ContactButton';
 import { InfiniteSlider } from '@/components/InfiniteSlider';
-import { COST_DATA, COST_TOTAL, STARTUP_STEPS, VIDEO_LINKS, HERO_BODY_TEXT } from '@/lib/content';
+import { COST_DATA, COST_TOTAL, STARTUP_STEPS, VIDEO_LINKS, SUCCESS_STORIES, HERO_BODY_TEXT } from '@/lib/content';
 import { TERMS_OF_SERVICE, PRIVACY_POLICY } from '@/lib/policies';
 import '@/styles/main.css';
+import '@/styles/success-slider.css';
 
 export default function MainPage() {
   const heroBodyXlRef = useRef(null);
   const graphRef = useRef(null);
+  const successSliderRef = useRef(null);
+  const headerRef = useRef(null);
 
   // --- Form & Popup State ---
   const [formData, setFormData] = useState({
@@ -27,6 +30,7 @@ export default function MainPage() {
   const [isTermsPopupOpen, setIsTermsPopupOpen] = useState(false);
   const [isFooterPrivacyPopupOpen, setIsFooterPrivacyPopupOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [sliderIndex, setSliderIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -832,34 +836,65 @@ export default function MainPage() {
            ══════════════════════════════════════════════ */}
       <section className="section section-success-stories" id="success-stories">
         <div className="contents-wrapper contents-wrapper--column">
-          <div className="section-header">
-            <p className="eyebrow">창업성공기</p>
-            <h2 className="h2">
-              실제 점주님의 리얼한<br />
-              창업 성공기를 들어보세요
-            </h2>
+          <div className="section-header section-header--with-controls">
+            <div className="section-header-text">
+              <p className="eyebrow">창업성공기</p>
+              <h2 className="h2">
+                실제 점주님의 리얼한<br />
+                창업 성공기를 들어보세요
+              </h2>
+            </div>
+            {!isMobile && (
+              <div className="slider-controls">
+                <button 
+                  className="slider-btn prev-btn" 
+                  onClick={() => {
+                    setSliderIndex(prev => Math.max(0, prev - 1));
+                  }}
+                  disabled={sliderIndex === 0}
+                  aria-label="Previous slide"
+                >
+                  <img src="/assets/images/common/icon/arrow_back_24dp_131313_FILL0_wght300_GRAD0_opsz24.svg" alt="Left" />
+                </button>
+                <button 
+                  className="slider-btn next-btn" 
+                  onClick={() => {
+                    // Maximum index is set to 2 (SUCCESS_STORIES.length - 3) so that the 5th card reaches the end of the 1200px grid.
+                    setSliderIndex(prev => Math.min(SUCCESS_STORIES.length - 3, prev + 1));
+                  }}
+                  disabled={sliderIndex >= SUCCESS_STORIES.length - 3}
+                  aria-label="Next slide"
+                >
+                  <img src="/assets/images/common/icon/arrow_forward_24dp_131313_FILL0_wght300_GRAD0_opsz24.svg" alt="Right" />
+                </button>
+              </div>
+            )}
           </div>
 
-          <div className="youtube-grid">
-            {[
-              { category: '점주 인터뷰', title: '양천구 신정점 점주님이 들려주는 멍냥의민족 이야기' },
-              { category: '매장 탐방', title: '깔끔한 인테리어와 다양한 간식이 가득한 매장 둘러보기' },
-              { category: '창업 꿀팁', title: '반려동물 무인 매장 창업 전, 꼭 알아야 할 핵심 포인트' },
-            ].map((video, i) => (
-              <div className="youtube-card" key={i}>
-                <div
-                  className="youtube-placeholder"
-                  onClick={() => setSelectedVideo(VIDEO_LINKS[i])}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {/* CSS will handle the play button and dimmed overlay */}
+          <div className="success-stories-slider-container">
+            <div 
+              className="success-stories-list"
+              style={{ 
+                transform: isMobile ? 'none' : `translateX(-${sliderIndex * (387 + 24)}px)`
+              }}
+            >
+              {SUCCESS_STORIES.map((video) => (
+                <div className="youtube-card" key={video.id} onClick={() => setSelectedVideo(`https://www.youtube.com/embed/${video.id}?autoplay=1`)}>
+                  <div
+                    className="youtube-placeholder"
+                    style={{ 
+                      backgroundImage: `url(https://img.youtube.com/vi/${video.id}/maxresdefault.jpg)`
+                    }}
+                  >
+                    <div className="play-button-overlay"></div>
+                  </div>
+                  <div className="youtube-info">
+                    <p className="video-eyebrow">{video.eyebrow}</p>
+                    <h3 className="video-title">{video.title}</h3>
+                  </div>
                 </div>
-                <div className="youtube-info">
-                  <p className="video-eyebrow">{video.category}</p>
-                  <h3 className="video-title" onClick={() => setSelectedVideo(VIDEO_LINKS[i])} style={{ cursor: 'pointer' }}>{video.title}</h3>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

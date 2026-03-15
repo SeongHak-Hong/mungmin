@@ -1657,32 +1657,7 @@
     /* Startup steps Mobile */
     /* Handled further down */
 
-    /* Success Stories Mobile */
-    /* Success Stories Mobile Slider */
-    .youtube-grid {
-        display: flex !important;
-        flex-direction: row !important;
-        scroll-snap-type: x mandatory;
-        gap: 16px !important;
-        padding-bottom: 24px;
-        -ms-overflow-style: none;
-        /* Hide scrollbar for IE/Edge */
-        scrollbar-width: none;
-        /* Hide scrollbar for Firefox */
-    }
-
-    .youtube-grid::-webkit-scrollbar {
-        display: none;
-        /* Hide scrollbar for Chrome/Safari */
-    }
-
-    .youtube-card {
-        min-width: 85% !important;
-        scroll-snap-align: center;
-        touch-action: pan-x;
-        /* Help with dragging interaction on mobile */
-        -webkit-overflow-scrolling: touch;
-    }
+    /* Success Stories Mobile is now handled in success-slider.css */
 
     /* Contact Form Mobile */
     .contact-header-row {
