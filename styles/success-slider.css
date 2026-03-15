@@ -1,0 +1,194 @@
+/* ==========================================================================
+   SUCCESS STORIES SECTION – Slider
+   ========================================================================== */
+.section-success-stories {
+    overflow: hidden;
+    background-color: var(--color-bg-light);
+}
+
+.section-header--with-controls {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: flex-end !important;
+}
+
+.slider-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: var(--gap-xl);
+}
+
+.slider-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border-dark);
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.slider-btn:hover:not(:disabled) {
+    background-color: var(--color-gray-light);
+    border-color: var(--color-gray-medium);
+}
+
+.slider-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.slider-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.success-stories-slider-container {
+    width: 100%;
+}
+
+.success-stories-list {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+}
+
+.youtube-card {
+    width: 387px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.youtube-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-black);
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-m);
+    position: relative;
+    overflow: hidden;
+}
+
+.youtube-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.youtube-placeholder:hover::before {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0;
+    /* Hidden by default on PC */
+}
+
+.youtube-card:hover .play-button-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-button-overlay img {
+    width: 32px;
+    height: 32px;
+}
+
+.youtube-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.video-eyebrow {
+    font-size: 16px;
+    font-weight: var(--fw-semibold);
+    color: var(--color-accent);
+}
+
+.video-title {
+    font-size: 20px;
+    font-weight: var(--fw-semibold);
+    color: var(--color-text-default);
+    line-height: 1.4;
+    word-break: keep-all;
+    transition: color 0.2s ease;
+}
+
+.video-title:hover {
+    color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+    .section-header--with-controls {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .success-stories-slider-container {
+        overflow-x: auto;
+        padding-bottom: 24px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+    }
+
+    .success-stories-slider-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .success-stories-list {
+        padding-inline: 16px;
+        transform: none !important;
+    }
+
+    .youtube-card {
+        width: 320px;
+        /* Requested size */
+        scroll-snap-align: center;
+    }
+
+    .video-eyebrow {
+        font-size: 14px;
+        /* Requested size */
+    }
+
+    .video-title {
+        font-size: 18px;
+        /* Requested size */
+    }
+
+    .play-button-overlay {
+        opacity: 1 !important;
+        /* Always visible on mobile */
+        width: 48px;
+        height: 48px;
+    }
+
+    .play-button-overlay img {
+        width: 24px;
+        height: 24px;
+    }
+}

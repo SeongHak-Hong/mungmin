@@ -1,0 +1,57 @@
+
+> mungmin@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.12
+   - Local:        http://localhost:3000
+   - Network:      http://220.123.50.80:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1771ms
+ ○ Compiling /main ...
+ ✓ Compiled /main in 1224ms (1408 modules)
+ GET /main 200 in 2940ms
+ GET /main 200 in 230ms
+ GET /main 200 in 32ms
+ GET /main 200 in 297ms
+ GET /main 200 in 449ms
+ ✓ Compiled in 1813ms (1422 modules)
+ GET /main 200 in 152ms
+ GET /main 200 in 155ms
+ ✓ Compiled in 537ms (1422 modules)
+ GET /main 200 in 140ms
+ GET /main 200 in 147ms
+ GET /main 200 in 417ms
+ ✓ Compiled in 916ms (1422 modules)
+ GET /main 200 in 134ms
+ GET /main 200 in 150ms
+ GET /main 200 in 444ms
+ GET /main 200 in 344ms
+ ✓ Compiled in 603ms (1422 modules)
+ GET /main 200 in 168ms
+ GET /main 200 in 171ms
+ GET /main 200 in 39ms
+ ✓ Compiled in 969ms (1422 modules)
+ GET /main 200 in 583ms
+ GET /main 200 in 306ms
+ GET /main 200 in 201ms
+ ✓ Compiled in 262ms (1422 modules)
+ GET /main 200 in 144ms
+ GET /main 200 in 144ms
+ GET /main 200 in 34ms
+ ✓ Compiled in 747ms (1422 modules)
+ GET /main 200 in 183ms
+ GET /main 200 in 185ms
+ GET /main 200 in 64ms
+ ✓ Compiled in 565ms (1422 modules)
+ GET /main 200 in 193ms
+ GET /main 200 in 196ms
+ GET /main 200 in 80ms
+ ✓ Compiled in 368ms (1422 modules)
+ GET /main 200 in 139ms
+ GET /main 200 in 141ms
+ GET /main 200 in 62ms
+ GET /main 200 in 460ms
+ GET /main 200 in 173ms
+ GET /main 200 in 288ms

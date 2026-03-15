@@ -22,13 +22,27 @@
     /* ── Font Weights ── */
     --fw-medium: 500;
     --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
 
     /* ── Colors ── */
-    --color-text-default: #333737;
+    --color-text-default: #131313;
     --color-text-secondary: #707272;
     --color-accent: #2BC2BD;
+    --color-accent-dim: rgba(43, 194, 189, 0.15);
+    --color-accent-light: #7DD8D4;
     --color-white: #FFFFFF;
     --color-black: #000000;
+    --color-bg-light: #F8F9FA;
+    --color-bg-accent-soft: #F3FFFF;
+    --color-border: #EDEDED;
+    --color-border-dark: #CCCCCC;
+    --color-gray-medium: #ACACAC;
+    --color-gray-light: #F0F1F3;
+    --color-teal-dark: #0B5C5C;
+    --color-dark-gray: #111A1A;
+    --color-intro-left: #3B87C0;
+    --color-intro-right: #1EC0E8;
 
     /* ── Typography Scale ── */
     /* H1 - Title Hero */
@@ -64,10 +78,10 @@
     --body-s-color: var(--color-text-secondary);
 
     /* ── Section ── */
-    --section-padding-block: 100px;
+    --section-padding-block: 160px;
     /* 상하 패딩 */
     --contents-width: 1200px;
-    --contents-gap: 24px;
+    --contents-gap: 48px;
     --img-wrapper-width: 588px;
     --img-wrapper-height: 560px;
     --title-eyebrow-gap: 16px;
@@ -75,6 +89,13 @@
     --title-btn-gap: 48px;
 
     /* ── Button Sizes ── */
+    /* 2XL */
+    --btn-2xl-pl: 36px;
+    --btn-2xl-pr: 32px;
+    --btn-2xl-py: 18px;
+    --btn-2xl-gap: 8px;
+    --btn-2xl-font-size: 40px;
+
     /* XL */
     --btn-xl-px: 36px;
     --btn-xl-py: 18px;
@@ -102,7 +123,7 @@
     /* ── Popup ── */
     --popup-width: 482px;
     --popup-min-height: 482px;
-    --popup-padding: 32px;
+    --popup-padding: 16px;
     --popup-eyebrow-size: 20px;
     --popup-title-size: 28px;
     --popup-eyebrow-title-gap: 8px;
@@ -112,8 +133,22 @@
     --popup-btn-py: 12px;
     --popup-btn-font-size: 16px;
 
-    /* ── Button Radius ── */
-    --btn-radius-round: 99px;
+    /* ── Radius ── */
+    --radius-full: 9999px;
+    --radius-xl: 48px;
+    --radius-l: 32px;
+    --radius-m: 16px;
+    --radius-s: 12px;
+    --btn-radius-round: var(--radius-full);
+
+    /* ── Spacing Tokens ── */
+    --gap-xl: 64px;
+    --gap-l: 40px;
+    --gap-m: 24px;
+    --gap-s: 16px;
+
+    /* ── Custom UI Tokens ── */
+    --trend-header-eyebrow-size: 40px;
 }
 
 
@@ -127,6 +162,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -144,11 +183,20 @@ img {
     height: auto;
 }
 
+/* Scroll Lock Utility */
+html.no-scroll,
+body.no-scroll {
+    overflow: hidden !important;
+}
+
+
+
 
 /* ────────────────────────────────────────────────────────────
    3. TYPOGRAPHY
    ──────────────────────────────────────────────────────────── */
 
+h1,
 .h1 {
     font-size: var(--h1-size);
     font-weight: var(--h1-weight);
@@ -156,6 +204,7 @@ img {
     letter-spacing: var(--letter-spacing);
 }
 
+h2,
 .h2 {
     font-size: var(--h2-size);
     font-weight: var(--h2-weight);
@@ -164,6 +213,7 @@ img {
     letter-spacing: var(--letter-spacing);
 }
 
+h3,
 .h3 {
     font-size: var(--h3-size);
     font-weight: var(--h3-weight);
@@ -229,8 +279,23 @@ img {
     align-items: center;
 }
 
+.section-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--title-eyebrow-gap, 16px);
+    width: 100%;
+}
+
+.section-header-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--title-body-gap, 48px);
+    width: 100%;
+}
+
 .contents-wrapper--column {
     flex-direction: column;
+    gap: 0;
 }
 
 .contents-wrapper--reverse {
@@ -308,6 +373,12 @@ img {
 
 /* ── Size Variants ── */
 
+.btn-2xl {
+    padding: var(--btn-2xl-py) var(--btn-2xl-pr) var(--btn-2xl-py) var(--btn-2xl-pl);
+    font-size: var(--btn-2xl-font-size);
+    gap: var(--btn-2xl-gap);
+}
+
 .btn-xl {
     padding: var(--btn-xl-py) var(--btn-xl-px);
     font-size: var(--btn-xl-font-size);
@@ -374,6 +445,7 @@ img {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    overscroll-behavior: contain; /* Prevent scroll chaining to background */
 }
 
 .popup-overlay.is-active {
@@ -386,9 +458,10 @@ img {
     min-height: var(--popup-min-height);
     padding: var(--popup-padding);
     background-color: var(--color-white);
-    border-radius: 16px;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
     transform: translateY(20px);
     transition: transform 0.3s ease;
@@ -444,17 +517,17 @@ img {
 
 /* ── Popup Image ── */
 .popup-img-wrapper {
-    height: var(--popup-img-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-block: var(--popup-img-padding-block);
     overflow: hidden;
-    border-radius: 8px;
 }
 
 .popup-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 /* ── Popup Body ── */
@@ -475,12 +548,11 @@ img {
     line-height: var(--line-height);
     letter-spacing: var(--letter-spacing);
     border: none;
-    border-radius: 8px;
+    border-radius: 99px;
     cursor: pointer;
     transition: opacity 0.2s ease;
     text-decoration: none;
     width: 100%;
-    margin-top: auto;
 }
 
 .popup-btn:hover {
@@ -542,10 +614,12 @@ img {
     background-color: var(--color-white);
 }
 
-/* 
-   7. SHARED COMPONENTS  HEADER
-    */
 
+/* ────────────────────────────────────────────────────────────
+   8. SHARED COMPONENTS (HEADER, FLOATING BUTTON)
+   ──────────────────────────────────────────────────────────── */
+
+/* ── HEADER ── */
 .site-header {
     position: sticky;
     top: 0;
@@ -592,7 +666,7 @@ img {
 
 .header-nav a:hover,
 .header-nav a.is-active {
-    color: #333737;
+    color: var(--color-text-default);
 }
 
 .header-cta .btn {
@@ -601,17 +675,138 @@ img {
 }
 
 
-/* 
-   8. SHARED COMPONENTS  FLOATING CONTACT BUTTON
-    */
+/* ── Mobile Menu (Overlay) ── */
+.mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 99px;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+}
 
+.mobile-menu-toggle img {
+    width: 24px;
+    height: 24px;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-accent);
+    /* Revert to brand accent color */
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-menu-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    /* Padding TB 16px instead of fixed height */
+    position: relative;
+    z-index: 10;
+}
+
+.mobile-menu-close {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-close img {
+    filter: none;
+    /* Icon is already white */
+}
+
+.mobile-menu-overlay .header-logo img {
+    filter: brightness(0) invert(1);
+    /* Ensure logo is white only on accent background (toggle) */
+}
+
+.mobile-nav {
+    flex: 1;
+    /* Occupy remaining space below header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    /* Point 1: Remove markers */
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.mobile-nav li {
+    list-style: none !important;
+}
+
+.mobile-nav li::marker {
+    content: none !important;
+    /* Force remove markers */
+}
+
+.mobile-nav li {
+    border-bottom: none;
+    /* Remove dividers */
+}
+
+.mobile-nav a {
+    display: inline-block;
+    padding: 8px 0;
+    font-size: 28px;
+    font-weight: var(--fw-semibold);
+    color: var(--color-white);
+    /* White text */
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.mobile-nav a:active {
+    opacity: 0.7;
+}
+
+
+/* ── FLOATING CONTACT BUTTON ── */
 .floating-contact-btn {
     position: fixed;
     right: 40px;
     top: 50%;
     transform: translateY(-50%);
     width: auto;
-    /* SVG 원본 너비에 맞춤 */
     z-index: 1001;
     pointer-events: none;
 }
@@ -629,7 +824,6 @@ img {
 .contact-btn-text-balloon {
     position: absolute;
     top: 0px;
-    /* Adjusting to fit inside the SVG balloon area */
     left: 46%;
     transform: translateX(-50%);
     width: 150px;
@@ -654,4 +848,105 @@ img {
     font-size: 24px;
     font-weight: var(--fw-semibold);
     line-height: 1.2;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   9. MOBILE RESPONSIVE (Global)
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    :root {
+        --h1-size: 32px;
+        --h2-size: 28px;
+        --h3-size: 20px;
+        /* Section Eyebrow font size */
+        --body-xl-size: 18px;
+        --body-l-size: 16px;
+        --body-m-size: 15px;
+        --section-padding-block: 48px;
+        --section-header-gap: 32px;
+        /* Updated MB for section title */
+    }
+
+    body {
+        overflow-x: hidden !important;
+    }
+
+    .section {
+        padding-block: 48px !important;
+        padding-inline: 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    .section-header {
+        margin-bottom: 32px !important;
+        gap: 8px !important;
+    }
+
+    .section-header-group {
+        gap: 16px !important;
+    }
+
+    .section-header-group>.section-header {
+        margin-bottom: 0 !important;
+    }
+
+    .eyebrow {
+        font-size: 20px !important;
+    }
+
+    * {
+        line-height: 1.5 !important;
+    }
+
+    .contents-wrapper {
+        flex-direction: column !important;
+        gap: 0 !important;
+        /* Gap removed in mobile as previously requested */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-inline: 0 !important;
+    }
+
+    .site-header {
+        padding: 16px 0 !important;
+    }
+
+    .header-inner {
+        padding-inline: 16px !important;
+    }
+
+    .desktop-nav,
+    .desktop-only,
+    .header-cta {
+        display: none !important;
+    }
+
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+
+    .img-wrapper {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+    }
+
+    .floating-contact-btn {
+        display: none !important;
+    }
+
+    /* Card/UI Refinements */
+    .card,
+    .faq-item,
+    .contact-form-container {
+        padding: 24px !important;
+        border-radius: 20px !important;
+    }
+
+    .comp-card {
+        border-radius: 20px !important;
+        padding: 0 !important;
+    }
 }

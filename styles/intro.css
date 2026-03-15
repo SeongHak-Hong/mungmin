@@ -1,17 +1,14 @@
 /* ── Intro Page Styles ── */
 
-html,
-body {
-    height: 100%;
-    overflow: hidden;
-}
-
 .intro {
     display: flex;
     width: 100%;
     height: 100vh;
     height: 100dvh;
-    position: relative;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 9999;
 }
 
 /* ── Split Panel (공통) ── */
@@ -19,22 +16,22 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 80px 60px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 64px 96px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-/* ── Hover Dimmed Effect (#000000, 20% 투명도) ── */
+/* ── Hover Dimmed Effect (#000000, 50% 투명도) ── */
 .intro-panel::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: #000000;
-    opacity: 0.2;
+    background-color: var(--color-black);
+    opacity: 0.5;
     transition: opacity 0.3s ease;
     z-index: 10;
     pointer-events: none;
@@ -44,40 +41,48 @@ body {
     opacity: 0;
 }
 
+/* ── Bottom Gradient Overlay ── */
+/* 시작지점 60% #2BC2BD 투명도 0%, 끝지점 100% #2BC2BD, 투명도 100% */
+.intro-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, var(--color-accent) 100%);
+    z-index: 15;
+    pointer-events: none;
+}
+
 /* ── Left Panel ── */
 .intro-panel--left {
-    background-color: #3B87C0;
+    background-color: var(--color-intro-left);
 }
 
 /* ── Right Panel ── */
 .intro-panel--right {
-    background-color: #1EC0E8;
-    align-items: flex-end;
-    text-align: right;
-}
-
-/* ── Panel Title ── */
-.intro-title {
-    font-size: var(--h2-size);
-    font-weight: var(--h2-weight);
-    color: var(--color-white);
-    line-height: var(--line-height);
-    letter-spacing: var(--letter-spacing);
-    position: relative;
-    z-index: 20;
+    background-color: var(--color-intro-right);
 }
 
 /* ── Panel Button ── */
 .intro-btn {
-    margin-top: 48px;
     background-color: var(--color-white);
-    color: var(--color-text-default);
+    color: var(--color-text-secondary);
     position: relative;
     z-index: 20;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+.intro-panel:hover .intro-btn,
 .intro-btn:hover {
-    opacity: 0.9;
+    color: var(--color-accent);
+}
+
+/* ── Button Text Weight Variants ── */
+.intro-btn .btn-text-medium {
+    font-weight: var(--fw-medium);
+}
+
+.intro-btn .btn-text-extrabold {
+    font-weight: var(--fw-extrabold);
 }
 
 /* ── Panel Background Image ── */
@@ -91,63 +96,6 @@ body {
     object-position: center bottom;
     pointer-events: none;
     z-index: 1;
-}
-
-/* ── Center Mascot Character ── */
-.intro-mascot {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 500px;
-    z-index: 1000;
-    pointer-events: none;
-}
-
-.intro-mascot svg {
-    width: 100%;
-    height: 100%;
-}
-
-/* ── Tail Wagging Animation ── */
-@keyframes tail-wag {
-    0%,
-    100% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(12deg);
-    }
-    75% {
-        transform: rotate(-8deg);
-    }
-}
-
-#mascot-tail {
-    animation: tail-wag 0.8s ease-in-out infinite;
-}
-
-/* ── Center Logo Overlay ── */
-.intro-logo-overlay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 167px;
-    z-index: 500;
-    pointer-events: none;
-    mix-blend-mode: soft-light;
-    opacity: 0.25;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.intro-logo-overlay img {
-    height: 100%;
-    width: auto;
-    filter: brightness(0) invert(1);
 }
 
 /* ── Responsive ── */
@@ -165,16 +113,7 @@ body {
         flex: 1;
     }
 
-    .intro-title {
-        font-size: 28px;
-    }
-
-    .intro-mascot {
-        width: 300px;
-        height: 300px;
-    }
-
-    .intro-logo-overlay {
-        height: 80px;
+    .intro-btn {
+        font-size: 24px;
     }
 }

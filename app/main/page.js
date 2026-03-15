@@ -1,72 +1,128 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/Header';
 import ContactButton from '@/components/ContactButton';
+import { InfiniteSlider } from '@/components/InfiniteSlider';
+import { COST_DATA, COST_TOTAL, STARTUP_STEPS, VIDEO_LINKS, HERO_BODY_TEXT } from '@/lib/content';
+import { TERMS_OF_SERVICE, PRIVACY_POLICY } from '@/lib/policies';
 import '@/styles/main.css';
 
 export default function MainPage() {
   const heroBodyXlRef = useRef(null);
-  const allCharsRef = useRef([]);
+  const graphRef = useRef(null);
+
+  // --- Form & Popup State ---
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    location: '',
+    detailLocation: '',
+    content: '',
+    privacy: false
+  });
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPrivacyPopupOpen, setIsPrivacyPopupOpen] = useState(false);
+  const [isTermsPopupOpen, setIsTermsPopupOpen] = useState(false);
+  const [isFooterPrivacyPopupOpen, setIsFooterPrivacyPopupOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // ════════════════════════════════════════════════
-    // COST SLIDER LOGIC
-    // ════════════════════════════════════════════════
-    const sliderWrapper = document.querySelector('.cost-slider-wrapper');
-    const slider = document.querySelector('.cost-slider');
-    const originalCards = Array.from(document.querySelectorAll('.cost-card'));
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-    if (sliderWrapper && slider && originalCards.length > 0) {
-      const cardWidth = originalCards[0].offsetWidth;
-      const gap = 24;
-      const cloneCount = 4;
-
-      for (let i = 0; i < cloneCount; i++) {
-        slider.appendChild(originalCards[i].cloneNode(true));
-        slider.insertBefore(originalCards[originalCards.length - 1 - i].cloneNode(true), slider.firstChild);
+  // --- Scroll Lock when popup is open ---
+  useEffect(() => {
+    const isAnyPopupOpen = isPrivacyPopupOpen || isTermsPopupOpen || isFooterPrivacyPopupOpen || isPopupOpen || selectedVideo;
+    
+    if (isAnyPopupOpen) {
+      document.documentElement.classList.add('no-scroll');
+      document.body.classList.add('no-scroll');
+      if (window.lenis) {
+        window.lenis.stop();
       }
-
-      let currentIndex = cloneCount;
-      let isTransitioning = false;
-
-      function updateSlider(animate = true) {
-        const wrapperWidth = sliderWrapper.offsetWidth;
-        const offset = (wrapperWidth / 2) - (currentIndex * (cardWidth + gap) + (cardWidth / 2));
-        if (!animate) {
-          slider.style.transition = 'none';
-        } else {
-          slider.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-        }
-        slider.style.transform = 'translateX(' + offset + 'px)';
+    } else {
+      document.documentElement.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll');
+      if (window.lenis) {
+        window.lenis.start();
       }
-
-      function slideNext() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex++;
-        updateSlider(true);
-      }
-
-      slider.addEventListener('transitionend', function () {
-        isTransitioning = false;
-        if (currentIndex >= originalCards.length + cloneCount) {
-          currentIndex = cloneCount;
-          updateSlider(false);
-        }
-        if (currentIndex < cloneCount) {
-          currentIndex = originalCards.length + cloneCount - 1;
-          updateSlider(false);
-        }
-      });
-
-      const interval = setInterval(slideNext, 5000);
-      updateSlider(false);
-
-      window.addEventListener('resize', function () {
-        updateSlider(false);
-      });
     }
+
+    return () => {
+      document.documentElement.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll');
+      if (window.lenis) {
+        window.lenis.start();
+      }
+    };
+  }, [isPrivacyPopupOpen, isTermsPopupOpen, isFooterPrivacyPopupOpen, isPopupOpen, selectedVideo]);
+
+  /* Removed local definitions for better maintainability */
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, phone, email, location, detailLocation, content, privacy } = formData;
+
+    // Validation: All fields must be filled and privacy must be checked
+    if (!name || !phone || !email || !location || !detailLocation || !content || !privacy) {
+      setIsPopupOpen(true);
+      return;
+    }
+
+    // Process form submission
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('문의가 성공적으로 전송되었습니다. 담당자가 확인 후 연락드리겠습니다.');
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          location: '',
+          detailLocation: '',
+          content: '',
+          privacy: false
+        });
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('문의 전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  useEffect(() => {
+    // References for cleanup
+    let heroScrollHandler = null;
+    let heroResizeHandler = null;
+    let graphObserver = null;
 
     // ════════════════════════════════════════════════
     // HERO SECTION — Interactive Scroll Logic
@@ -80,8 +136,11 @@ export default function MainPage() {
     const character = document.getElementById('hero-character');
 
     if (heroSpacer && hero && bgDay && bgNight && titleContent && bodyXlEl && character) {
+      // Clear any previously generated content (cleanup for Strict Mode)
+      bodyXlEl.innerHTML = '';
+
       // Split text into per-char spans
-      const bodyText = '멍냥의민족은 단순히 물건만 사고파는 무인 매장이 아닙니다. 앱으로 미리 주문해 배송비를 아끼고, 매장 안 스튜디오에서는 아이와의 소중한 오늘을 기록해요. 반려인에게는 산책이 기다려지는 즐거운 공간이 되고, 점주님에게는 노동의 부담 없이 삶의 여유를 선물하는 든든한 파트너가 되어줍니다. 기술로 매장의 한계를 넘어, 사람과 반려동물 모두가 행복한 내일을 만들어 갑니다.';
+      const bodyText = HERO_BODY_TEXT;
       const words = bodyText.split(' ');
       const allChars = [];
 
@@ -112,14 +171,27 @@ export default function MainPage() {
       });
 
       const totalChars = allChars.length;
-      character.style.left = 'calc(100vw + 219px)';
 
-      function heroScrollHandler() {
-        const spacerRect = heroSpacer.getBoundingClientRect();
-        const spacerHeight = heroSpacer.offsetHeight;
-        const viewH = window.innerHeight;
+      // ── Optimization Variables ──
+      let ticking = false;
+      let currentScrollY = window.scrollY;
 
-        const scrolled = -spacerRect.top;
+      let viewW = window.innerWidth;
+      let viewH = window.innerHeight;
+      let spacerRectTop = heroSpacer.getBoundingClientRect().top + currentScrollY;
+      let spacerHeight = heroSpacer.offsetHeight;
+
+      character.style.left = '0'; // Use transform instead
+
+      function updateDimensions() {
+        viewW = window.innerWidth;
+        viewH = window.innerHeight;
+        spacerRectTop = heroSpacer.getBoundingClientRect().top + window.scrollY;
+        spacerHeight = heroSpacer.offsetHeight;
+      }
+
+      const heroScrollUpdate = function () {
+        const scrolled = currentScrollY - spacerRectTop;
         const maxScroll = spacerHeight - viewH;
         const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
 
@@ -167,22 +239,56 @@ export default function MainPage() {
           bodyXlEl.style.opacity = 0;
         }
 
-        // 4. Character movement
-        const viewW = window.innerWidth;
+        // 4. Character movement (Optimized with transform)
         const startLeft = viewW + 219;
         const endLeft = -219;
         const charLeft = startLeft + (endLeft - startLeft) * progress;
-        character.style.left = charLeft + 'px';
-      }
+        character.style.transform = `translateX(${charLeft}px)`;
+
+        ticking = false;
+      };
+
+      heroScrollHandler = function () {
+        currentScrollY = window.scrollY;
+        if (!ticking) {
+          window.requestAnimationFrame(heroScrollUpdate);
+          ticking = true;
+        }
+      };
+
+      heroResizeHandler = function () {
+        updateDimensions();
+        heroScrollHandler();
+      };
 
       window.addEventListener('scroll', heroScrollHandler, { passive: true });
-      window.addEventListener('resize', heroScrollHandler);
-      heroScrollHandler();
+      window.addEventListener('resize', heroResizeHandler);
+      updateDimensions();
+      heroScrollUpdate();
+    }
+
+    // ════════════════════════════════════════════════
+    // GRAPH ANIMATION — Intersection Observer
+    // ════════════════════════════════════════════════
+    const graphEl = graphRef.current;
+    if (graphEl) {
+      graphObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              graphEl.classList.add('graph-animate');
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      graphObserver.observe(graphEl);
     }
 
     // ════════════════════════════════════════════════
     // LENIS SMOOTH SCROLL (loaded via script tag)
     // ════════════════════════════════════════════════
+    let lenisScript = null;
     function initLenis() {
       if (typeof window.Lenis === 'undefined') return;
       const lenisInstance = new window.Lenis({
@@ -200,48 +306,82 @@ export default function MainPage() {
       requestAnimationFrame(raf);
     }
 
-    // Load Lenis via script tag
-    const lenisScript = document.createElement('script');
-    lenisScript.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
-    lenisScript.onload = () => initLenis();
-    document.head.appendChild(lenisScript);
+    if (typeof window.Lenis !== 'undefined') {
+      initLenis();
+    } else {
+      lenisScript = document.createElement('script');
+      lenisScript.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
+      lenisScript.onload = () => initLenis();
+      document.head.appendChild(lenisScript);
+    }
 
     // ════════════════════════════════════════════════
     // SCROLL REVEAL (loaded via script tag)
     // ════════════════════════════════════════════════
-    const srScript = document.createElement('script');
-    srScript.src = 'https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js';
-    srScript.onload = () => {
+    let srScript = null;
+    function initScrollReveal() {
       if (typeof window.ScrollReveal === 'undefined') return;
 
       window.ScrollReveal().reveal('.section', {
-        distance: '40px', origin: 'bottom', duration: 800, delay: 100, easing: 'ease-out', interval: 150, reset: true
+        distance: '40px', origin: 'bottom', duration: 800, delay: 100, easing: 'ease-out', interval: 150
       });
       window.ScrollReveal().reveal('.section-header, .section-text-block', {
-        distance: '30px', origin: 'bottom', duration: 700, delay: 200, easing: 'ease-out', reset: true
+        distance: '30px', origin: 'bottom', duration: 700, delay: 200, easing: 'ease-out'
       });
-      window.ScrollReveal().reveal('.card', {
-        distance: '30px', origin: 'bottom', duration: 600, delay: 100, easing: 'ease-out', interval: 100, reset: true
-      });
-      window.ScrollReveal().reveal('.cost-slider-wrapper', {
-        distance: '30px', origin: 'bottom', duration: 700, delay: 100, easing: 'ease-out', reset: true
+      window.ScrollReveal().reveal('.card, .comp-card', {
+        distance: '30px', origin: 'bottom', duration: 600, delay: 100, easing: 'ease-out', interval: 100
       });
       window.ScrollReveal().reveal('.faq-list', {
-        distance: '30px', origin: 'bottom', duration: 700, delay: 100, easing: 'ease-out', reset: true
+        distance: '30px', origin: 'bottom', duration: 700, delay: 100, easing: 'ease-out'
       });
       window.ScrollReveal().reveal('.app-img-wrapper, .studio-img-wrapper', {
-        distance: '40px', origin: 'bottom', duration: 800, delay: 200, easing: 'ease-out', reset: true
+        distance: '40px', origin: 'bottom', duration: 800, delay: 200, easing: 'ease-out'
       });
-    };
-    document.head.appendChild(srScript);
+    }
 
+    if (typeof window.ScrollReveal !== 'undefined') {
+      initScrollReveal();
+    } else {
+      srScript = document.createElement('script');
+      srScript.src = 'https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js';
+      srScript.onload = () => initScrollReveal();
+      document.head.appendChild(srScript);
+    }
+
+    // ════════════════════════════════════════════════
+    // CLEANUP
+    // ════════════════════════════════════════════════
+    return () => {
+      if (bodyXlEl) bodyXlEl.innerHTML = '';
+
+      if (heroScrollHandler) {
+        window.removeEventListener('scroll', heroScrollHandler);
+      }
+      if (heroResizeHandler) {
+        window.removeEventListener('resize', heroResizeHandler);
+      }
+
+      if (graphObserver) graphObserver.disconnect();
+
+      if (window.lenis) {
+        window.lenis.destroy();
+        window.lenis = null;
+      }
+
+      if (lenisScript && lenisScript.parentNode) lenisScript.parentNode.removeChild(lenisScript);
+      if (srScript && srScript.parentNode) srScript.parentNode.removeChild(srScript);
+    };
   }, []);
+
+  /* ── Removed local data definitions ── */
 
   return (
     <>
       <Header />
 
-      {/* ── HERO ── */}
+      {/* ══════════════════════════════════════════════
+           1. HERO
+           ══════════════════════════════════════════════ */}
       <div className="hero-pin-spacer">
         <section className="hero" id="hero">
           <div className="hero-bg-day"></div>
@@ -249,16 +389,18 @@ export default function MainPage() {
 
           <div className="hero-content" id="hero-title-content">
             <h1 className="hero-title">
-              반려쇼핑의 모든 것,<br />
-              산책길에 쉽고 알뜰하게.
+              반려동물과 반려인, <br className="mobile-br" />
+              그리고 브랜드가 함께 <br />
+              행복한 세상을 꿈꾸는 <br className="mobile-br" />
+              옴니채널 플랫폼, <br />
+              멍냥의민족입니다.
             </h1>
-            <p className="hero-subtitle">국내 최초 O2O 리워드 샵, 멍냥의민족</p>
           </div>
 
           <div className="hero-body-xl" id="hero-body-xl" ref={heroBodyXlRef}></div>
 
           <img
-            src="/assets/images/hero/fast-pet-supply-delivery-service-character-illustration.svg"
+            src="/assets/images/hero/fast-pet-supply-delivery-service-character-illustration.png"
             alt="배달 캐릭터 일러스트레이션"
             className="hero-character"
             id="hero-character"
@@ -266,19 +408,24 @@ export default function MainPage() {
         </section>
       </div>
 
-      {/* ── 앱 이용 혜택 ── */}
+
+      {/* ══════════════════════════════════════════════
+           2. 앱 이용 혜택
+           ══════════════════════════════════════════════ */}
       <section className="section section-full" id="app-benefits">
         <div className="contents-wrapper">
           <div className="section-text-block">
             <h2 className="h2">
-              산책하다 들렀는데<br />
-              돈 벌어가는 기분.
+              반려생활이 곧 수익이 되는 곳,<br />
+              온·오프라인 최초 플랫폼
             </h2>
-            <p className="body-l" style={{ marginTop: 'var(--title-body-gap)' }}>
-              매장에서 몽글냥글 앱을 사용해보세요.<br />
-              전 상품 10%가 영구 적립되거든요.<br />
-              집에서 주문하고 매장에서 픽업하면<br />
-              배송비도 아낄 수 있죠.
+            <p className="body-l">
+              공유와 추천을 통한 수익 구조.<br />
+              상대방이 구매할 때마다 나에게 리워드가 쌓여,<br />
+              지속적인 온라인 수익 창출이 가능합니다.<br /><br />
+              언제든지 가능한 캐쉬 환급<br />
+              적립된 리워드는 단순한 포인트에 머물지 않고,<br />
+              언제든 캐쉬로 전환 가능합니다.
             </p>
           </div>
           <div className="img-wrapper app-img-wrapper">
@@ -296,19 +443,31 @@ export default function MainPage() {
         </div>
       </section>
 
-      {/* ── 셀프 스튜디오 ── */}
-      <section className="section section-full" id="self-studio">
+
+      {/* ══════════════════════════════════════════════
+           3. Brand Values (기존 셀프 스튜디오 이미지 유지)
+           ══════════════════════════════════════════════ */}
+      <section className="section section-full" id="brand-values">
         <div className="contents-wrapper">
           <div className="section-text-block">
-            <h2 className="h2">
-              아이들 간식 사러 왔다가,<br />
-              잊지 못할 추억까지.
-            </h2>
-            <p className="body-l" style={{ marginTop: 'var(--title-body-gap)' }}>
-              매장 안 셀프 스튜디오에서 견생샷을 남겨보세요.<br />
-              물건을 파는 곳을 넘어,<br />
-              추억을 파는 공간이니까요.
-            </p>
+            <h2>Brand Values</h2>
+            <div className="brand-values-list">
+              <div className="brand-value-item">
+                <h3 className="brand-value-title">Premium Sourcing</h3>
+                <p className="body-l">
+                  까다로운 기준으로 엄선한 고품질 상품만을 선보여<br />
+                  반려동물의 건강과 삶의 질을 높입니다.
+                </p>
+              </div>
+              <div className="brand-value-item">
+                <h3 className="brand-value-title">Free Self-Studio</h3>
+                <p className="body-l">
+                  오프라인 매장 &lsquo;멍냥의민족&rsquo;에 마련된<br />
+                  전문 셀프 스튜디오에서 우리 아이와의<br />
+                  소중한 순간을 무료로 기록하세요.
+                </p>
+              </div>
+            </div>
           </div>
           <div className="img-wrapper studio-img-wrapper">
             <img
@@ -325,112 +484,390 @@ export default function MainPage() {
         </div>
       </section>
 
-      {/* ── 경쟁력 ── */}
+
+      {/* ══════════════════════════════════════════════
+           4. 창업포인트 – 트렌드 시장 그래프
+           ══════════════════════════════════════════════ */}
+      {/* 4. 창업포인트 – 헤더 섹션 (독립 섹션) */}
+      <section className="section section-trend-header" id="trend-market-header">
+        <div className="contents-wrapper contents-wrapper--column">
+          <p className="trend-header-eyebrow">
+            국내 최초 온·오프라인 수익창출 모델
+          </p>
+          <h2 className="trend-header-title">
+            멍냥의민족 창업,<br className="mobile-br" />
+            꼭 해야하는 이유는?
+          </h2>
+        </div>
+      </section>
+
+      {/* 4-2. 창업포인트 – 트렌드 시장 그래프 (본문 섹션) */}
+      <section className="section section-trend-body" id="trend-market-body">
+        <div className="contents-wrapper contents-wrapper--column">
+          <div className="trend-content">
+            <div className="section-header-group">
+              <div className="section-header">
+                <p className="eyebrow">Point 01</p>
+                <h2 className="h2">지속성장하는 트렌드 시장</h2>
+              </div>
+              <p className="body-m">
+                1,500만 전체 가구의 약 25~28%가<br />
+                반려동물을 양육 중입니다.
+              </p>
+            </div>
+
+            {/* SVG Graph */}
+            <div className="trend-graph" ref={graphRef}>
+              <svg viewBox="-40 0 1240 600" className="market-graph" preserveAspectRatio="xMidYMid meet">
+                {/* Y-axis labels */}
+                <text x="68" y="78" className="graph-label-y">6.0조</text>
+                <text x="68" y="183" className="graph-label-y">5.5조</text>
+                <text x="68" y="288" className="graph-label-y">5.0조</text>
+                <text x="68" y="393" className="graph-label-y">4.5조</text>
+                <text x="68" y="498" className="graph-label-y">4.0조</text>
+
+                {/* Y-axis grid lines */}
+                <line x1="105" y1="72" x2="1125" y2="72" className="graph-grid" />
+                <line x1="105" y1="177" x2="1125" y2="177" className="graph-grid" />
+                <line x1="105" y1="282" x2="1125" y2="282" className="graph-grid" />
+                <line x1="105" y1="387" x2="1125" y2="387" className="graph-grid" />
+                <line x1="105" y1="492" x2="1125" y2="492" className="graph-grid" />
+
+                {/* X-axis labels */}
+                <text x="330" y="540" className="graph-label-x">2024년</text>
+                <text x="675" y="540" className="graph-label-x">2025년</text>
+                <text x="1020" y="540" className="graph-label-x">2026년</text>
+                <text x="1020" y="560" className="graph-label-x graph-label-sub">(예상)</text>
+
+                {/* Gradient fill area */}
+                <defs>
+                  <linearGradient id="graphGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#2BC2BD" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#2BC2BD" stopOpacity="0.02" />
+                  </linearGradient>
+                </defs>
+
+                {/* Area fill */}
+                <path
+                  d="M 150 492 Q 240 420 330 324 Q 510 294 675 240 Q 870 150 1050 72 L 1050 492 Z"
+                  fill="url(#graphGradient)"
+                  className="graph-area"
+                />
+
+                {/* Line */}
+                <path
+                  d="M 150 492 Q 240 420 330 324 Q 510 294 675 240 Q 870 150 1050 72"
+                  fill="none"
+                  stroke="#2BC2BD"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  className="graph-line"
+                />
+
+                {/* Data points */}
+                <circle cx="330" cy="324" r="6" fill="#fff" stroke="#2BC2BD" strokeWidth="3" className="graph-dot" />
+                <circle cx="675" cy="240" r="6" fill="#fff" stroke="#2BC2BD" strokeWidth="3" className="graph-dot" />
+                <circle cx="1050" cy="72" r="6" fill="#fff" stroke="#2BC2BD" strokeWidth="3" className="graph-dot" />
+
+                {/* Data labels */}
+                <text x="330" y="300" className="graph-data-label">4.8조</text>
+                <text x="675" y="216" className="graph-data-label">5.2조</text>
+                <text x="1050" y="48" className="graph-data-label graph-data-highlight">6.0조</text>
+
+                {/* Vertical dashed line for 2026 */}
+                <line x1="1050" y1="72" x2="1050" y2="492" className="graph-dash-line" />
+
+                {/* Growth annotation */}
+                <text x="945" y="310" className="graph-annotation-small">전년 대비 시장 매출 규모</text>
+                <text x="930" y="358" className="graph-annotation-big">약 15.4% 성장</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════════════
+           5. 경쟁력 – 6개 카드
+           ══════════════════════════════════════════════ */}
       <section className="section section-competitiveness" id="competitiveness">
         <div className="contents-wrapper contents-wrapper--column">
           <div className="section-header">
-            <p className="eyebrow">경쟁력</p>
-            <h2 className="h2">
-              그런데 사장님,<br />
-              이 모든 혜택이 매출이 된다면요?
-            </h2>
+            <p className="eyebrow">Point 02</p>
+            <h2 className="h2">멍냥의민족의 경쟁력</h2>
           </div>
 
-          <div className="cards-wrapper">
-            <div className="cards-row-2">
-              <div className="card">
-                <div className="card-text">
-                  <p className="card-eyebrow">수익구조</p>
-                  <h3 className="card-title">본사 0%<br />점주 100%<br />로열티 면제</h3>
-                </div>
-                <div className="card-img">
-                  <img src="/assets/images/competitiveness/mungnyang-franchise-zero-royalty-100-percent-profit-mascot.svg" alt="로열티 면제 마스코트" />
-                </div>
+          <div className="competitiveness-grid">
+            <div className="comp-card">
+              <div className="comp-card-header">
+                <span className="comp-card-header-title">차별점 01</span>
               </div>
-              <div className="card">
-                <div className="card-text">
-                  <p className="card-eyebrow">O2O</p>
-                  <h3 className="card-title">고객이 앱으로<br />상품을 구매하면<br />수익이 우리 가게로</h3>
-                </div>
-                <div className="card-img">
-                  <img src="/assets/images/competitiveness/mungnyang-o2o-app-order-store-revenue-model-mascot.svg" alt="O2O 수익 모델 마스코트" />
-                </div>
+              <div className="comp-card-body">
+                <p className="comp-card-eyebrow">수익구조</p>
+                <h3 className="comp-card-title">
+                  로열티 0% 모델<br />
+                  수익률 본사 0%<br />
+                  점주 100%
+                </h3>
               </div>
             </div>
 
-            <div className="cards-row-3">
-              <div className="card">
-                <div className="card-text">
-                  <p className="card-eyebrow">SKU</p>
-                  <h3 className="card-title">직영점 데이터로<br />우리 매장에<br />가장 최적화된 상품 제안</h3>
-                </div>
+            <div className="comp-card">
+              <div className="comp-card-header">
+                <span className="comp-card-header-title">차별점 02</span>
               </div>
-              <div className="card">
-                <div className="card-text">
-                  <p className="card-eyebrow">물류경쟁력</p>
-                  <h3 className="card-title">업계 최초<br />1,000평 규모의<br />공동 물류 센터 운영</h3>
-                </div>
+              <div className="comp-card-body">
+                <p className="comp-card-eyebrow">O2O 옴니채널</p>
+                <h3 className="comp-card-title">
+                  온라인 수익<br />
+                  연계가능
+                </h3>
               </div>
-              <div className="card">
-                <div className="card-text">
-                  <p className="card-eyebrow">빠른 오픈</p>
-                  <h3 className="card-title">가맹 계약 후<br />영업일 기준<br />15일 이내 오픈</h3>
-                </div>
+            </div>
+
+            <div className="comp-card">
+              <div className="comp-card-header">
+                <span className="comp-card-header-title">차별점 03</span>
+              </div>
+              <div className="comp-card-body">
+                <p className="comp-card-eyebrow">수익성</p>
+                <h3 className="comp-card-title">
+                  리테일 프랜차이즈 중<br />
+                  투자 대비 높은 수익성
+                </h3>
+              </div>
+            </div>
+
+            <div className="comp-card">
+              <div className="comp-card-header">
+                <span className="comp-card-header-title">차별점 04</span>
+              </div>
+              <div className="comp-card-body">
+                <p className="comp-card-eyebrow">물류경쟁력</p>
+                <h3 className="comp-card-title">
+                  공동물류 구현 타사 대비<br />
+                  원가 6-10% 절감
+                </h3>
+              </div>
+            </div>
+
+            <div className="comp-card">
+              <div className="comp-card-header">
+                <span className="comp-card-header-title">차별점 05</span>
+              </div>
+              <div className="comp-card-body">
+                <p className="comp-card-eyebrow">블루오션</p>
+                <h3 className="comp-card-title">
+                  포화시장인 카페,<br />
+                  편의점 대비 최적의<br />
+                  블루오션 리테일 시장
+                </h3>
+              </div>
+            </div>
+
+            <div className="comp-card">
+              <div className="comp-card-header">
+                <span className="comp-card-header-title">차별점 06</span>
+              </div>
+              <div className="comp-card-body">
+                <p className="comp-card-eyebrow">검증된 창업비용</p>
+                <h3 className="comp-card-title">
+                  <span className="comp-badge">업계최저</span> 창업비용 동종업계 대<br />
+                  비 30% 절감<br />
+                  <span className="comp-badge">거품제거</span> 로열티/교육비 파격<br />
+                  면제
+                </h3>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 비용 비교 ── */}
+
+      {/* ══════════════════════════════════════════════
+           6. 비용 비교 – 테이블
+           ══════════════════════════════════════════════ */}
       <section className="section section-cost" id="cost-comparison">
-        <div className="contents-wrapper">
-          <div className="cost-text">
-            <p className="eyebrow">비용 비교</p>
-            <h2 className="h2" style={{ marginTop: 'var(--title-eyebrow-gap)' }}>
-              타사 대비<br />최소 3,600만 원에서<br />최대 3,800만원 차이
-            </h2>
-            <p className="body-m">*권리금, 임대료, 월세 제외</p>
-            <a href="#" className="btn btn-l btn-round btn-primary">창업 비용 자세히 보기</a>
+        <div className="contents-wrapper contents-wrapper--column">
+          <div className="section-header">
+            <p className="eyebrow">Point 03</p>
+            <h2 className="h2">타사 VS 멍냥의민족 비교견적</h2>
           </div>
 
-          <div className="cost-slider-wrapper">
-            <div className="cost-slider">
-              {[
-                { eyebrow: '온라인 수익', title: '오프라인과\n온라인 연계 수익 창출', main: '가능', other: '타사 평균 불가능' },
-                { eyebrow: '가맹비', title: '상표사용, 상권조사 등', main: '500만원', other: '타사 평균 200~500만원' },
-                { eyebrow: '교육비', title: '운영에 관한 교육', main: '면제', other: '타사 평균 200~300만원' },
-                { eyebrow: '익스테리어', title: '메인간판, 서브간판, 시트지', main: '400만원', other: '타사 평균 400만원~700만원' },
-                { eyebrow: '인테리어', title: '조명, 전기작업,\n타일, 시그니처 페인트 등', main: '600~800만 원', other: '타사 평균 1,500~3,000만원' },
-                { eyebrow: '키오스크', title: '키오스크 (카드전용)', main: '265만원', other: '타사 평균 250~300만원' },
-                { eyebrow: '진열선반', title: '매장 전체 선반 및 행사매대', main: '450만원', other: '타사 평균 450~550만원' },
-                { eyebrow: '반려동물 제품', title: '10평 기준', main: '1,100만원', other: '타사 평균 1,300~1,500만원' },
-                { eyebrow: '씨씨티비', title: '8채널+모니터', main: '153만원', other: '타사 평균 252만원' },
-                { eyebrow: '스튜디오', title: '스튜디오 선반,\n스튜디오 용품', main: '50만원', other: '타사 스튜디오 없음' },
-                { eyebrow: '로열티', title: '매출 정률 or 매출 정액', main: '면제', other: '타사 평균 15~30만원' },
-                { eyebrow: '의류', title: '선반+의류', main: '80만원', other: '타사 평균 150만원' },
-                { eyebrow: '선택사항', title: '냉난방기, 철거, 어닝 등', main: '별도견적', other: '타사 평균 -' },
-                { eyebrow: '합계', title: '권리금, 임대료, 월세 제외\n(VAT 별도)', main: '3,600만원 ~ 3,800만원', other: '타사 평균 4,700만원 ~ 7,300만원' },
-              ].map((card, i) => (
-                <div className="cost-card" key={i}>
-                  <div className="cost-card-top">
-                    <div className="card-text">
-                      <p className="card-eyebrow">{card.eyebrow}</p>
-                      <h3 className="card-title" dangerouslySetInnerHTML={{ __html: card.title.replace(/\n/g, '<br/>') }} />
-                    </div>
-                  </div>
-                  <div className="cost-card-prices">
-                    <p className="cost-price-main">{card.main}</p>
-                    <p className="cost-price-other">{card.other}</p>
-                  </div>
-                </div>
-              ))}
+          {/* ── Desktop Table ── */}
+          <div className="cost-table-wrapper cost-table-desktop">
+            <table className="cost-table">
+              <thead>
+                <tr>
+                  <th className="cost-th cost-th-category">구분</th>
+                  <th className="cost-th cost-th-competitor">타사 평균</th>
+                  <th className="cost-th cost-th-mungmin">멍냥의민족</th>
+                </tr>
+              </thead>
+              <tbody>
+                {COST_DATA.map((row, i) => (
+                  <tr key={i}>
+                    <td className="cost-td cost-td-category">
+                      <strong>{row.category}</strong>
+                      <span className="cost-td-desc">{row.desc}</span>
+                    </td>
+                    <td className="cost-td cost-td-competitor">
+                      {row.competitor}
+                      {row.competitorNote && <span className="cost-td-note">{row.competitorNote}</span>}
+                    </td>
+                    <td className="cost-td cost-td-mungmin">
+                      <strong>{row.mungmin}</strong>
+                      {row.mungminNote && <span className="cost-td-note">{row.mungminNote}</span>}
+                    </td>
+                  </tr>
+                ))}
+                {/* Total Row */}
+                <tr className="cost-total-row">
+                  <td className="cost-td cost-td-category">
+                    <strong>{COST_TOTAL.category}</strong>
+                    <span className="cost-td-desc">{COST_TOTAL.desc}</span>
+                  </td>
+                  <td className="cost-td cost-td-competitor">{COST_TOTAL.competitor}</td>
+                  <td className="cost-td cost-td-mungmin cost-td-total-mungmin">
+                    <strong>{COST_TOTAL.mungmin}</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* ── Mobile Table (Card Layout) ── */}
+          <div className="cost-table-wrapper cost-table-mobile">
+            <div className="cost-mobile-header">
+              <span className="cost-mobile-header-competitor">타사 평균</span>
+              <span className="cost-mobile-header-mungmin">멍냥의민족</span>
             </div>
+            {COST_DATA.map((row, i) => (
+              <div className="cost-mobile-card" key={i}>
+                <div className="cost-mobile-card-top">
+                  <strong>{row.category}</strong> – {row.desc}
+                </div>
+                <div className="cost-mobile-card-values">
+                  <span className="cost-mobile-val-competitor">
+                    {row.competitor}
+                    {row.competitorNote && <span className="cost-td-note">{row.competitorNote}</span>}
+                  </span>
+                  <span className="cost-mobile-val-mungmin">
+                    <strong>{row.mungmin}</strong>
+                    {row.mungminNote && <span className="cost-td-note">{row.mungminNote}</span>}
+                  </span>
+                </div>
+              </div>
+            ))}
+            {/* Total Card */}
+            <div className="cost-mobile-card cost-mobile-total">
+              <div className="cost-mobile-card-top">
+                <strong>{COST_TOTAL.category}</strong> – {COST_TOTAL.desc}
+              </div>
+              <div className="cost-mobile-card-values">
+                <span className="cost-mobile-val-competitor">타사 {COST_TOTAL.competitor}</span>
+                <span className="cost-mobile-val-mungmin cost-mobile-val-total">
+                  <strong>멍민 {COST_TOTAL.mungmin}</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <ul className="cost-footnote">
+            <li>상가 컨디션에 따른 인테리어 비용 감소 및 증가</li>
+            <li>사업비용 남을 시 환급</li>
+          </ul>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════════════
+           7. 창업절차 (9 STEP)
+           ══════════════════════════════════════════════ */}
+      <section className="section section-startup-steps" id="startup-steps">
+        <div className="contents-wrapper contents-wrapper--column">
+          <div className="section-header">
+            <p className="eyebrow">창업절차</p>
+            <h2 className="h2">
+              멍냥의민족 창업<br />
+              이렇게 준비하세요
+            </h2>
+          </div>
+
+          <div className="steps-grid-container">
+            {STARTUP_STEPS.map((s, idx) => (
+              <div key={s.step} className={`step-card ${idx === 8 ? 'store-combined-card' : ''}`}>
+                {idx === 8 ? (
+                  <div className="store-combined-content">
+                    <span className="step-badge">STEP {s.step}</span>
+                    <p className="step-title-bold">{s.title}</p>
+                    <p className="step-desc-text">{s.desc}</p>
+                    {s.note && <p className="step-note-small">{s.note}</p>}
+                    <p className="step-note-small step-footnote-medium">
+                      *가맹계약 후 영업일기준 15일 이내 오픈 프로세스를 유지하고있습니다.
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    <span className="step-badge">STEP {s.step}</span>
+                    <p className="step-title-bold">{s.title}</p>
+                    <p className="step-desc-text">{s.desc}</p>
+                    {s.note && <p className="step-note-small">{s.note}</p>}
+                  </>
+                )}
+                {idx === 8 && (
+                  <div className="store-combined-img">
+                    <img src="/assets/images/franchise-steps/mungnyang-franchise-open-process.png" alt="멍냥의민족 가맹 프로세스 오픈 이미지" />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+
+      {/* ══════════════════════════════════════════════
+           8. 창업성공기 (유튜브)
+           ══════════════════════════════════════════════ */}
+      <section className="section section-success-stories" id="success-stories">
+        <div className="contents-wrapper contents-wrapper--column">
+          <div className="section-header">
+            <p className="eyebrow">창업성공기</p>
+            <h2 className="h2">
+              실제 점주님의 리얼한<br />
+              창업 성공기를 들어보세요
+            </h2>
+          </div>
+
+          <div className="youtube-grid">
+            {[
+              { category: '점주 인터뷰', title: '양천구 신정점 점주님이 들려주는 멍냥의민족 이야기' },
+              { category: '매장 탐방', title: '깔끔한 인테리어와 다양한 간식이 가득한 매장 둘러보기' },
+              { category: '창업 꿀팁', title: '반려동물 무인 매장 창업 전, 꼭 알아야 할 핵심 포인트' },
+            ].map((video, i) => (
+              <div className="youtube-card" key={i}>
+                <div
+                  className="youtube-placeholder"
+                  onClick={() => setSelectedVideo(VIDEO_LINKS[i])}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {/* CSS will handle the play button and dimmed overlay */}
+                </div>
+                <div className="youtube-info">
+                  <p className="video-eyebrow">{video.category}</p>
+                  <h3 className="video-title" onClick={() => setSelectedVideo(VIDEO_LINKS[i])} style={{ cursor: 'pointer' }}>{video.title}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════════════
+           9. FAQ
+           ══════════════════════════════════════════════ */}
       <section className="section section-faq" id="faq">
         <div className="contents-wrapper contents-wrapper--column">
           <div className="section-header" style={{ textAlign: 'left', width: '100%' }}>
@@ -455,50 +892,156 @@ export default function MainPage() {
         </div>
       </section>
 
-      {/* ── 관계사 ── */}
-      <section className="section section-partners" id="partners">
-        <div className="contents-wrapper contents-wrapper--column">
-          <div className="partners-list">
-            <div className="partner-logo">
-              <img src="/assets/images/partners/logo-PetVillage.svg" alt="펫빌리지 로고" />
-            </div>
-            <div className="partner-logo">
-              <img src="/assets/images/partners/logo-monggeulnyanggeul.svg" alt="몽글냥글 로고" />
-            </div>
-            <div className="partner-logo">
-              <img src="/assets/images/partners/logo-petinkitchen.svg" alt="펫인키친 로고" />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── 창업문의 ── */}
+      {/* ══════════════════════════════════════════════
+           10. 창업문의
+           ══════════════════════════════════════════════ */}
       <section className="section section-contact" id="contact">
-        <div className="contents-wrapper">
-          <div className="contact-left">
-            <h2 className="h2">
-              <span style={{ color: 'var(--color-accent)' }}>멍냥의민족</span><br />
-              창업에 대한 궁금증을<br />
-              모두 해결해 드립니다.
-            </h2>
+        <div className="contents-wrapper contents-wrapper--column">
+          <div className="contact-header-row">
+            <div className="contact-left">
+              <h2 className="h2" style={{ marginTop: '16px' }}>
+                <span style={{ color: '#2BC2BD' }}>멍냥의민족</span><br />
+                창업에 대한 궁금증을<br />
+                모두 해결해 드립니다.
+              </h2>
+            </div>
+            <div className="contact-right">
+              <p className="contact-eyebrow">24시간 전화상담</p>
+              <p className="contact-phone">070-4141-6402</p>
+            </div>
           </div>
-          <div className="contact-right">
-            <p className="contact-eyebrow">24시간 전화상담</p>
-            <p className="contact-phone">070-4141-6402</p>
-            <a href="tel:07041416402" className="btn btn-xl btn-round" style={{ backgroundColor: '#2BC2BD', color: '#fff' }}>
-              모바일 전화 상담
-            </a>
+
+          <div className="contact-form-container">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="contact-form-grid">
+                <div className="form-field">
+                  <label className="form-label">성함</label>
+                  <input
+                    type="text"
+                    name="name"
+                    className="form-input"
+                    placeholder="성함을 입력해주세요."
+                    value={formData.name}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">연락처</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    className="form-input"
+                    placeholder="연락처를 입력해주세요."
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">이메일</label>
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-input"
+                    placeholder="이메일을 입력해주세요."
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">창업 희망지역</label>
+                  <input
+                    type="text"
+                    name="location"
+                    className="form-input"
+                    placeholder="주소"
+                    value={formData.location}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="text"
+                    name="detailLocation"
+                    className="form-input"
+                    placeholder="상세주소"
+                    value={formData.detailLocation}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="form-field form-field--full">
+                  <label className="form-label">내용</label>
+                  <textarea
+                    name="content"
+                    className="form-textarea"
+                    placeholder="궁금하신 점을 적어주세요."
+                    value={formData.content}
+                    onChange={handleInputChange}
+                  ></textarea>
+                </div>
+              </div>
+
+              <label className="form-privacy">
+                <input
+                  type="checkbox"
+                  name="privacy"
+                  checked={formData.privacy}
+                  onChange={handleInputChange}
+                />
+                <span>
+                  <button type="button" className="privacy-link" onClick={() => setIsPrivacyPopupOpen(true)}>
+                    개인정보 수집 및 이용
+                  </button>
+                  에 동의합니다.
+                </span>
+              </label>
+
+              <div className="form-submit-row">
+                <button
+                  type="submit"
+                  className="btn-submit"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? '전송 중...' : '문의하기'}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
+
+      {/* ══════════════════════════════════════════════
+           11. 관계사
+           ══════════════════════════════════════════════ */}
+      <section className="section section-partners" id="partners">
+        <div className="partners-list">
+          <InfiniteSlider gap={isMobile ? 32 : 120} duration={80}>
+            {[1, 2, 3, 4].map((set) => (
+              <div key={set} style={{ display: 'flex', gap: isMobile ? '32px' : '120px' }}>
+                <div className="partner-logo">
+                  <img src="/assets/images/partners/logo-PetVillage.svg" alt="펫빌리지 로고" />
+                </div>
+                <div className="partner-logo">
+                  <img src="/assets/images/partners/logo-monggeulnyanggeul.svg" alt="몽글냥글 로고" />
+                </div>
+                <div className="partner-logo">
+                  <img src="/assets/images/partners/logo-petinkitchen.svg" alt="펫인키친 로고" />
+                </div>
+              </div>
+            ))}
+          </InfiniteSlider>
+        </div>
+      </section>
+
+
+      {/* ══════════════════════════════════════════════
+           12. FOOTER
+           ══════════════════════════════════════════════ */}
       <footer className="site-footer" id="footer">
         <div className="footer-inner">
           <div className="footer-top">
             <ul className="footer-links">
-              <li><a href="#">이용약관</a></li>
-              <li><a href="#">개인정보처리방침</a></li>
+              <li><button type="button" className="privacy-link" onClick={() => setIsTermsPopupOpen(true)}>이용약관</button></li>
+              <li><button type="button" className="privacy-link" onClick={() => setIsFooterPrivacyPopupOpen(true)}>개인정보처리방침</button></li>
             </ul>
           </div>
 
@@ -518,6 +1061,165 @@ export default function MainPage() {
       </footer>
 
       <ContactButton />
+
+      <div className={`popup-overlay ${isPopupOpen ? 'is-active' : ''}`}>
+        <div className="popup">
+          <div className="popup-header" style={{ textAlign: 'center' }}>
+            <p className="popup-eyebrow">알림</p>
+            <h3 className="popup-title">
+              빈 항목이 있어요.<br />
+              필수항목을 입력해주세요.
+            </h3>
+          </div>
+
+          <div className="popup-img-wrapper">
+            <img
+              src="/assets/images/common/mungnyang-mascot-character-bichon.svg"
+              alt="Mungnyang Mascot"
+              style={{ width: '200px', height: '200px' }}
+            />
+          </div>
+
+          <button
+            type="button"
+            className="popup-btn btn-primary"
+            onClick={() => setIsPopupOpen(false)}
+          >
+            확인
+          </button>
+        </div>
+      </div>
+
+      {/* --- Video Popup --- */}
+      {selectedVideo && (
+        <div className="popup-overlay is-active" onClick={() => setSelectedVideo(null)}>
+          <div
+            className="video-popup-container"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: '100%',
+              maxWidth: '1200px',
+              position: 'relative'
+            }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedVideo(null)}
+              style={{
+                position: 'absolute',
+                top: '-56px', // 48px(size) + 8px(gap)
+                right: 0,
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '0',
+                width: '48px',
+                height: '48px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <img
+                src="/assets/images/common/icon/close_24dp_FFFFFF_FILL0_wght300_GRAD-25_opsz24.svg"
+                alt="Close video"
+                style={{ width: '48px', height: '48px' }}
+              />
+            </button>
+
+            <div
+              style={{
+                position: 'relative',
+                paddingBottom: '56.25%', // 16:9 ratio
+                height: 0,
+                overflow: 'hidden',
+                borderRadius: '16px',
+                backgroundColor: '#000'
+              }}
+            >
+              <iframe
+                src={selectedVideo}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%'
+                }}
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Privacy Policy Popup (Form) */}
+      <div className={`popup-overlay ${isPrivacyPopupOpen ? 'is-active' : ''}`} onClick={() => setIsPrivacyPopupOpen(false)}>
+        <div className="popup privacy-popup-content" onClick={(e) => e.stopPropagation()}>
+          <h3>개인정보 수집 및 이용</h3>
+          <div className="privacy-popup-body" data-lenis-prevent>
+            {PRIVACY_POLICY.split('\n').map((line, index) => (
+              <p key={index}>{line || <br />}</p>
+            ))}
+          </div>
+          <div className="privacy-popup-footer">
+            <button
+              type="button"
+              className="btn btn-m btn-primary btn-round"
+              onClick={() => setIsPrivacyPopupOpen(false)}
+              style={{ width: '100%' }}
+            >
+              확인
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Terms of Service Popup (Footer) */}
+      <div className={`popup-overlay ${isTermsPopupOpen ? 'is-active' : ''}`} onClick={() => setIsTermsPopupOpen(false)}>
+        <div className="popup privacy-popup-content" onClick={(e) => e.stopPropagation()}>
+          <h3>이용약관</h3>
+          <div className="privacy-popup-body" data-lenis-prevent>
+            {TERMS_OF_SERVICE.split('\n').map((line, index) => (
+              <p key={index}>{line || <br />}</p>
+            ))}
+          </div>
+          <div className="privacy-popup-footer">
+            <button
+              type="button"
+              className="btn btn-m btn-primary btn-round"
+              onClick={() => setIsTermsPopupOpen(false)}
+              style={{ width: '100%' }}
+            >
+              확인
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Privacy Policy Popup (Footer) */}
+      <div className={`popup-overlay ${isFooterPrivacyPopupOpen ? 'is-active' : ''}`} onClick={() => setIsFooterPrivacyPopupOpen(false)}>
+        <div className="popup privacy-popup-content" onClick={(e) => e.stopPropagation()}>
+          <h3>개인정보처리방침</h3>
+          <div className="privacy-popup-body" data-lenis-prevent>
+            {PRIVACY_POLICY.split('\n').map((line, index) => (
+              <p key={index}>{line || <br />}</p>
+            ))}
+          </div>
+          <div className="privacy-popup-footer">
+            <button
+              type="button"
+              className="btn btn-m btn-primary btn-round"
+              onClick={() => setIsFooterPrivacyPopupOpen(false)}
+              style={{ width: '100%' }}
+            >
+              확인
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
