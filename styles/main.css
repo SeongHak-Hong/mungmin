@@ -1164,7 +1164,7 @@
 .partner-logo {
     width: 224px;
     height: 96px;
-    padding: 12px;
+    padding: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1410,14 +1410,11 @@
     font-weight: var(--fw-semibold);
 }
 
-/* ══════════════════════════════════════════════
-   PARTNERS (INFINITE LOOP SLIDER)
-   ══════════════════════════════════════════════ */
+/* ── PARTNERS (INFINITE LOOP SLIDER) ── */
 .section-partners {
     padding-block: 60px;
     background-color: var(--color-white);
     overflow-x: hidden;
-    /* Prevent page-wide horizontal scroll */
 }
 
 .partners-list {
@@ -1426,25 +1423,37 @@
     padding: 24px 0;
 }
 
-.partner-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
+/* Hover effects for logos */
 .partner-logo img {
-    width: auto;
-    height: auto;
-    max-width: none;
-    object-fit: none;
-    filter: grayscale(0);
-    opacity: 0.8;
-    transition: opacity 0.3s;
+    filter: grayscale(1);
+    opacity: 0.6;
+    transition: all 0.3s ease;
 }
 
-.partner-logo img:hover {
+.partner-logo:hover img {
+    filter: grayscale(0);
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .section-partners {
+        padding-block: 40px;
+    }
+
+    .partner-logo {
+        width: 120px !important;
+        /* 모바일 영역 축소 */
+        height: 60px !important;
+        padding: 10px !important;
+    }
+
+    .partner-logo img {
+        width: auto !important;
+        height: 100% !important;
+        max-height: 40px !important;
+        /* 이미지 크기 고정 */
+        object-fit: contain;
+    }
 }
 
 
@@ -1969,17 +1978,6 @@
     /* Affiliates Mobile Infinite Slider */
     .partners-list {
         padding: 16px 0 !important;
-    }
-
-    .partner-logo {
-        width: 160px !important;
-        height: 64px !important;
-    }
-
-    .partner-logo img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
     }
 
     /* Footer Mobile Adjustments */

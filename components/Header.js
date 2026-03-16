@@ -39,13 +39,21 @@ export default function Header() {
   }, []);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState('');
+
+  useEffect(() => {
+    setActiveHash(window.location.hash);
+    const handleHashChange = () => setActiveHash(window.location.hash);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const navItems = [
-    { href: '/', label: '브랜드 소개', id: 'nav-brand' },
-    { href: '#', label: '창업안내', id: 'nav-franchise' },
-    { href: '#', label: '매장안내', id: 'nav-store' },
-    { href: '#', label: '소식', id: 'nav-news' },
-    { href: '#', label: '문의하기', id: 'nav-contact' },
+    { href: '/main#hero', label: '브랜드 소개', id: 'nav-brand' },
+    { href: '/main#trend-market-header', label: '창업안내', id: 'nav-franchise' },
+    { href: '/store', label: '매장안내', id: 'nav-store' },
+    { href: '/news', label: '소식', id: 'nav-news' },
+    { href: '/contact', label: '문의하기', id: 'nav-contact' },
   ];
 
   const toggleMenu = () => {
@@ -57,12 +65,33 @@ export default function Header() {
     }
   };
 
+  const handleNavClick = (e, item) => {
+    if (isMenuOpen) toggleMenu();
+
+    const { href } = item;
+    if (href.includes('#')) {
+      const [path, hash] = href.split('#');
+      if (pathname === path) {
+        if (window.lenis) {
+          e.preventDefault();
+          window.history.pushState(null, null, `#${hash}`);
+          setActiveHash(`#${hash}`);
+          if (hash === 'hero') {
+            window.lenis.scrollTo(0);
+          } else {
+            window.lenis.scrollTo(`#${hash}`);
+          }
+        }
+      }
+    }
+  };
+
   return (
     <>
       <header className="site-header" id="header" ref={headerRef}>
         <div className="header-inner">
           {/* Logo */}
-          <Link href="/" className="header-logo">
+          <Link href="/main" className="header-logo">
             <img src="/assets/images/common/mungnyang-official-brand-logo.svg" alt="멍냥의민족 공식 로고" />
           </Link>
 
@@ -74,7 +103,13 @@ export default function Header() {
                   <Link
                     href={item.href}
                     id={item.id}
-                    className={pathname === item.href ? 'is-active' : ''}
+                    className={
+                      pathname === item.href || 
+                      (pathname === item.href.split('#')[0] && (activeHash === '#' + item.href.split('#')[1] || (activeHash === '' && item.href === '/main#hero')))
+                        ? 'is-active' 
+                        : ''
+                    }
+                    onClick={(e) => handleNavClick(e, item)}
                   >
                     {item.label}
                   </Link>
@@ -85,7 +120,12 @@ export default function Header() {
 
           {/* CTA (Desktop) */}
           <div className="header-cta desktop-only">
-            <Link href="#" className="btn btn-m btn-round btn-primary btn-icon">
+            <Link 
+              href="https://pet-pal.co.kr/" 
+              className="btn btn-m btn-round btn-primary btn-icon"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src="/assets/images/common/local_convenience_store_24dp_FFFFFF_FILL0_wght300_GRAD-25_opsz24.svg" width={24} height={24} alt="온라인몰" />
               온라인몰
             </Link>
@@ -104,7 +144,7 @@ export default function Header() {
 
       <div className={`mobile-menu-overlay ${isMenuOpen ? 'is-active' : ''}`}>
         <div className="mobile-menu-header">
-          <Link href="/" className="header-logo" onClick={toggleMenu}>
+          <Link href="/main" className="header-logo" onClick={toggleMenu}>
             <img src="/assets/images/common/mungnyang-official-brand-logo.svg" alt="멍냥의민족 공식 로고" />
           </Link>
           <button 
@@ -119,11 +159,24 @@ export default function Header() {
           <ul>
             {navItems.map((item) => (
               <li key={item.id}>
-                <Link href={item.href} onClick={toggleMenu}>
+                <Link 
+                  href={item.href} 
+                  onClick={(e) => handleNavClick(e, item)}
+                >
                   {item.label}
                 </Link>
               </li>
             ))}
+            <li>
+              <Link 
+                href="https://pet-pal.co.kr/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={toggleMenu}
+              >
+                온라인몰
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

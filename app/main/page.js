@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/Header';
 import ContactButton from '@/components/ContactButton';
+import SmoothScroll from '@/components/SmoothScroll';
 import { InfiniteSlider } from '@/components/InfiniteSlider';
 import { COST_DATA, COST_TOTAL, STARTUP_STEPS, VIDEO_LINKS, SUCCESS_STORIES, HERO_BODY_TEXT } from '@/lib/content';
 import { TERMS_OF_SERVICE, PRIVACY_POLICY } from '@/lib/policies';
@@ -32,6 +33,22 @@ export default function MainPage() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [sliderIndex, setSliderIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [partners, setPartners] = useState([]);
+
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const res = await fetch('/api/partners');
+        if (res.ok) {
+          const data = await res.json();
+          setPartners(data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch partners:', err);
+      }
+    };
+    fetchPartners();
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -44,25 +61,26 @@ export default function MainPage() {
   useEffect(() => {
     const isAnyPopupOpen = isPrivacyPopupOpen || isTermsPopupOpen || isFooterPrivacyPopupOpen || isPopupOpen || selectedVideo;
     
+    const lenis = window.lenis;
     if (isAnyPopupOpen) {
       document.documentElement.classList.add('no-scroll');
       document.body.classList.add('no-scroll');
-      if (window.lenis) {
-        window.lenis.stop();
+      if (lenis) {
+        lenis.stop();
       }
     } else {
       document.documentElement.classList.remove('no-scroll');
       document.body.classList.remove('no-scroll');
-      if (window.lenis) {
-        window.lenis.start();
+      if (lenis) {
+        lenis.start();
       }
     }
 
     return () => {
       document.documentElement.classList.remove('no-scroll');
       document.body.classList.remove('no-scroll');
-      if (window.lenis) {
-        window.lenis.start();
+      if (lenis) {
+        lenis.start();
       }
     };
   }, [isPrivacyPopupOpen, isTermsPopupOpen, isFooterPrivacyPopupOpen, isPopupOpen, selectedVideo]);
@@ -290,67 +308,37 @@ export default function MainPage() {
     }
 
     // ════════════════════════════════════════════════
-    // LENIS SMOOTH SCROLL (loaded via script tag)
+    // SCROLL REVEAL (using package)
     // ════════════════════════════════════════════════
-    let lenisScript = null;
-    function initLenis() {
-      if (typeof window.Lenis === 'undefined') return;
-      const lenisInstance = new window.Lenis({
-        duration: 1.2,
-        easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-        orientation: 'vertical',
-        smoothWheel: true,
-      });
-      window.lenis = lenisInstance;
+    let sr = null;
+    const initScrollReveal = async () => {
+      const ScrollReveal = (await import('scrollreveal')).default;
+      sr = ScrollReveal();
 
-      function raf(time) {
-        lenisInstance.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-    }
-
-    if (typeof window.Lenis !== 'undefined') {
-      initLenis();
-    } else {
-      lenisScript = document.createElement('script');
-      lenisScript.src = 'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js';
-      lenisScript.onload = () => initLenis();
-      document.head.appendChild(lenisScript);
-    }
-
-    // ════════════════════════════════════════════════
-    // SCROLL REVEAL (loaded via script tag)
-    // ════════════════════════════════════════════════
-    let srScript = null;
-    function initScrollReveal() {
-      if (typeof window.ScrollReveal === 'undefined') return;
-
-      window.ScrollReveal().reveal('.section', {
+      sr.reveal('.section', {
         distance: '40px', origin: 'bottom', duration: 800, delay: 100, easing: 'ease-out', interval: 150
       });
-      window.ScrollReveal().reveal('.section-header, .section-text-block', {
+      sr.reveal('.section-header, .section-text-block', {
         distance: '30px', origin: 'bottom', duration: 700, delay: 200, easing: 'ease-out'
       });
-      window.ScrollReveal().reveal('.card, .comp-card', {
+      sr.reveal('.card, .comp-card', {
         distance: '30px', origin: 'bottom', duration: 600, delay: 100, easing: 'ease-out', interval: 100
       });
-      window.ScrollReveal().reveal('.faq-list', {
+      sr.reveal('.faq-list', {
         distance: '30px', origin: 'bottom', duration: 700, delay: 100, easing: 'ease-out'
       });
-      window.ScrollReveal().reveal('.app-img-wrapper, .studio-img-wrapper', {
+      sr.reveal('.app-img-wrapper, .studio-img-wrapper', {
         distance: '40px', origin: 'bottom', duration: 800, delay: 200, easing: 'ease-out'
       });
-    }
+      sr.reveal('.cost-table-desktop', {
+        distance: '30px', origin: 'bottom', duration: 700, delay: 100, easing: 'ease-out'
+      });
+      sr.reveal('.step-card', {
+        distance: '30px', origin: 'bottom', duration: 600, delay: 100, easing: 'ease-out', interval: 100
+      });
+    };
 
-    if (typeof window.ScrollReveal !== 'undefined') {
-      initScrollReveal();
-    } else {
-      srScript = document.createElement('script');
-      srScript.src = 'https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js';
-      srScript.onload = () => initScrollReveal();
-      document.head.appendChild(srScript);
-    }
+    initScrollReveal();
 
     // ════════════════════════════════════════════════
     // CLEANUP
@@ -367,13 +355,7 @@ export default function MainPage() {
 
       if (graphObserver) graphObserver.disconnect();
 
-      if (window.lenis) {
-        window.lenis.destroy();
-        window.lenis = null;
-      }
-
-      if (lenisScript && lenisScript.parentNode) lenisScript.parentNode.removeChild(lenisScript);
-      if (srScript && srScript.parentNode) srScript.parentNode.removeChild(srScript);
+      if (sr) sr.destroy();
     };
   }, []);
 
@@ -381,6 +363,7 @@ export default function MainPage() {
 
   return (
     <>
+      <SmoothScroll />
       <Header />
 
       {/* ══════════════════════════════════════════════
@@ -879,7 +862,7 @@ export default function MainPage() {
               }}
             >
               {SUCCESS_STORIES.map((video) => (
-                <div className="youtube-card" key={video.id} onClick={() => setSelectedVideo(`https://www.youtube.com/embed/${video.id}?autoplay=1`)}>
+                <div className="youtube-card" key={video.id} onClick={() => setSelectedVideo(`https://www.youtube.com/embed/${video.id}`)}>
                   <div
                     className="youtube-placeholder"
                     style={{ 
@@ -944,6 +927,7 @@ export default function MainPage() {
             <div className="contact-right">
               <p className="contact-eyebrow">24시간 전화상담</p>
               <p className="contact-phone">070-4141-6402</p>
+              <a href="tel:070-4141-6402" className="btn btn-primary btn-round mobile-only" style={{ padding: '16px 32px', fontSize: '20px', marginTop: '24px' }}>모바일 전화 상담</a>
             </div>
           </div>
 
@@ -1049,20 +1033,36 @@ export default function MainPage() {
            ══════════════════════════════════════════════ */}
       <section className="section section-partners" id="partners">
         <div className="partners-list">
-          <InfiniteSlider gap={isMobile ? 32 : 120} duration={80}>
-            {[1, 2, 3, 4].map((set) => (
-              <div key={set} style={{ display: 'flex', gap: isMobile ? '32px' : '120px' }}>
-                <div className="partner-logo">
-                  <img src="/assets/images/partners/logo-PetVillage.svg" alt="펫빌리지 로고" />
+          <InfiniteSlider gap={32} duration={80}>
+            {partners.length > 0 ? (
+              // Use double map to ensure even short lists look infinite
+              [...partners, ...partners].map((partner, idx) => (
+                <a 
+                  key={`${partner.id}-${idx}`} 
+                  href={partner.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="partner-logo"
+                >
+                  <img src={partner.logoUrl} alt={partner.name} />
+                </a>
+              ))
+            ) : (
+              // Fallback or loading state
+              [1, 2, 3, 4].map((set) => (
+                <div key={set} style={{ display: 'flex', gap: '32px' }}>
+                  <div className="partner-logo">
+                    <img src="/assets/images/partners/logo-PetVillage.svg" alt="펫빌리지 로고" />
+                  </div>
+                  <div className="partner-logo">
+                    <img src="/assets/images/partners/logo-monggeulnyanggeul.svg" alt="몽글냥글 로고" />
+                  </div>
+                  <div className="partner-logo">
+                    <img src="/assets/images/partners/logo-petinkitchen.svg" alt="펫인키친 로고" />
+                  </div>
                 </div>
-                <div className="partner-logo">
-                  <img src="/assets/images/partners/logo-monggeulnyanggeul.svg" alt="몽글냥글 로고" />
-                </div>
-                <div className="partner-logo">
-                  <img src="/assets/images/partners/logo-petinkitchen.svg" alt="펫인키친 로고" />
-                </div>
-              </div>
-            ))}
+              ))
+            )}
           </InfiniteSlider>
         </div>
       </section>

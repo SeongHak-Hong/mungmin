@@ -3,15 +3,23 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
 import ContactButton from '@/components/ContactButton';
+import Footer from '@/components/Footer';
+import ContactSection from '@/components/ContactSection';
 import '@/styles/main.css';
 import '@/styles/store.css';
+import dynamic from 'next/dynamic';
 
+const StoreMap = dynamic(
+  () => import('@/components/StoreMap'),
+  { ssr: false, loading: () => <div className="map-placeholder"><div className="map-placeholder-content"><p>지도를 불러오는 중입니다...</p></div></div> }
+);
 // Client Map Component Placeholder
 export default function StoreMapClient({ initialStores }) {
   const [stores, setStores] = useState(initialStores);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('update'); // update, distance
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedStore, setSelectedStore] = useState(null);
   const storesPerPage = 5;
 
   // Filter and sort stores
@@ -29,23 +37,18 @@ export default function StoreMapClient({ initialStores }) {
     <div className="store-page-container">
       <Header />
       
-      <main className="store-main">
-        <div className="store-header">
-          <p className="eyebrow" style={{ color: '#2BC2BD' }}>매장안내</p>
-          <h1 className="h2 store-title">우리동네 멍냥의민족은 어디있지?</h1>
+      <main className="store-main section">
+        <div className="contents-wrapper contents-wrapper--column">
+          <div className="section-header" style={{ marginBottom: 'var(--contents-gap)' }}>
+            <p className="eyebrow">매장안내</p>
+            <h1 className="h2">우리동네 멍냥의민족은 어디있지?</h1>
+          </div>
         </div>
 
-        <div className="map-container">
-          {/* MAP PLACEHOLDER */}
-          <div className="map-placeholder">
-            <div className="map-placeholder-content">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2BC2BD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <p>네이버 지도가 렌더링될 영역입니다.<br/>(현재 API 키 발급 대기 중)</p>
+          <div className="map-container">
+            <div className="leaflet-map-wrapper">
+              <StoreMap stores={currentStores} selectedStore={selectedStore} />
             </div>
-          </div>
 
           {/* STORE LIST OVERLAY */}
           <div className="store-overlay">
@@ -57,7 +60,7 @@ export default function StoreMapClient({ initialStores }) {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="store-search-input"
               />
-              <button className="store-search-btn">
+              <button className="btn btn-primary btn-round btn-m store-search-btn">
                  검색
               </button>
             </div>
@@ -75,7 +78,11 @@ export default function StoreMapClient({ initialStores }) {
 
             <div className="store-list">
               {currentStores.length > 0 ? currentStores.map((store) => (
-                <div key={store.id} className="store-list-item">
+                <div 
+                  key={store.id} 
+                  className={`store-list-item ${selectedStore?.id === store.id ? 'active' : ''}`}
+                  onClick={() => setSelectedStore(store)}
+                >
                   <h3 className="store-item-name">{store.name}</h3>
                   <p className="store-item-address">{store.address}</p>
                 </div>
@@ -92,11 +99,20 @@ export default function StoreMapClient({ initialStores }) {
                   onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
                 >
-                  &lt;
+                  <img src="/assets/images/common/icon/chevron_left_20dp_1F1F1F_FILL0_wght300_GRAD-25_opsz20.svg" alt="이전" />
                 </button>
-                {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                  const pageNum = i + 1; // Simplified for demo
-                  return (
+                {(() => {
+                  const maxButtons = 5;
+                  const groupIndex = Math.floor((currentPage - 1) / maxButtons);
+                  const startPage = groupIndex * maxButtons + 1;
+                  const endPage = Math.min(startPage + maxButtons - 1, totalPages);
+
+                  const pages = [];
+                  for (let i = startPage; i <= endPage; i++) {
+                    pages.push(i);
+                  }
+
+                  return pages.map(pageNum => (
                     <button 
                       key={pageNum} 
                       className={`page-num-btn ${currentPage === pageNum ? 'active' : ''}`}
@@ -104,14 +120,14 @@ export default function StoreMapClient({ initialStores }) {
                     >
                       {pageNum}
                     </button>
-                  );
-                })}
+                  ));
+                })()}
                 <button 
                   className="page-nav-btn"
                   onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                   disabled={currentPage === totalPages}
                 >
-                  &gt;
+                  <img src="/assets/images/common/icon/chevron_right_20dp_1F1F1F_FILL0_wght300_GRAD-25_opsz20.svg" alt="다음" />
                 </button>
               </div>
             )}
@@ -119,56 +135,8 @@ export default function StoreMapClient({ initialStores }) {
         </div>
       </main>
 
-      {/* ══════════════════════════════════════════════
-           창업문의
-           ══════════════════════════════════════════════ */}
-      <section className="section section-contact" id="contact">
-        <div className="contents-wrapper">
-          <div className="contact-header-row">
-            <div className="contact-left">
-              <h2 className="h2" style={{ marginTop: '16px' }}>
-                <span style={{ color: '#2BC2BD' }}>멍냥의민족</span><br />
-                창업에 대한 궁금증을<br />
-                모두 해결해 드립니다.
-              </h2>
-            </div>
-            <div className="contact-right">
-              <p className="contact-eyebrow" style={{ fontSize: '32px', color: '#707272', marginBottom: '16px', fontWeight: 'var(--fw-semibold)' }}>24시간 전화상담</p>
-              <p className="contact-phone" style={{ fontSize: '48px', fontWeight: '700' }}>070-4141-6402</p>
-              
-              <button className="btn btn-primary btn-round" style={{ padding: '16px 32px', fontSize: '20px', marginTop: '24px' }}>모바일 전화 상담</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════
-           FOOTER
-           ══════════════════════════════════════════════ */}
-      <footer className="site-footer" id="footer">
-        <div className="footer-inner">
-          <div className="footer-top">
-            <ul className="footer-links">
-              <li><a href="#">이용약관</a></li>
-              <li><a href="#">개인정보처리방침</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-info">
-            <p>
-              대표: 신상훈 | 사업자 등록번호: 129-87-03274<br />
-              스토어: 서울시 양천구 남부순환로 425 멍냥의민족 1층<br />
-              본사: 서울특별시 강서구 공항대로 426 VIP빌딩 1001호<br />
-              이메일: help@pet-pal.co.kr | 통신판매업 신고번호 : 2022-고양덕양구-0659 | 개인정보관리자: 김연주
-            </p>
-          </div>
-
-          <p className="footer-copyright">
-            Copyright© 2026 <strong>mungmin</strong> All Rights Reserved.
-          </p>
-        </div>
-      </footer>
-
+      <ContactSection />
+      <Footer />
       <ContactButton />
     </div>
   );

@@ -344,7 +344,7 @@ h3,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 4px;
     font-family: var(--font-family);
     font-weight: var(--fw-semibold);
     line-height: var(--line-height);
@@ -611,6 +611,14 @@ h3,
     background-color: var(--color-white);
 }
 
+.mobile-only {
+    display: none !important;
+}
+
+.desktop-only {
+    display: block !important;
+}
+
 
 /* ────────────────────────────────────────────────────────────
    8. SHARED COMPONENTS (HEADER, FLOATING BUTTON)
@@ -638,7 +646,6 @@ h3,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 24px;
 }
 
 .header-logo img {
@@ -918,6 +925,10 @@ h3,
     .desktop-only,
     .header-cta {
         display: none !important;
+    }
+
+    .mobile-only {
+        display: block !important;
     }
 
     .mobile-menu-toggle {

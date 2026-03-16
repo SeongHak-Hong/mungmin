@@ -10,21 +10,8 @@
 
 .store-main {
   flex: 1;
+  padding-top: 80px;
   padding-bottom: 100px;
-}
-
-.store-header {
-  width: 100%;
-  max-width: var(--contents-width, 1200px);
-  margin: 80px auto 40px;
-  padding-inline: 24px;
-}
-
-.store-title {
-  margin-top: 16px;
-  font-size: 40px;
-  font-weight: var(--fw-semibold);
-  letter-spacing: -0.02em;
 }
 
 .map-container {
@@ -38,6 +25,12 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   background-color: #f1f3f4;
   /* Placeholder map color */
+}
+
+/* 지도 크기 고정을 위한 래퍼 추가 */
+.leaflet-map-wrapper {
+  width: 100%;
+  height: 100%;
 }
 
 /* 임시 맵 영역 */
@@ -97,7 +90,7 @@
 
 .store-search-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 12px 0;
   font-size: 15px;
   border: none;
   /* Changed from 1px solid #e0e0e0 */
@@ -111,24 +104,6 @@
   border-color: var(--color-accent, #2BC2BD);
 }
 
-.store-search-btn {
-  background-color: var(--color-accent, #2BC2BD);
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 0 24px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.store-search-btn:hover {
-  opacity: 0.9;
-}
 
 .store-sort-box {
   padding: 12px 16px;
@@ -247,6 +222,13 @@
 .page-nav-btn:disabled {
   color: #ccc;
   cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.page-nav-btn img {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 /* 모바일 반응형 */
@@ -260,10 +242,17 @@
   }
 
   .map-container {
-    height: 800px;
+    height: auto;
+    min-height: 900px;
     border-radius: 0;
     display: flex;
     flex-direction: column;
+  }
+
+  .leaflet-map-wrapper {
+    width: 100%;
+    height: 400px;
+    flex-shrink: 0;
   }
 
   .store-overlay {
@@ -272,12 +261,18 @@
     left: 0;
     width: calc(100% - 32px);
     margin: 16px auto;
-    height: 400px;
-    /* 고정 높이 또는 flex-grow */
+    height: 650px; /* 550px에서 650px로 상향하여 5개 매장 확실하게 보이도록 함 */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
     border-radius: 12px;
     border-right: none;
     border-top: 1px solid #eee;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .store-list {
+    min-height: 450px; /* 리스트 영역 최소 높이 확보 */
   }
 
   .map-placeholder {

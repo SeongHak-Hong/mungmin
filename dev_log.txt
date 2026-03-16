@@ -1262,3 +1262,24 @@ Import trace for requested module:
  GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 181ms
  GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 80ms
  GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 80ms
+ GET /main 200 in 419ms
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 102ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 54ms
+ ✓ Compiled in 926ms (1412 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /main 200 in 506ms
+ ✓ Compiled /_not-found in 286ms (1417 modules)
+ GET /assets/images/common/icon/chevron_left_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 486ms
+ GET /assets/images/common/icon/chevron_right_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg 404 in 483ms
+ ✓ Compiled in 734ms (1412 modules)
+ ✓ Compiled in 405ms (1426 modules)
+ GET /main 200 in 179ms
+ GET /main 200 in 32ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\me\design\mungmin\.next\cache\webpack\server-development\2.pack.gz_' -> 'D:\me\design\mungmin\.next\cache\webpack\server-development\2.pack.gz'
+ GET /main 200 in 578ms
+ GET /main 200 in 222ms
+ ✓ Compiled in 583ms (1426 modules)
+ GET /main 200 in 191ms
+ GET /main 200 in 29ms
+ ✓ Compiled / in 371ms (778 modules)
+ GET / 200 in 584ms
