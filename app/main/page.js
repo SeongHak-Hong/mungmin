@@ -305,8 +305,9 @@ export default function MainPage() {
 
         // 4. Character movement
         const startLeft = viewW + 219;
-        const endLeft = -219;
-        const charX = startLeft + (endLeft - startLeft) * progress;
+        const endLeft = -500; // Increased to ensure it leaves screen on PC
+        const charMovementProgress = Math.min(1, progress / 0.95); // Sync with text completion
+        const charX = startLeft + (endLeft - startLeft) * charMovementProgress;
         character.style.transform = `translate3d(${charX}px, 0, 0)`;
 
         ticking = false;
