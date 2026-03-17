@@ -104,6 +104,10 @@
   border-color: var(--color-accent, #2BC2BD);
 }
 
+.store-search-btn {
+  flex-shrink: 0;
+}
+
 
 .store-sort-box {
   padding: 12px 16px;
@@ -283,6 +287,17 @@
     border-right: none;
     border-top: 1px solid #eee;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .store-search-box {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .store-search-btn {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
   }
 
   .store-list {
