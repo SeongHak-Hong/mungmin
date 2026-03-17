@@ -200,6 +200,20 @@ export default function MainPage() {
       let lastBodyOpacity = -1;
       let lastTitleOpacity = -1;
 
+      let ticking = false;
+      let viewW = 0;
+      let viewH = 0;
+      let spacerRectTop = 0;
+      let spacerHeight = 0;
+
+      function updateDimensions() {
+        viewW = window.innerWidth;
+        viewH = window.innerHeight;
+        const rect = heroSpacer.getBoundingClientRect();
+        spacerRectTop = rect.top + window.scrollY;
+        spacerHeight = heroSpacer.offsetHeight;
+      }
+
       const heroScrollUpdate = function () {
         const scrolled = window.scrollY - spacerRectTop;
         const maxScroll = spacerHeight - viewH;
