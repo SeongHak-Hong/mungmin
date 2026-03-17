@@ -44,13 +44,13 @@
 .hero-bg-day {
     background-image: url('/assets/images/hero/mungnyang-pet-shop-walking-route-shopping-day.webp');
     opacity: 1;
-    transition: opacity 0.1s linear;
+    will-change: opacity;
 }
 
 .hero-bg-night {
     background-image: url('/assets/images/hero/mungnyang-24h-unmanned-pet-shop-storefront-night.webp');
     opacity: 0;
-    transition: opacity 0.1s linear;
+    will-change: opacity;
 }
 
 .hero-content {
@@ -155,7 +155,7 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0.08s linear;
+    will-change: opacity;
 }
 
 /* Hero Character */

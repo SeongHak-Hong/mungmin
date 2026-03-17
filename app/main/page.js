@@ -194,37 +194,31 @@ export default function MainPage() {
 
       const totalChars = allChars.length;
 
-      // ── Optimization Variables ──
-      let ticking = false;
-      let currentScrollY = window.scrollY;
-
-      let viewW = window.innerWidth;
-      let viewH = window.innerHeight;
-      let spacerRectTop = heroSpacer.getBoundingClientRect().top + currentScrollY;
-      let spacerHeight = heroSpacer.offsetHeight;
-
-      character.style.left = '0'; // Use transform instead
-
-      function updateDimensions() {
-        viewW = window.innerWidth;
-        viewH = window.innerHeight;
-        spacerRectTop = heroSpacer.getBoundingClientRect().top + window.scrollY;
-        spacerHeight = heroSpacer.offsetHeight;
-      }
+      // --- Advanced Performance Optimization: Track state to avoid DOM reads ---
+      const charOpacities = new Array(totalChars).fill(0);
+      let lastBgNightOpacity = -1;
+      let lastBodyOpacity = -1;
+      let lastTitleOpacity = -1;
 
       const heroScrollUpdate = function () {
-        const scrolled = currentScrollY - spacerRectTop;
+        const scrolled = window.scrollY - spacerRectTop;
         const maxScroll = spacerHeight - viewH;
         const progress = Math.max(0, Math.min(1, scrolled / maxScroll));
 
         // 1. Title fade out
         if (progress <= 0.12) {
           const titleOpacity = 1 - (progress / 0.12);
-          titleContent.style.opacity = titleOpacity;
-          titleContent.style.display = '';
+          if (Math.abs(lastTitleOpacity - titleOpacity) > 0.005) {
+            titleContent.style.opacity = titleOpacity;
+            titleContent.style.display = '';
+            lastTitleOpacity = titleOpacity;
+          }
         } else {
-          titleContent.style.opacity = 0;
-          titleContent.style.display = 'none';
+          if (lastTitleOpacity !== 0) {
+            titleContent.style.opacity = 0;
+            titleContent.style.display = 'none';
+            lastTitleOpacity = 0;
+          }
         }
 
         // 2. Background crossfade
@@ -232,41 +226,70 @@ export default function MainPage() {
         const crossfadeRange = 0.08;
         const crossfadeStart = crossfadeCenter - crossfadeRange;
         const crossfadeEnd = crossfadeCenter + crossfadeRange;
-        if (progress <= crossfadeStart) {
-          bgNight.style.opacity = 0;
-          bgDay.style.opacity = 1;
+        
+        let nightOpacity = 0;
+        if (progress > crossfadeStart && progress < crossfadeEnd) {
+          nightOpacity = (progress - crossfadeStart) / (crossfadeEnd - crossfadeStart);
         } else if (progress >= crossfadeEnd) {
-          bgNight.style.opacity = 1;
-          bgDay.style.opacity = 0;
-        } else {
-          const nightOpacity = (progress - crossfadeStart) / (crossfadeEnd - crossfadeStart);
+          nightOpacity = 1;
+        }
+
+        if (Math.abs(lastBgNightOpacity - nightOpacity) > 0.005) {
           bgNight.style.opacity = nightOpacity;
           bgDay.style.opacity = 1 - nightOpacity;
+          lastBgNightOpacity = nightOpacity;
         }
 
         // 3. Body XL gradient scroll
         if (progress >= 0.13) {
-          bodyXlEl.style.opacity = 1;
+          if (lastBodyOpacity !== 1) {
+            bodyXlEl.style.opacity = 1;
+            lastBodyOpacity = 1;
+          }
+          
           const textStart = 0.15;
           const textEnd = 0.95;
           const textProgress = Math.max(0, Math.min(1, (progress - textStart) / (textEnd - textStart)));
 
-          for (let i = 0; i < totalChars; i++) {
+          // Optimized Char Loop: Only update "active" range
+          const activeIndex = Math.floor(textProgress * totalChars);
+          const range = 15; // Number of chars to smoothly fade around current progress
+          const startIdx = Math.max(0, activeIndex - range);
+          const endIdx = Math.min(totalChars, activeIndex + range);
+
+          // Chars before range: fully visible
+          for (let i = 0; i < startIdx; i++) {
+            if (charOpacities[i] !== 1) {
+              allChars[i].style.opacity = 1;
+              charOpacities[i] = 1;
+            }
+          }
+          // Chars after range: hidden
+          for (let i = endIdx; i < totalChars; i++) {
+            if (charOpacities[i] !== 0) {
+              allChars[i].style.opacity = 0;
+              charOpacities[i] = 0;
+            }
+          }
+          // Chars in range: calculate and update
+          for (let i = startIdx; i < endIdx; i++) {
             const charStart = i / totalChars;
             const charEnd = (i + 1) / totalChars;
             const charProgress = Math.max(0, Math.min(1, (textProgress - charStart) / (charEnd - charStart)));
             
-            // Only update if value changed significantly
-            const currentOpacity = parseFloat(allChars[i].style.opacity) || 0;
-            if (Math.abs(currentOpacity - charProgress) > 0.01) {
+            if (Math.abs(charOpacities[i] - charProgress) > 0.01) {
               allChars[i].style.opacity = charProgress;
+              charOpacities[i] = charProgress;
             }
           }
         } else {
-          if (bodyXlEl.style.opacity !== '0') bodyXlEl.style.opacity = 0;
+          if (lastBodyOpacity !== 0) {
+            bodyXlEl.style.opacity = 0;
+            lastBodyOpacity = 0;
+          }
         }
 
-        // 4. Character movement (Optimized with transform & hardware acceleration)
+        // 4. Character movement
         const startLeft = viewW + 219;
         const endLeft = -219;
         const charX = startLeft + (endLeft - startLeft) * progress;
@@ -276,7 +299,6 @@ export default function MainPage() {
       };
 
       heroScrollHandler = function () {
-        currentScrollY = window.scrollY;
         if (!ticking) {
           window.requestAnimationFrame(heroScrollUpdate);
           ticking = true;
@@ -288,7 +310,13 @@ export default function MainPage() {
         heroScrollHandler();
       };
 
-      window.addEventListener('scroll', heroScrollHandler, { passive: true });
+      // Use Lenis sync for better performance if available
+      if (window.lenis) {
+        window.lenis.on('scroll', heroScrollHandler);
+      } else {
+        window.addEventListener('scroll', heroScrollHandler, { passive: true });
+      }
+
       window.addEventListener('resize', heroResizeHandler);
       updateDimensions();
       heroScrollUpdate();
@@ -352,6 +380,9 @@ export default function MainPage() {
       if (bodyXlEl) bodyXlEl.innerHTML = '';
 
       if (heroScrollHandler) {
+        if (window.lenis) {
+          window.lenis.off('scroll', heroScrollHandler);
+        }
         window.removeEventListener('scroll', heroScrollHandler);
       }
       if (heroResizeHandler) {
