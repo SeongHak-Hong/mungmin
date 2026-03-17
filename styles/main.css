@@ -161,6 +161,7 @@
 /* Hero Character */
 .hero-character {
     position: absolute;
+    left: 0;
     bottom: 32px;
     z-index: 3;
     width: 320px;

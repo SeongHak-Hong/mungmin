@@ -304,8 +304,8 @@ export default function MainPage() {
         }
 
         // 4. Character movement
-        const startLeft = viewW + 219;
-        const endLeft = -500; // Increased to ensure it leaves screen on PC
+        const startLeft = viewW + 500; // Increased start padding
+        const endLeft = -1000; // Drastically increased to clear any PC screen
         const charMovementProgress = Math.min(1, progress / 0.95); // Sync with text completion
         const charX = startLeft + (endLeft - startLeft) * charMovementProgress;
         character.style.transform = `translate3d(${charX}px, 0, 0)`;
