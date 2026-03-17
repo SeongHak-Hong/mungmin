@@ -8,6 +8,17 @@ export default function StoreMap({ stores, selectedStore }) {
   const [map, setMap] = useState(null);
   const [openInfoWindowId, setOpenInfoWindowId] = useState(null);
 
+  // navermaps 객체가 아직 로드되지 않았거나 인증 실패 시 대처
+  if (!navermaps) {
+    return (
+      <div className="map-placeholder">
+        <div className="map-placeholder-content">
+          <p>지도를 불러올 수 없습니다. API 설정을 확인해 주세요.</p>
+        </div>
+      </div>
+    );
+  }
+
   // Default center (Seoul)
   const defaultCenter = new navermaps.LatLng(37.5665, 126.9780);
   
