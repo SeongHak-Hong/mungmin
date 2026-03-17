@@ -20,12 +20,81 @@ export default function StoreMapClient({ initialStores }) {
   const [sortOrder, setSortOrder] = useState('update'); // update, distance
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStore, setSelectedStore] = useState(null);
+  const [userLocation, setUserLocation] = useState(null);
+  const [isLocating, setIsLocating] = useState(false);
   const storesPerPage = 5;
 
+  // Haversine formula to calculate distance between two points in km
+  const getDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Radius of the earth in km
+    const dLat = deg2rad(lat2 - lat1);
+    const dLon = deg2rad(lon2 - lon1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
+  const deg2rad = (deg) => deg * (Math.PI / 180);
+
+  // Get user location when distance sort is selected
+  const handleSortChange = (e) => {
+    const newOrder = e.target.value;
+    setSortOrder(newOrder);
+    setCurrentPage(1);
+
+    if (newOrder === 'distance' && !userLocation) {
+      setIsLocating(true);
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            setUserLocation({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            });
+            setIsLocating(false);
+          },
+          (error) => {
+            console.error("Error getting location:", error);
+            alert("위치 정보를 가져올 수 없습니다. 권한 설정을 확인해주세요.");
+            setSortOrder('update');
+            setIsLocating(false);
+          }
+        );
+      } else {
+        alert("이 브라우저는 위치 정보를 지원하지 않습니다.");
+        setSortOrder('update');
+        setIsLocating(false);
+      }
+    }
+  };
+
   // Filter and sort stores
-  const filteredStores = stores.filter(store => 
-    store.name.includes(searchTerm) || store.address.includes(searchTerm)
-  );
+  const filteredStores = stores
+    .filter(store => 
+      store.name.includes(searchTerm) || store.address.includes(searchTerm)
+    )
+    .map(store => {
+      if (userLocation && store.lat && store.lng) {
+        const distance = getDistance(
+          userLocation.lat,
+          userLocation.lng,
+          parseFloat(store.lat),
+          parseFloat(store.lng)
+        );
+        return { ...store, distance };
+      }
+      return store;
+    });
+
+  if (sortOrder === 'distance' && userLocation) {
+    filteredStores.sort((a, b) => (a.distance || Infinity) - (b.distance || Infinity));
+  } else if (sortOrder === 'update') {
+    // Default Notion sort or update date if available
+    // For now assuming initialStores is already sorted by update
+  }
 
   // Pagination logic
   const indexOfLastStore = currentPage * storesPerPage;
@@ -57,7 +126,10 @@ export default function StoreMapClient({ initialStores }) {
                 type="text" 
                 placeholder="멍냥의민족" 
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setCurrentPage(1);
+                }}
                 className="store-search-input"
               />
               <button className="btn btn-primary btn-round btn-m store-search-btn">
@@ -68,11 +140,12 @@ export default function StoreMapClient({ initialStores }) {
             <div className="store-sort-box">
               <select 
                 value={sortOrder} 
-                onChange={(e) => setSortOrder(e.target.value)}
+                onChange={handleSortChange}
                 className="store-sort-select"
+                disabled={isLocating}
               >
                 <option value="update">업데이트순</option>
-                <option value="distance">거리순 (준비중)</option>
+                <option value="distance">{isLocating ? '위치 찾는 중...' : '거리순'}</option>
               </select>
             </div>
 
@@ -83,7 +156,16 @@ export default function StoreMapClient({ initialStores }) {
                   className={`store-list-item ${selectedStore?.id === store.id ? 'active' : ''}`}
                   onClick={() => setSelectedStore(store)}
                 >
-                  <h3 className="store-item-name">{store.name}</h3>
+                  <div className="store-item-info">
+                    <h3 className="store-item-name">{store.name}</h3>
+                    {store.distance !== undefined && (
+                      <span className="store-item-distance">
+                        {store.distance < 1 
+                          ? `${Math.round(store.distance * 1000)}m` 
+                          : `${store.distance.toFixed(1)}km`}
+                      </span>
+                    )}
+                  </div>
                   <p className="store-item-address">{store.address}</p>
                 </div>
               )) : (

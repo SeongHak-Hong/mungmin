@@ -159,12 +159,26 @@
   background-color: #f7fbfa;
 }
 
+.store-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
 .store-item-name {
   font-size: 16px;
   font-weight: 600;
   color: #111;
-  margin-bottom: 2px;
-  /* Changed from 6px */
+}
+
+.store-item-distance {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: var(--color-accent-dim);
+  padding: 2px 8px;
+  border-radius: 4px;
 }
 
 .store-item-address {
