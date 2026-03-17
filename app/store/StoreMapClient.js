@@ -13,7 +13,7 @@ const StoreMap = dynamic(
   () => import('@/components/StoreMap'),
   { ssr: false, loading: () => <div className="map-placeholder"><div className="map-placeholder-content"><p>지도를 불러오는 중입니다...</p></div></div> }
 );
-// Client Map Component Placeholder
+// Naver Map Component
 export default function StoreMapClient({ initialStores }) {
   const [stores, setStores] = useState(initialStores);
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,7 +46,7 @@ export default function StoreMapClient({ initialStores }) {
         </div>
 
           <div className="map-container">
-            <div className="leaflet-map-wrapper">
+            <div className="naver-map-wrapper">
               <StoreMap stores={currentStores} selectedStore={selectedStore} />
             </div>
 

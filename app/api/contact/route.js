@@ -7,7 +7,7 @@ export async function POST(request) {
     const { name, phone, email, location, detailLocation, content } = body;
 
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const databaseId = '32254e91b4de80c6ae07f521440159d7';
+    const databaseId = process.env.NOTION_CONTACT_DATABASE_ID;
 
     // Get current date in KST (ISO format without time)
     const now = new Date();

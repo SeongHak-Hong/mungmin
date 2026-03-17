@@ -1,4 +1,5 @@
 import '@/styles/design-system.css';
+import NaverMapsProvider from '@/components/NaverMapsProvider';
 
 export const metadata = {
   title: '멍냥의민족 – 국내 최초 O2O 리워드 반려동물 용품 플랫폼',
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {children}
+        <NaverMapsProvider>
+          {children}
+        </NaverMapsProvider>
       </body>
     </html>
   );

@@ -28,7 +28,7 @@
 }
 
 /* 지도 크기 고정을 위한 래퍼 추가 */
-.leaflet-map-wrapper {
+.naver-map-wrapper {
   width: 100%;
   height: 100%;
 }
@@ -249,7 +249,7 @@
     flex-direction: column;
   }
 
-  .leaflet-map-wrapper {
+  .naver-map-wrapper {
     width: 100%;
     height: 400px;
     flex-shrink: 0;
