@@ -24,7 +24,7 @@ export default function IntroPage() {
 
       {/* ── Right Panel: 창업 안내 ── */}
       <div className="intro-panel intro-panel--right">
-        <Link href="#" className="btn btn-2xl btn-round intro-btn">
+        <Link href="/main#trend-market-header" className="btn btn-2xl btn-round intro-btn">
           <span className="btn-text-medium">멍냥의민족</span>
           <span className="btn-text-extrabold">창업</span>
           <span>→</span>

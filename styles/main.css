@@ -167,7 +167,7 @@
     height: 320px;
     object-fit: contain;
     pointer-events: none;
-    transition: left 0.05s linear;
+    will-change: transform;
 }
 
 /* ── FULLPAGE SECTION (100vh) ── */

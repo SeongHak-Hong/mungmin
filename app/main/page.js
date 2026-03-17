@@ -255,17 +255,22 @@ export default function MainPage() {
             const charStart = i / totalChars;
             const charEnd = (i + 1) / totalChars;
             const charProgress = Math.max(0, Math.min(1, (textProgress - charStart) / (charEnd - charStart)));
-            allChars[i].style.opacity = charProgress;
+            
+            // Only update if value changed significantly
+            const currentOpacity = parseFloat(allChars[i].style.opacity) || 0;
+            if (Math.abs(currentOpacity - charProgress) > 0.01) {
+              allChars[i].style.opacity = charProgress;
+            }
           }
         } else {
-          bodyXlEl.style.opacity = 0;
+          if (bodyXlEl.style.opacity !== '0') bodyXlEl.style.opacity = 0;
         }
 
-        // 4. Character movement (Optimized with transform)
+        // 4. Character movement (Optimized with transform & hardware acceleration)
         const startLeft = viewW + 219;
         const endLeft = -219;
-        const charLeft = startLeft + (endLeft - startLeft) * progress;
-        character.style.transform = `translateX(${charLeft}px)`;
+        const charX = startLeft + (endLeft - startLeft) * progress;
+        character.style.transform = `translate3d(${charX}px, 0, 0)`;
 
         ticking = false;
       };

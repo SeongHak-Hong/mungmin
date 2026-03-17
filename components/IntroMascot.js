@@ -31,20 +31,48 @@ export default function IntroMascot() {
       eye.setAttribute('cy', center.y + offsetY);
     }
 
+    let requestRef = null;
+    let mousePos = { x: 0, y: 0 };
+    let rect = null;
+
     function handleMouseMove(e) {
+      mousePos.x = e.clientX;
+      mousePos.y = e.clientY;
+      
+      if (!requestRef) {
+        requestRef = requestAnimationFrame(updateEyes);
+      }
+    }
+
+    function updateEyes() {
       const mascotEl = document.querySelector('.intro-mascot');
       if (!mascotEl) return;
 
-      const rect = mascotEl.getBoundingClientRect();
-      const svgX = ((e.clientX - rect.left) / rect.width) * 500;
-      const svgY = ((e.clientY - rect.top) / rect.height) * 500;
+      if (!rect) {
+        rect = mascotEl.getBoundingClientRect();
+      }
+
+      const svgX = ((mousePos.x - rect.left) / rect.width) * 500;
+      const svgY = ((mousePos.y - rect.top) / rect.height) * 500;
 
       moveEye(eyeLeftRef.current, leftEyeCenter, svgX, svgY);
       moveEye(eyeRightRef.current, rightEyeCenter, svgX, svgY);
+      
+      requestRef = null;
+    }
+
+    function handleResize() {
+      rect = null; // Invalidate cache on resize
     }
 
     document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
+      if (requestRef) cancelAnimationFrame(requestRef);
+    };
   }, []);
 
   return (
