@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:cf": "npx @cloudflare/next-on-pages@latest && npx @cloudflare/next-on-pages@latest --minify && cp .vercel/output/static/_worker.js/index.js .vercel/output/static/_worker.js_tmp && rm -rf .vercel/output/static/_worker.js && mv .vercel/output/static/_worker.js_tmp .vercel/output/static/_worker.js"
+    "build:cf": "npx @cloudflare/next-on-pages@latest && npx @cloudflare/next-on-pages@latest --minify && cp .vercel/output/static/_worker.js/index.js .vercel/output/static/_worker.js_tmp && rm -rf .vercel/output/static/_worker.js && mv .vercel/output/static/_worker.js_tmp .vercel/output/static/_worker.js && cp public/sitemap.xml .vercel/output/static/sitemap.xml && cp public/robots.txt .vercel/output/static/robots.txt"
   },
   "dependencies": {
     "@notionhq/client": "^5.12.0",
