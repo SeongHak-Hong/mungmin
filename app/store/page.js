@@ -17,7 +17,7 @@ export default async function StorePage() {
     <>
       <Script
         src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${naverClientId}`}
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
       />
       <StoreMapClient initialStores={stores} />
     </>
