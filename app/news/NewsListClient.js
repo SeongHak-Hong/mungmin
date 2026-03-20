@@ -40,7 +40,11 @@ export default function NewsListClient({ initialNews }) {
                       <div className="notice-text">{post.category}</div>
                     </div>
                   ) : (
-                    <img src={post.thumbnail} alt={post.title} />
+                    <img
+                      src={post.thumbnail}
+                      alt={post.title}
+                      loading="lazy"
+                    />
                   )}
                 </div>
                 <div className="news-info">

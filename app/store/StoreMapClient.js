@@ -181,7 +181,7 @@ export default function StoreMapClient({ initialStores }) {
                   onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
                 >
-                  <img src="/assets/images/common/icon/chevron_left_20dp_1F1F1F_FILL0_wght300_GRAD-25_opsz20.svg" alt="이전" />
+                  <img src="/assets/images/common/icon/chevron_left_20dp_1F1F1F_FILL0_wght300_GRAD-25_opsz20.svg" alt="이전" loading="lazy" />
                 </button>
                 {(() => {
                   const maxButtons = 5;
@@ -209,7 +209,7 @@ export default function StoreMapClient({ initialStores }) {
                   onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
                   disabled={currentPage === totalPages}
                 >
-                  <img src="/assets/images/common/icon/chevron_right_20dp_1F1F1F_FILL0_wght300_GRAD-25_opsz20.svg" alt="다음" />
+                  <img src="/assets/images/common/icon/chevron_right_20dp_1F1F1F_FILL0_wght300_GRAD-25_opsz20.svg" alt="다음" loading="lazy" />
                 </button>
               </div>
             )}
