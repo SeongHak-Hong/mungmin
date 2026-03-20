@@ -1,5 +1,7 @@
 import { getNews } from '@/lib/notion';
 import NewsListClient from './NewsListClient';
+
+export const runtime = 'edge';
 import '@/styles/main.css';
 import '@/styles/news.css';
 

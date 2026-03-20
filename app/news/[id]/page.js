@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import Header from '@/components/Header';
+
+export const runtime = 'edge';
 import ContactButton from '@/components/ContactButton';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';

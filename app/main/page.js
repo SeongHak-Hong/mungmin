@@ -438,7 +438,7 @@ export default function MainPage() {
           <div className="hero-body-xl" id="hero-body-xl" ref={heroBodyXlRef}></div>
 
           <img
-            src="/assets/images/hero/fast-pet-supply-delivery-service-character-illustration.png"
+            src="/assets/images/hero/fast-pet-supply-delivery-service-character-illustration.webp"
             alt="배달 캐릭터 일러스트레이션"
             className="hero-character"
             id="hero-character"
@@ -468,9 +468,10 @@ export default function MainPage() {
           </div>
           <div className="img-wrapper app-img-wrapper">
             <img
-              src="/assets/images/app/mungnyang-app-ui-point-reward-screen-mockup.png"
+              src="/assets/images/app/mungnyang-app-ui-point-reward-screen-mockup.webp"
               alt="멍냥의민족 앱 마일리지 적립 화면 예시"
               className="app-mockup"
+              loading="lazy"
             />
             <img
               src="/assets/images/app/mungnyang-mascot-ddung-nyang-holding-cash-10-percent-reward.svg"
@@ -509,9 +510,10 @@ export default function MainPage() {
           </div>
           <div className="img-wrapper studio-img-wrapper">
             <img
-              src="/assets/images/studio/mungnyang-pet-self-studio-bichon-photo-zone-memory.jpg"
+              src="/assets/images/studio/mungnyang-pet-self-studio-bichon-photo-zone-memory.webp"
               alt="멍냥의민족 매장 내 셀프 스튜디오"
               className="studio-main-img"
+              loading="lazy"
             />
             <img
               src="/assets/images/studio/mungnyang-mascot-ddung-meong-playing-ball-happy-memory.svg"
@@ -855,7 +857,7 @@ export default function MainPage() {
                 )}
                 {idx === 8 && (
                   <div className="store-combined-img">
-                    <img src="/assets/images/franchise-steps/mungnyang-franchise-open-process.png" alt="멍냥의민족 가맹 프로세스 오픈 이미지" />
+                    <img src="/assets/images/franchise-steps/mungnyang-franchise-open-process.webp" alt="멍냥의민족 가맹 프로세스 오픈 이미지" loading="lazy" />
                   </div>
                 )}
               </div>

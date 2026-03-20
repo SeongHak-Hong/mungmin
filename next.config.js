@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Output standalone for Vercel
+  // Output standalone (Vercel/Docker usage, not needed for Cloudflare but kept for compatibility)
   output: undefined,
 
   // Allow external images (YouTube thumbnails, Notion images for future use)
