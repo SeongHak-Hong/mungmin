@@ -8,20 +8,8 @@ export async function POST(request) {
     const body = await request.json();
     const { name, phone, email, location, detailLocation, content } = body;
 
-    let apiKey, databaseId;
-    
-    // Try Cloudflare getRequestContext
-    try {
-      const ctx = getRequestContext();
-      if (ctx && ctx.env) {
-        apiKey = ctx.env.NOTION_API_KEY;
-        databaseId = ctx.env.NOTION_CONTACT_DATABASE_ID;
-      }
-    } catch (e) {}
-
-    // Fallback to process.env
-    apiKey = apiKey || process.env.NOTION_API_KEY;
-    databaseId = databaseId || process.env.NOTION_CONTACT_DATABASE_ID;
+    let apiKey = process.env.NOTION_API_KEY;
+    let databaseId = process.env.NOTION_CONTACT_DATABASE_ID;
 
     if (!apiKey || !databaseId) {
       console.error('Missing Notion API configuration (Contact):', {
