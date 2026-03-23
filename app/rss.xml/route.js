@@ -11,9 +11,9 @@ export async function GET() {
     const rssItems = newsItems.map((item) => {
       const itemUrl = `${baseUrl}/news/${item.id}`;
       // Format date for RSS (RFC 822)
-      // Notion date "2024.01.10" -> "2024-01-10"
       const dateStr = (item.date || '').replace(/\./g, '-');
-      const pubDate = new Date(dateStr).toUTCString();
+      const dateObj = new Date(dateStr);
+      const pubDate = isNaN(dateObj.getTime()) ? new Date().toUTCString() : dateObj.toUTCString();
       
       return `
     <item>
