@@ -61,32 +61,50 @@ async function generateRSS() {
     });
 
     const baseUrl = 'https://mungmin.com';
+
+    // RFC 822 date formatter for Naver compliance
+    function toRFC822(dateString) {
+      const date = new Date(dateString.replace(/\./g, '-'));
+      if (isNaN(date.getTime())) return new Date().toUTCString().replace('GMT', '+0000');
+      
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      
+      const dayName = days[date.getUTCDay()];
+      const day = String(date.getUTCDate()).padStart(2, '0');
+      const monthName = months[date.getUTCMonth()];
+      const year = date.getUTCFullYear();
+      const hours = String(date.getUTCHours()).padStart(2, '0');
+      const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+      const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+      
+      return `${dayName}, ${day} ${monthName} ${year} ${hours}:${minutes}:${seconds} +0000`;
+    }
+
     const rssItems = newsItems.map((item) => {
       const itemUrl = `${baseUrl}/news/${item.id}`;
-      const dateStr = (item.date || '').replace(/\./g, '-');
-      const dateObj = new Date(dateStr);
-      const pubDate = isNaN(dateObj.getTime()) ? new Date().toUTCString() : dateObj.toUTCString();
+      const pubDate = toRFC822(item.date); // Use the formatter
       
       return `
     <item>
       <title><![CDATA[${item.title}]]></title>
       <link>${itemUrl}</link>
-      <guid isPermaLink="false">${item.id}</guid>
-      <pubDate>${pubDate}</pubDate>
+      <guid isPermaLink="true">${itemUrl}</guid>
+      <pubDate>${toRFC822(item.date)}</pubDate>
       <author><![CDATA[${item.author}]]></author>
       <category><![CDATA[${item.category}]]></category>
-      <description><![CDATA[${item.content?.substring(0, 200)}...]]></description>
+      <description><![CDATA[${item.content || item.title}]]></description>
     </item>`;
     }).join('');
 
     const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>멍냥의민족 - 소식</title>
+    <title><![CDATA[멍냥의민족 - 소식]]></title>
     <link>${baseUrl}</link>
-    <description>국내 최초 O2O 리워드 반려동물 용품 플랫폼, 멍냥의민족의 최신 소식을 전해드립니다.</description>
+    <description><![CDATA[국내 최초 O2O 리워드 반려동물 용품 플랫폼, 멍냥의민족의 최신 소식을 전해드립니다.]]></description>
     <language>ko</language>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <lastBuildDate>${toRFC822(new Date().toISOString())}</lastBuildDate>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml" />
     ${rssItems}
   </channel>
