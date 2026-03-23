@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:cf": "npx @cloudflare/next-on-pages@latest && cp public/sitemap.xml .vercel/output/static/sitemap.xml && cp public/robots.txt .vercel/output/static/robots.txt && cp public/naver*.html .vercel/output/static/ && node -e \"const fs=require('fs'); const path='.vercel/output/static/_routes.json'; const r=JSON.parse(fs.readFileSync(path)); fs.readdirSync('.vercel/output/static').filter(f => f.startsWith('naver') && f.endsWith('.html')).forEach(f => { const s = '/' + f; if(!r.exclude.includes(s)) r.exclude.push(s); }); fs.writeFileSync(path, JSON.stringify(r));\""
+    "build:cf": "npx @cloudflare/next-on-pages@latest && cp public/sitemap.xml .vercel/output/static/sitemap.xml && cp public/robots.txt .vercel/output/static/robots.txt"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",

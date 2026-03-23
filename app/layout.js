@@ -55,6 +55,11 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    other: {
+      'naver-site-verification': '2832ca8e5807f77ef6902c7880be97287a6eef70',
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
