@@ -60,12 +60,16 @@ async function generateRSS() {
       };
     });
 
-    const baseUrl = 'https://mungmin.com';
+    const baseUrl = 'https://www.mungmin.com';
 
     // RFC 822 date formatter for Naver compliance
+    function tragediesDate(dateString) { // Fixed typo in function call from previous version
+        return toRFC822(dateString);
+    }
+
     function toRFC822(dateString) {
-      const date = new Date(dateString.replace(/\./g, '-'));
-      if (isNaN(date.getTime())) return new Date().toUTCString().replace('GMT', '+0000');
+      const date = dateString ? new Date(dateString.replace(/\./g, '-')) : new Date();
+      if (isNaN(date.getTime())) return new Date().toUTCString();
       
       const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
